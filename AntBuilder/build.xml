@@ -1,0 +1,49 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project name = "AntBuilder" basedir = ".">
+
+  <!-- XPTS419 - 2014.04.03: Loads AntContrib v0.6. !-->
+  <taskdef resource = "net/sf/antcontrib/antlib.xml">
+    <classpath>
+      <pathelement location = "ant-contrib-0.6.jar"/>
+    </classpath>
+  </taskdef>
+
+  <property file = "build.properties" />
+  
+  <description>${project_name} v${project_version} - ${project_description}.</description>
+
+  <condition property = "application_folder" value = "${application}" else = "${default_application_folder}">
+    <isset property = "application" />
+  </condition>
+  <echo message = "Builder configure for application ${application_folder}." />
+
+  <if>
+    <available file = "${applications_folder}/${application_folder}/application.properties" type = "file" />
+    <then>
+      <property file = "${applications_folder}/${application_folder}/application.properties" />
+
+      <import file = "properties.xml" />
+      <import file = "tasks.xml"      />
+      <import file = "macros.xml"     />
+      <import file = "subtargets.xml" />
+      <import file = "targets.xml"    />
+    </then>
+  </if>
+
+  <target name = "configure" description = "Prepares a configuration for a new application, based on templates/ folder.">
+    <mkdir dir = "${applications_folder}"                       />
+    <mkdir dir = "${applications_folder}/${application_folder}" />
+    
+    <copy todir = "${applications_folder}/${application_folder}" flatten = "false" includeEmptyDirs = "true" verbose = "false">
+      <fileset dir = "${templates_folder}">
+        <include name = "**/*"            />
+        <include name = "**/*.properties" />
+        <include name = "**/*.list"       />
+        <include name = "**/*.xml"        />
+      </fileset>
+    </copy>
+
+    <echo message = "CAUTION: must, at least, edit ${applications_folder}/${application_folder}/application.properties file for configuration to work!" />
+  </target>
+
+</project>

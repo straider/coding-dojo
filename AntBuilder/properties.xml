@@ -1,0 +1,37 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project name = "AntBuilder Properties" basedir = ".">
+
+  <description>${project_name} v${project_version} - Properties v1.0.2.</description>
+
+  <hostinfo prefix = "host." />
+  <property name = "host_info" value = "${host.NAME}.${host.DOMAIN}" />
+
+  <property environment = "env" />
+
+  <tstamp>
+    <format property = "build_time" pattern = "yyyy-MM-dd HH:mm:ss" />
+  </tstamp>
+
+  <fileset dir = "${legacy_jre}\lib" includes = "**/*.jar" id = "legacy_bootstrap_fileset" />
+  <pathconvert property = "legacy_bootstrap" refid = "legacy_bootstrap_fileset" />
+
+  <patternset id = "library-jars">
+    <include name = "**/*.jar"         />
+    <exclude name = "**/*-tests.jar"   />
+    <exclude name = "**/*-javadoc.jar" />
+    <exclude name = "**/*-sources.jar" />
+  </patternset>
+
+  <path id = "buildtime-libraries">
+    <fileset dir = "${build_folder}/libraries">
+      <patternset refid = "library-jars" />
+    </fileset>
+  </path>
+
+  <path id = "runtime-libraries">
+    <fileset dir = "${distribution_folder}/libraries">
+      <patternset refid = "library-jars" />
+    </fileset>
+  </path>
+
+</project>

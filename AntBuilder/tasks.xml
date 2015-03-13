@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project name = "AntBuilder Tasks" basedir = ".">
+
+  <description>${project_name} v${project_version} - Tasks v1.0.2.</description>
+
+  <presetdef name = "compile">
+    <javac srcdir            = "${sources_folder}"
+           destdir           = "${build_folder}"
+           encoding          = "utf-8"
+           compiler          = "${compiler_version}"
+           source            = "${source_version}"
+           target            = "${target_version}"
+           includeAntRuntime = "false"
+           bootclasspath     = "${legacy_bootstrap}"
+           classpathref      = "buildtime-libraries"
+           deprecation       = "on"
+    >
+      <compilerarg line = "-Xlint:unchecked -Xlint:deprecation" />
+    </javac>
+  </presetdef>
+
+</project>

@@ -1,0 +1,13 @@
+{
+    "database" : {
+        "driver"   : "«DB_ENGINE»"
+      , "class"    : "«CLASS_NAME»"
+      , "jar"      : "«DB_FOLDER»/«DB_JAR»"
+      , "url"      : "jdbc:«JDBC»:@«hostname»:«port»:«sid»"
+      , "username" : "«username»"
+      , "password" : "«password»"
+    }
+  , "folders" : {
+      "vendors" : "vendors/com/"
+    }
+}

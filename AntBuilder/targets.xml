@@ -1,0 +1,40 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project name = "AntBuilder Targets" basedir = ".">
+
+  <description>${project_name} v${project_version} - Targets v1.0.0.</description>
+
+  <target name = "info" description = "Outputs project information.">
+    <echo>
+      Application   : ${application_name} v${application_version}
+      Hostname      : ${host_info}
+      Processors    : ${env.NUMBER_OF_PROCESSORS}
+      Java Home     : ${java.home}
+      Run Date      : ${build_time}
+      Run By        : ${user.name}
+      Base          : ${basedir}
+      Build File    : ${ant.file}
+
+      Sources Folder     : ${sources_folder}/
+      Build Folder       : ${build_folder}/
+      Distribution Folder: ${distribution_folder}/
+      Vendors Folder     : ${vendors_folder}/
+    </echo>
+  </target>
+
+  <target name = "clean" description = "Cleans up files and folders.">
+    <delete dir = "${build_folder}"        failonerror = "true" includeEmptyDirs = "true" />
+    <delete dir = "${distribution_folder}" failonerror = "true" includeEmptyDirs = "true" />
+  </target>
+
+  <target name = "build"   depends = "info,build-jars,build-jpas,build-ejbs,build-wars,build-ears,build-runs"             description = "Builds all Java sources into Java classes."    />
+  <target name = "package" depends = "info,package-jars,package-jpas,package-ejbs,package-wars,package-ears,package-runs" description = "Packages all classes into Java archives."      />
+  <target name = "publish" depends = "info,publish-jars,publish-jpas,publish-ejbs,publish-wars,publish-ears,publish-runs" description = "Publishes information into all Java archives." />
+
+  <target name = "execute" depends = "publish" description = "Executes solution from main Java archive." if = "application_runnable">
+    <!-- XPTS419 - 2014.04.04: Enhance by passing xml tagset for Arguments, JVM Arguments, and so on... !-->
+    <java jar = "${distribution_folder}/${application_runnable}.jar" fork = "true">
+      <arg value = "${persistence_unit_name}" />
+    </java>
+  </target>
+
+</project>

@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<ejb-jar xmlns              = "http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/ejb-jar_3_2.xsd"
+         version            = "3.2" 
+>
+
+  <description>[description]</description>
+  <display-name>[display-name]</display-name>
+
+  <enterprise-beans>
+    <session>
+      <ejb-name>[ejb-name]</ejb-name>
+      <local-bean/>
+      <business-local>[business-local]</business-local>
+      <business-remote>[business-remote]</business-remote>
+      <ejb-class>[ejb-class]</ejb-class>
+      <session-type>[session-type]</session-type>
+      <transaction-type>Container</transaction-type>
+      <init-on-startup>true</init-on-startup>
+    </session>              
+  </enterprise-beans>
+
+</ejb-jar>

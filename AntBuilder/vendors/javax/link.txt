@@ -1,0 +1,2 @@
+http://download.java.net/maven/2/javax/javaee-api/6.0/javaee-api-6.0.jar
+http://www.mkyong.com/hibernate/java-lang-classformaterror-absent-code-attribute-in-method-that-is-not-native-or-abstract-in-class-file/

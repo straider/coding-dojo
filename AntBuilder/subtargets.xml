@@ -1,0 +1,376 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project name = "AntBuilder SubTargets" basedir = ".">
+
+  <description>${project_name} v${project_version} - SubTargets v1.0.2.</description>
+
+  <!-- description = "Prepares folders and files for other targets." !-->
+  <target name = "initialize">
+    <mkdir dir = "${build_folder}"        />
+    <mkdir dir = "${distribution_folder}" />
+
+    <process-libraries-list libraries-file = "buildtime.libraries.list" to-folder = "${build_folder}/libraries"        />
+    <process-libraries-list libraries-file = "runtime.libraries.list"   to-folder = "${distribution_folder}/libraries" />
+  </target>
+
+  <!-- description = "Prepares persistence.xml for each iterated JPA archive." !-->
+  <target name = "prepare-jpas" depends = "initialize">
+    <iterate properties.folder = "jpas">
+      <wrap-sequential>
+        <prepare properties.folder = "jpas" properties.file = "@{properties.file}" />
+
+        <if>
+          <isset property = "database_folder" />
+          <then>
+            <copy todir = "${distribution_folder}/db" flatten = "false">
+              <fileset dir = "${database_folder}" includes = "**/*" />
+            </copy>
+          </then>
+        </if>
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Prepares metadata information files for each iterated Java Enterprise archive." !-->
+  <target name = "prepare-ejbs" depends = "initialize">
+    <iterate properties.folder = "ejbs">
+      <wrap-sequential>
+        <prepare properties.folder = "ejbs" properties.file = "@{properties.file}" />
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Prepares metadata information files for each iterated Web Java archive." !-->
+  <target name = "prepare-wars" depends = "initialize">
+    <iterate properties.folder = "wars">
+      <wrap-sequential>
+        <prepare properties.folder = "wars" properties.file = "@{properties.file}" />
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Builds solution classes for straightforward Java archives." !-->
+  <target name = "build-jars" depends = "initialize">
+    <iterate properties.folder = "jars">
+      <wrap-sequential>
+        <compile includes = "${application_source_includes_pattern}" />
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Builds solution classes for Java archives with JPA entities." !-->
+  <target name = "build-jpas" depends = "prepare-jpas">
+    <iterate properties.folder = "jpas">
+      <wrap-sequential>
+        <compile includes = "${application_source_includes_pattern}">
+          <!-- <compilerarg value = "-Aeclipselink.persistencexml=${build_folder}/META-INF/${archive.name}/persistence.xml" /> !-->
+        </compile>
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Builds solution classes for Web Java archives." !-->
+  <target name = "build-wars" depends = "prepare-wars">
+    <iterate properties.folder = "wars">
+      <wrap-sequential>
+        <compile includes = "${application_source_includes_pattern}" />
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Builds solution classes for Java archives with EJB entities." !-->
+  <target name = "build-ejbs" depends = "prepare-ejbs">
+    <iterate properties.folder = "ejbs">
+      <wrap-sequential>
+        <compile includes = "${application_source_includes_pattern}" />
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Builds solution classes for Java Enterprise archives." !-->
+  <target name = "build-ears" depends = "initialize">
+    <iterate properties.folder = "ears">
+      <wrap-sequential>
+        <compile includes = "${application_source_includes_pattern}" />
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Builds solution classes for runnable Java archives." !-->
+  <target name = "build-runs" depends = "initialize">
+    <iterate properties.folder = "runs">
+      <wrap-sequential>
+        <compile includes = "${application_source_includes_pattern}" />
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Packages solution classes into straightforward Java archives." !-->
+  <target name = "package-jars" depends = "build-jars">
+    <iterate properties.folder = "jars" output.flag = "off">
+      <wrap-sequential>
+        <if>
+          <isset property = "application_sources_include" />
+          <then>
+            <!-- XPTS419 - 2014.07.02: How to apply DRY for these property regex :?: !-->
+            <propertyregex property      = "application_class_includes_pattern"
+                           input         = "${application_source_includes_pattern}"
+                           regexp        = "(\.java)"
+                           replace       = ".class"
+                           override      = "true"
+                           casesensitive = "false"
+                           global        = "true" />
+          </then>
+        </if>
+
+        <jar destfile = "${distribution_folder}/${archive.name}.jar" update = "true">
+          <fileset dir = "${build_folder}"   includes = "${application_class_includes_pattern}"  />
+          <fileset dir = "${sources_folder}" includes = "${application_source_includes_pattern}" />
+        </jar>
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Packages solution classes into Java archives with JPA entities." !-->
+  <target name = "package-jpas" depends = "build-jpas">
+    <iterate properties.folder = "jpas" output.flag = "off">
+      <wrap-sequential>
+        <if>
+          <isset property = "application_sources_include" />
+          <then>
+            <!-- XPTS419 - 2014.07.02: How to apply DRY for these property regex :?: !-->
+            <propertyregex property      = "application_class_includes_pattern"
+                           input         = "${application_source_includes_pattern}"
+                           regexp        = "(\.java)"
+                           replace       = ".class"
+                           override      = "true"
+                           casesensitive = "false"
+                           global        = "true" />
+          </then>
+        </if>
+
+        <jar destfile = "${distribution_folder}/${archive.name}.jar" update = "true">
+          <fileset dir = "${build_folder}"   includes = "${application_class_includes_pattern}"  />
+          <fileset dir = "${sources_folder}" includes = "${application_source_includes_pattern}" />
+        </jar>
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Packages solution classes into Java archives with EJB entities." !-->
+  <target name = "package-ejbs" depends = "build-ejbs">
+    <iterate properties.folder = "ejbs" output.flag = "off">
+      <wrap-sequential>
+        <if>
+          <isset property = "application_sources_include" />
+          <then>
+            <!-- XPTS419 - 2014.07.02: How to apply DRY for these property regex :?: !-->
+            <propertyregex property      = "application_class_includes_pattern"
+                           input         = "${application_source_includes_pattern}"
+                           regexp        = "(\.java)"
+                           replace       = ".class"
+                           override      = "true"
+                           casesensitive = "false"
+                           global        = "true" />
+          </then>
+        </if>
+
+        <jar destfile = "${distribution_folder}/${archive.name}-ejb.jar" update = "true">
+          <fileset dir = "${build_folder}"   includes = "${application_class_includes_pattern}"  />
+          <fileset dir = "${sources_folder}" includes = "${application_source_includes_pattern}" />
+        </jar>
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Packages solution classes into Web Java archives." !-->
+  <target name = "package-wars" depends = "build-wars">
+    <iterate properties.folder = "wars" output.flag = "off">
+      <wrap-sequential>
+        <if>
+          <isset property = "application_sources_include" />
+          <then>
+            <!-- XPTS419 - 2014.07.02: How to apply DRY for these property regex :?: !-->
+            <propertyregex property      = "application_class_includes_pattern"
+                           input         = "${application_source_includes_pattern}"
+                           regexp        = "(\.java)"
+                           replace       = ".class"
+                           override      = "true"
+                           casesensitive = "false"
+                           global        = "true" />
+          </then>
+        </if>
+
+        <war destfile = "${distribution_folder}/${archive.name}.war" needxmlfile = "false">
+          <classes dir = "${build_folder}"   includes = "${application_class_includes_pattern}"  />
+          <classes dir = "${sources_folder}" includes = "${application_source_includes_pattern}" />
+
+          <lib dir = "${vendors_folder}">
+            <exclude name = "**/*" />
+          </lib>
+        </war>
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Packages solution classes into Java Enterprise archives." !-->
+  <target name = "package-ears" depends = "build-ears" />
+
+  <!-- description = "Packages solution classes into runnable Java archives." !-->
+  <target name = "package-runs" depends = "build-runs">
+    <iterate properties.folder = "runs" output.flag = "off">
+      <wrap-sequential>
+        <if>
+          <isset property = "application_sources_include" />
+          <then>
+            <!-- XPTS419 - 2014.07.02: How to apply DRY for these property regex :?: !-->
+            <propertyregex property      = "application_class_includes_pattern"
+                           input         = "${application_source_includes_pattern}"
+                           regexp        = "(\.java)"
+                           replace       = ".class"
+                           override      = "true"
+                           casesensitive = "false"
+                           global        = "true" />
+          </then>
+        </if>
+
+        <echo message = "Class Pattern: ${application_class_includes_pattern}" />
+        <jar destfile = "${distribution_folder}/${archive.name}.jar" update = "true">
+          <fileset dir = "${build_folder}"   includes = "${application_class_includes_pattern}"  />
+          <fileset dir = "${sources_folder}" includes = "${application_source_includes_pattern}" />
+        </jar>
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Publishes Manifest into straightforward Java archives." !-->
+  <target name = "publish-jars" depends = "package-jars">
+    <iterate properties.folder = "jars" output.flag = "off">
+      <wrap-sequential>
+        <jar destfile = "${distribution_folder}/${archive.name}.jar" update = "true">
+          <manifest>
+            <attribute name = "Implementation-Title"   value = "${application_name}"    />
+            <attribute name = "Implementation-Version" value = "${application_version}" />
+            <attribute name = "Implementation-Vendor"  value = "${application_vendor}"  />
+            <attribute name = "Built-By"               value = "${user.name}"           />
+          </manifest>
+        </jar>
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Publishes Persistence XML into Java archives with JPA entities." !-->
+  <target name = "publish-jpas" depends = "package-jpas">
+    <iterate properties.folder = "jpas" output.flag = "off">
+      <wrap-sequential>
+        <!-- XPTS419 - 2014.04.04: Only required for standalone JPA Applications. !-->
+        <!--
+        <local name = "manifest-classpath" />
+        <manifestclasspath property = "manifest-classpath" jarfile = "${distribution_folder}/${archive.name}.jar">
+          <classpath>
+            <fileset dir = "${distribution_folder}">
+              <exclude name = "${archive.name}.jar" />
+            </fileset>
+          </classpath>
+        </manifestclasspath>
+        !-->
+
+        <jar destfile = "${distribution_folder}/${archive.name}.jar" update = "true">
+          <metainf dir = "${build_folder}/META-INF/${archive.name}" includes = "persistence.xml" />
+          <!-- !-->
+          <manifest>
+            <attribute name = "Implementation-Title"   value = "${application_name}"       />
+            <attribute name = "Implementation-Version" value = "${application_version}"    />
+            <attribute name = "Implementation-Vendor"  value = "${application_vendor}"     />
+            <attribute name = "Built-By"               value = "${user.name}"              />
+            <attribute name = "Main-Class"             value = "${application_main_class}" />
+            <attribute name = "Class-Path"             value = "${manifest-classpath}"     />
+          </manifest>
+          <!-- !-->
+        </jar>
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Publishes Persistence XML into Java archives with EJB entities." !-->
+  <target name = "publish-ejbs" depends = "package-ejbs">
+    <iterate properties.folder = "ejbs" output.flag = "off">
+      <wrap-sequential>
+        <!-- XPTS419 - 2014.04.04: Only required for standalone JPA Applications. !-->
+        <!--
+        <local name = "manifest-classpath" />
+        <manifestclasspath property = "manifest-classpath" jarfile = "${distribution_folder}/${archive.name}.jar">
+          <classpath>
+            <fileset dir = "${distribution_folder}">
+              <exclude name = "${archive.name}.jar" />
+            </fileset>
+          </classpath>
+        </manifestclasspath>
+        !-->
+
+        <jar destfile = "${distribution_folder}/${archive.name}-ejb.jar" update = "true">
+          <metainf dir = "${build_folder}/META-INF/${archive.name}" includes = "persistence.xml" />
+          <!-- XPTS419 - 2014.04.04: Only required when EJB packaged in WARs instead of JARs. !-->
+          <!-- <metainf dir = "${build_folder}/META-INF/${archive.name}" includes = "ejb-jar.xml" /> !-->
+          <!--
+          <manifest>
+            <attribute name = "Implementation-Title"   value = "${application_name}"    />
+            <attribute name = "Implementation-Version" value = "${application_version}" />
+            <attribute name = "Implementation-Vendor"  value = "${application_vendor}"  />
+            <attribute name = "Built-By"               value = "${user.name}"           />
+            <attribute name = "Main-Class"             value = "${application_main_class}" />
+            <attribute name = "Class-Path"             value = "${manifest-classpath}"     />
+          </manifest>
+          !-->
+        </jar>
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Publishes MetaInformation into Web Java archives." !-->
+  <target name = "publish-wars" depends = "package-wars">
+    <iterate properties.folder = "wars" output.flag = "off">
+      <wrap-sequential>
+        <war destfile = "${distribution_folder}/${archive.name}.war" needxmlfile = "false" update = "true">
+          <webinf dir = "${build_folder}/${archive.name}" includes = "**/*.xml" />
+        </war>
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Publishes MetaInformation into Java Enterprise archives." !-->
+  <target name = "publish-ears" depends = "package-ears">
+    <iterate properties.folder = "ears" output.flag = "off">
+      <wrap-sequential>
+        <mkdir dir = "${build_folder}/META-INF/${archive.name}" />
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+  <!-- description = "Publishes Manifest and MetaInformation into runnable Java archives." !-->
+  <target name = "publish-runs" depends = "package-runs">
+    <iterate properties.folder = "runs" output.flag = "off">
+      <wrap-sequential>
+        <local name = "manifest-classpath" />
+        <manifestclasspath property = "manifest-classpath" jarfile = "${distribution_folder}/${archive.name}.jar">
+          <classpath>
+            <fileset dir = "${distribution_folder}">
+              <exclude name = "${archive.name}.jar" />
+            </fileset>
+          </classpath>
+        </manifestclasspath>
+
+        <jar destfile = "${distribution_folder}/${archive.name}.jar" update = "true">
+          <manifest>
+            <attribute name = "Implementation-Title"   value = "${application_name}"       />
+            <attribute name = "Implementation-Version" value = "${application_version}"    />
+            <attribute name = "Implementation-Vendor"  value = "${application_vendor}"     />
+            <attribute name = "Built-By"               value = "${user.name}"              />
+            <attribute name = "Main-Class"             value = "${application_main_class}" />
+            <attribute name = "Class-Path"             value = "${manifest-classpath}"     />
+          </manifest>
+        </jar>
+      </wrap-sequential>
+    </iterate>
+  </target>
+
+</project>

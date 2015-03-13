@@ -1,0 +1,32 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<ejb-jar version            = "3.1"
+         xmlns              = "http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd"
+>
+
+  <display-name>[display-name]</display-name>
+  <!-- <description>Enterprise JavaBeans 3.1</description>
+
+  <enterprise-beans>
+    <session>
+      <ejb-name>[ejb-name]</ejb-name>
+      <!-- <local>[local]</local> !-->
+      <local-bean />
+      <!-- <business-local>[business-local]</business-local> !-->
+      <!-- <business-remote>[business-remote]</business-remote> !-->
+      <ejb-class>[ejb-class]</ejb-class>
+      <session-type>[session-type]</session-type>
+      <!-- <init-on-startup>true</init-on-startup> !-->
+      <!-- <transaction-type>Container</transaction-type> !-->
+      <!--
+      <env-entry>
+        <env-entry-name>FILTER</env-entry-name>
+        <env-entry-type>java.lang.Long</env-entry-type>
+        <env-entry-value>11011</env-entry-value>
+      </env-entry>
+      !-->
+    </session>
+  </enterprise-beans>
+
+</ejb-jar>
