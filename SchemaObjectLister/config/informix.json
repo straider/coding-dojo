@@ -1,0 +1,13 @@
+{
+    "database" : {
+        "driver"   : "Informix"
+      , "class"    : "com.informix.jdbc.IfxDriver"
+      , "jar"      : "informix/ifxjdbc"
+      , "url"      : "jdbc:informix-sqli://localhost:9090/dojo:INFORMIXSERVER=coding"
+      , "username" : "dojo"
+      , "password" : "kata"
+    }
+  , "folders" : {
+      "vendors" : "vendors/com/"
+    }
+}

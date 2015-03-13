@@ -1,0 +1,13 @@
+{
+    "database" : {
+        "driver"   : "Oracle"
+      , "class"    : "oracle.jdbc.OracleDriver"
+      , "jar"      : "oracle/ojdbc6.jar"
+      , "url"      : "jdbc:oracle:thin:@localhost:1522:dojo"
+      , "username" : "dojo"
+      , "password" : "kata"
+    }
+  , "folders" : {
+      "vendors" : "vendors/com/"
+    }
+}

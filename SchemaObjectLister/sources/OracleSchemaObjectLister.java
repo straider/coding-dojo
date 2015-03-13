@@ -7,7 +7,7 @@ public class OracleSchemaObjectLister {
 
   public static void main( final String[] arguments ) throws SQLException, ClassNotFoundException {
     Class.forName( "oracle.jdbc.OracleDriver" );
-    final Connection       connection = DriverManager.getConnection( "jdbc:oracle:thin:@PTSI200010074.ptsi.corpPT.com:1522:wbe", "wbe202", "wbe202" );
+    final Connection       connection = DriverManager.getConnection( "jdbc:oracle:thin:@localhost:1522:dojo", "dojo", "kata" );
     final DatabaseMetaData meta       = connection.getMetaData();
 
     System.out.println( "JDBC Major Version: "     + meta.getJDBCMajorVersion       () );

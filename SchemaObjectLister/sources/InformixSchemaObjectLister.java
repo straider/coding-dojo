@@ -7,7 +7,7 @@ public class InformixSchemaObjectLister {
 
   public static void main( final String[] arguments ) throws SQLException, ClassNotFoundException {
     Class.forName( "com.informix.jdbc.IfxDriver" );
-    final Connection       connection = DriverManager.getConnection( "jdbc:informix-sqli://ajdixs08.tmn.pt:15090/roaming:INFORMIXSERVER=valor_dsv_1", "tap3", "tap2000" );
+    final Connection       connection = DriverManager.getConnection( "jdbc:informix-sqli://localhost:9090/dojo:INFORMIXSERVER=coding", "dojo", "kata" );
     final DatabaseMetaData meta       = connection.getMetaData();
 
     System.out.println( "JDBC Major Version: "     + meta.getJDBCMajorVersion       () );
