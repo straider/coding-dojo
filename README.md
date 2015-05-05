@@ -1,4 +1,4 @@
 coding-dojo
 ===========
 
-Personal Coding Dojo, for several technologies
+Personal Coding Dojo, for several technologies.
