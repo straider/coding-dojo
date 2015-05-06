@@ -40,8 +40,9 @@ Dojo to register different programming paradigms of FizzBuzz Challenge.
 
 #### Constraints
 
-- v1: using objects, as simple as possible, and without using design patterns;
-- vn: using objects and applying design patterns.
+- v1: using object PrimeWord that after instantiated with a number and a word returns the word if a value is divisible by number else returns an empty string;
+- v2: using object PrimeWord, ordered list and Iterator;
+- v3: using object NumberWord and a Decorator for each pair.
 
 ----
 
