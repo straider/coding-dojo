@@ -17,7 +17,7 @@ public class ObjectOriented {
   }
 
   public String say() {
-    return "Hello, " + name + "!";
+    return String.format( "Hello, %s!", name );
   }
 
   public static void main( final String[] arguments ) {

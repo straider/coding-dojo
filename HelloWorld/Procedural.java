@@ -8,7 +8,7 @@ public class Procedural {
 
   public static void main( final String[] arguments ) {
     final String name = ( arguments.length == 0 ) ? "World" : arguments[ 0 ];
-    System.out.println( "Hello, " + name + "!" );
+    System.out.printf( "Hello, %s!\n", name );
 
     System.out.println( "» José Carlos Monteiro «" );
   }
