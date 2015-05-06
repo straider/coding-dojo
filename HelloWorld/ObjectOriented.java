@@ -21,14 +21,9 @@ public class ObjectOriented {
   }
 
   public static void main( final String[] arguments ) {
-    final ObjectOriented greeter;
-    if ( arguments.length == 0 ) {
-      greeter = new ObjectOriented();
-    } else {
-      greeter = new ObjectOriented( arguments[ 0 ] );
-    }
-
+    final ObjectOriented greeter = ( arguments.length == 0 ) ? new ObjectOriented() : new ObjectOriented( arguments[ 0 ] );
     System.out.println( greeter.say() );
+
     System.out.println( "» José Carlos Monteiro «" );
   }
 
