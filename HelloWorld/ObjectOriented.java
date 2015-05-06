@@ -1,3 +1,9 @@
+// Compile command: javac -encoding "UTF-8" ObjectOriented.java
+// Execute commands:
+//   java -Dfile.encoding="UTF-8" ObjectOriented
+//   java -Dfile.encoding="UTF-8" ObjectOriented "José Carlos Monteiro"
+//   java -Dfile.encoding="UTF-8" ObjectOriented Universe
+
 public class ObjectOriented {
 
   private final String name;
