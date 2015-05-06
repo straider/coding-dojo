@@ -3,4 +3,5 @@
 use strict;
 use warnings;
 
-print "Hello, World!\n";
+use v5.10.0;
+say "Hello, World!";

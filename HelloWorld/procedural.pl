@@ -3,13 +3,14 @@
 use strict;
 use warnings;
 
+use v5.10.0;
 use utf8;
 binmode( STDOUT, ":unix:utf8" );
 
 if ( $#ARGV + 1 == 0 ) {
-  print "Hello, World!\n";
+  say "Hello, World!";
 } else {
-  print "Hello, " . $ARGV[ 0 ] . "!\n"
+  say "Hello, " . $ARGV[ 0 ] . "!"
 }
 
-print "» José Carlos Monteiro «\n";
+say "» José Carlos Monteiro «";
