@@ -44,4 +44,6 @@ Useful to quickly check software development kits, compilers or interpreters set
 
 - Code without objects ( but methods are allowed ).
 
-## Notes
+----
+
+### Notes
