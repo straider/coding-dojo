@@ -1,13 +1,13 @@
-// Compile command: javac StepFizz.java
+// Compile command: javac StepWord.java
 
-public class StepFizz extends StepChain {
+public class StepWord extends StepChain {
 
   private final Integer prime;
   private final String  word ;
 
-  public StepFizz() {
-    this.prime =      3;
-    this.word  = "Fizz";
+  public StepWord( final Integer prime, final String word ) {
+    this.prime = prime;
+    this.word  = word ;
   }
 
   @Override

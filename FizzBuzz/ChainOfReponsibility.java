@@ -7,8 +7,8 @@ public class ChainOfReponsibility {
   private final StepChain number;
 
   public ChainOfReponsibility() {
-    fizz   = new StepFizz   ();
-    buzz   = new StepBuzz   ();
+    fizz   = new StepWord   ( 3, "Fizz" );
+    buzz   = new StepWord   ( 5, "Buzz" );
     number = new StepNumber ();
 
     fizz.setNext( buzz   );
