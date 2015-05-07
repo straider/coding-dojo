@@ -4,9 +4,11 @@
 
 import sys
 
-if len( sys.argv ) - 1 == 0 :
-  print( "Hello, World!" )
-else :
-  print( "Hello, " + sys.argv[ 1 ] + "!" )
+if __name__ == "__main__" :
 
-print( "» José Carlos Monteiro «" )
+  if len( sys.argv ) - 1 == 0 :
+    print( "Hello, World!" )
+  else :
+    print( "Hello, " + sys.argv[ 1 ] + "!" )
+
+  print( "» José Carlos Monteiro «" )
