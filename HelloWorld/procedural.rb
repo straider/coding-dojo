@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
 
+# Array.size() is not procedural: it's a method of the object Array.
 if ARGV.size == 0 then
-  puts "Hello, World!"
+  name = 'World'
 else
-  puts "Hello, " + ARGV[ 0 ] + "!"
+  name = ARGV[ 0 ]
 end
+puts "Hello, #{ name }!"
 
-puts "» José Carlos Monteiro «"
+puts '» José Carlos Monteiro «'

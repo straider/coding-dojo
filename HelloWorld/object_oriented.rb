@@ -17,6 +17,6 @@ if ARGV.size == 0 then
 else
   greeter = Greeter.new( ARGV[ 0 ] )
 end
-puts "Hello, " + greeter.say() + "!"
+puts "Hello, #{ greeter.say() }!"
 
-puts "» José Carlos Monteiro «"
+puts '» José Carlos Monteiro «'
