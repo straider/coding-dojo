@@ -5,6 +5,14 @@ First and most simple dojo.
 
 Useful to quickly check software development kits, compilers or interpreters setup and configuration.
 
+## Goals
+
+- Check proper installation and configuration of builder / interpreter for a given programming language;
+- Gain traction with if..else and ternary operator;
+- Gain traction in outputting to console, specially in UTF-8 encoding mode ( if possible );
+- Gain traction handling Strings: concatenation, interpolation;
+- Gain traction handling command line arguments.
+
 ## Variants
 
 ----
@@ -35,3 +43,5 @@ Useful to quickly check software development kits, compilers or interpreters set
 #### Constraints
 
 - Code without objects ( but methods are allowed ).
+
+## Notes
