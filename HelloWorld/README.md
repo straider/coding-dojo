@@ -62,3 +62,10 @@ Useful to quickly check software development kits, compilers or interpreters set
 - Code with objects.
 
 ## Notes
+
+- Offers **WriteLine()** and **Write()** to output to console;
+- But it's necessary to use object from object **System.Console**;
+- Handles UTF-8 encoding mode by default;
+- Handles String concatenation with operator "+";
+- Handles String interpolation with **String.Format()** and **System.out.printf()**;
+- Handles command line arguments through optional string[] arguments array.
