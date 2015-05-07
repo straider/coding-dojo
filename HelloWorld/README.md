@@ -13,6 +13,8 @@ Useful to quickly check software development kits, compilers or interpreters set
 - Gain traction handling Strings: concatenation, interpolation;
 - Gain traction handling command line arguments.
 
+**Attention**: if possible then use _dochere_ construct to output multiple lines in one output call.
+
 ## Variants
 
 ----
@@ -61,4 +63,6 @@ Useful to quickly check software development kits, compilers or interpreters set
 
 - Code with objects.
 
-## Notes
+----
+
+### Notes
