@@ -10,7 +10,7 @@ binmode( STDOUT, ":unix:utf8" );
 if ( $#ARGV + 1 == 0 ) {
   say "Hello, World!";
 } else {
-  say "Hello, " . $ARGV[ 0 ] . "!"
+  say "Hello, $ARGV[ 0 ]!"
 }
 
 say "» José Carlos Monteiro «";
