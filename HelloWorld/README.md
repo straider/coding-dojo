@@ -61,4 +61,6 @@ Useful to quickly check software development kits, compilers or interpreters set
 
 - Code with objects.
 
-## Notes
+----
+
+### Notes
