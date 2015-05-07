@@ -3,6 +3,17 @@ coding-dojo / FizzBuzz
 
 Dojo to register different programming paradigms of FizzBuzz Challenge.
 
+## Goals
+
+- Gain experience with if..else and ternary operator;
+- Take advantage of String concatenation;
+- Learn to format output: number of characters, padding, ...;
+- Gain experience with collections and foreach;
+- Compare Programming Paradigms in a simple context;
+- Gain traction in Object Oriented Design and Programming;
+- Gain traction in following S.O.L.I.D. principles;
+- Gain traction by applying Design Patterns.
+
 ## Variants
 
 **Note**: in all variants and versions, if possible, the output of the numeric value to the console should be formatted to 4 digits, padded with 0s on the left.
@@ -49,3 +60,9 @@ Dojo to register different programming paradigms of FizzBuzz Challenge.
 ### Challenge
 
 Add another prime number pair ( 7, Dazz ) and compare coding effort of each variant and version to adapt to this new requirement.
+
+#### Procedural
+
+#### Object Oriented
+
+#### Functional
