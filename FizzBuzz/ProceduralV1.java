@@ -14,7 +14,7 @@ public class ProceduralV1 {
       } else if ( i % 5 == 0 ) {
         line = "Buzz";
       } else {
-        line = String.format( "%04d", i );
+        line = String.format( "%04d", i ); // String.format() is not procedural: it's a method of the object String.
       }
 
       System.out.println( line );

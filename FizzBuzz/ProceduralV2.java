@@ -5,7 +5,7 @@ public class ProceduralV2 {
 
   public static void main( final String[] arguments ) {
     for ( int i = 1; i <= 100; i++ ) {
-      final String value = String.format( "%04d", i );
+      final String value = String.format( "%04d", i ); // String.format() is not procedural: it's a method of the object String.
 
       String line = "";
       line += ( i % 3 == 0 ) ? "Fizz" : "";

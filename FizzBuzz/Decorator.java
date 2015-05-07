@@ -18,6 +18,7 @@ public abstract class Decorator implements Decoder {
     this.decoder = decoder;
   }
 
+  @Override
   public String say( final Integer value ) {
     String result = "";
 
