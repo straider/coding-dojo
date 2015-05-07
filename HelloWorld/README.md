@@ -5,6 +5,14 @@ First and most simple dojo.
 
 Useful to quickly check software development kits, compilers or interpreters setup and configuration.
 
+## Goals
+
+- Check proper installation and configuration of builder / interpreter for a given programming language;
+- Gain traction with if..else and ternary operator;
+- Gain traction in outputting to console, specially in UTF-8 encoding mode ( if possible );
+- Gain traction handling Strings: concatenation, interpolation;
+- Gain traction handling command line arguments.
+
 ## Variants
 
 ----
@@ -52,3 +60,12 @@ Useful to quickly check software development kits, compilers or interpreters set
 #### Constraints
 
 - Code with objects.
+
+## Notes
+
+- Offers **println()** and **print()** to output to console;
+- But it's necessary to use object from object **System.out**;
+- Handles UTF-8 encoding mode with some _tweaking_ in **javac** and **java**;
+- Handles String concatenation with operator "+";
+- Handles String interpolation with **String.format()** and **System.out.printf()**;
+- Handles command line arguments through mandatory String[] arguments array.
