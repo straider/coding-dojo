@@ -5,6 +5,14 @@ First and most simple dojo.
 
 Useful to quickly check software development kits, compilers or interpreters setup and configuration.
 
+## Goals
+
+- Check proper installation and configuration of builder / interpreter for a given programming language;
+- Gain traction with if..else and ternary operator;
+- Gain traction in outputting to console, specially in UTF-8 encoding mode ( if possible );
+- Gain traction handling Strings: concatenation, interpolation;
+- Gain traction handling command line arguments.
+
 ## Variants
 
 ----
@@ -35,3 +43,14 @@ Useful to quickly check software development kits, compilers or interpreters set
 #### Constraints
 
 - Code without objects ( but methods are allowed ).
+
+## Notes
+
+- Offers **say()** and **print()** to output to console;
+- But say() requires version 5.10.0 or higher;
+- Requires module _utf8_ to handle UTF-8 encoding mode;
+- Handles String concatenation with operator ".";
+- Handles String interpolation inline "$variable";
+- Handles command line arguments through $ARGV array.
+
+**Attention**: it's not good at following Object Oriented paradigm.
