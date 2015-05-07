@@ -61,7 +61,9 @@ Useful to quickly check software development kits, compilers or interpreters set
 
 - Code with objects.
 
-## Notes
+----
+
+### Notes
 
 - Offers **WriteLine()** and **Write()** to output to console;
 - But it's necessary to use object from object **System.Console**;
