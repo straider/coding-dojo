@@ -11,12 +11,12 @@ class Greeter :
   def say( self ) :
     return self.name
 
-if __name__ == "__main__" :
+if __name__ == '__main__' :
 
   if len( sys.argv ) - 1 == 0 :
     greeter = Greeter()
   else :
     greeter = Greeter( sys.argv[ 1 ] )
-  print( "Hello, " + greeter.say() + "!" )
+  print( 'Hello, {0}'.format( greeter.say() ) )
 
-  print( "» José Carlos Monteiro «" )
+  print( '» José Carlos Monteiro «' )

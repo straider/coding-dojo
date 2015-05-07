@@ -2,13 +2,15 @@
 # -*- coding: utf-8 -*-
 # https://www.python.org/dev/peps/pep-0263/
 
+# Must import module "sys" to handle command line arguments ( which is not procedural ).
 import sys
 
-if __name__ == "__main__" :
+if __name__ == '__main__' :
 
   if len( sys.argv ) - 1 == 0 :
-    print( "Hello, World!" )
+    name = 'World'
   else :
-    print( "Hello, " + sys.argv[ 1 ] + "!" )
+    name = sys.argv[ 1 ]
+  print( 'Hello, %(name)s!' % { 'name' : name } )
 
-  print( "» José Carlos Monteiro «" )
+  print( '» José Carlos Monteiro «' )
