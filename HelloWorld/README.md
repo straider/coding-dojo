@@ -61,7 +61,9 @@ Useful to quickly check software development kits, compilers or interpreters set
 
 - Code with objects.
 
-## Notes
+----
+
+### Notes
 
 - Offers **print()** and **write()** to output to console;
 - Doesn't cope well with UTF-8 encoding mode;
