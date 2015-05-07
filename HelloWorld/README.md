@@ -44,7 +44,9 @@ Useful to quickly check software development kits, compilers or interpreters set
 
 - Code without objects ( but methods are allowed ).
 
-## Notes
+----
+
+### Notes
 
 - Offers **say()** and **print()** to output to console;
 - But say() requires version 5.10.0 or higher;
