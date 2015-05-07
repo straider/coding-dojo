@@ -7,7 +7,7 @@
 public class Procedural {
 
   public static void main( final String[] arguments ) {
-    final String name = ( arguments.length == 0 ) ? "World" : arguments[ 0 ];
+    final String name = ( arguments.length == 0 ) ? "World" : arguments[ 0 ]; // Array.length is not procedural: it's a property of the object Array.
     System.out.printf( "Hello, %s!\n", name );
 
     System.out.println( "» José Carlos Monteiro «" );
