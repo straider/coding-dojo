@@ -11,6 +11,10 @@ type Greeter struct {
   name string
 }
 
+func ( g * Greeter ) say() string {
+  return g.name
+}
+
 func main() {
   var greeter Greeter
   if len( os.Args[ 1: ] ) == 0 {
@@ -18,7 +22,7 @@ func main() {
   } else {
     greeter = Greeter{ name: os.Args[ 1 ] }
   }
-  fmt.Printf( message, greeter.name  )
+  fmt.Printf( message, greeter.say()  )
 
   fmt.Println( "» José Carlos Monteiro «" )
 }
