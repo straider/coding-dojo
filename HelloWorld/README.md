@@ -66,12 +66,3 @@ Useful to quickly check software development kits, compilers or interpreters set
 ----
 
 ### Notes
-
-- Offers **fmt.Print()** and **fmt.Println()** to output to console;
-- But it's necessary to import library **fmt**;
-- Handles UTF-8 encoding mode by default;
-- Handles String concatenation with operator "+";
-- Handles String interpolation with **fmt.Printf()**;
-- Handles command line arguments through optional **os.Args** arguments array.
-
-**Attention**: it doesn't follow regular OOP, with classes, objects and instances. It uses **Structs**, with methods being declared outside of the struct declaration.
