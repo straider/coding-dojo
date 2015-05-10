@@ -9,7 +9,13 @@ using System;
 public class ObjectOriented
 {
 
+  #region Fields.
+
   private string name;
+
+  #endregion
+
+  #region Constructors.
 
   public ObjectOriented()
   {
@@ -20,6 +26,10 @@ public class ObjectOriented
   {
     this.name = name;
   }
+
+  #endregion
+
+  #region Public Methods.
 
   public string say()
   {
@@ -33,5 +43,7 @@ public class ObjectOriented
 
     Console.WriteLine( "» José Carlos Monteiro «" );
   }
+
+  #endregion
 
 }
