@@ -1,12 +1,12 @@
-// Compile command: msc Procedural.cs
+// Compile command: msc Procedural1.cs
 // Execute commands:
-//   mono Procedural
-//   mono Procedural "José Carlos Monteiro"
-//   mono Procedural Universe
+//   mono Procedural1
+//   mono Procedural1 "José Carlos Monteiro"
+//   mono Procedural1 Universe
 
 using System;
 
-public class Procedural
+public class Procedural1
 {
 
   public static void Main( string[] arguments )
