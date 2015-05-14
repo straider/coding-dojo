@@ -9,7 +9,7 @@ public class Procedural3 {
   private static final String MESSAGE = "Hello, %s!\n";
 
   private static String greet( final String message, final String name ) {
-    return String.format( message, name );
+    return String.format( message, name ); // String.format is not procedural: it's a method of the object String.
   }
 
   private static String greet( final String message ) {
