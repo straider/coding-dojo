@@ -8,11 +8,7 @@ def greet( message, name = 'World' )
 end
 
 # Array.size() is not procedural: it's a method of the object Array.
-if ARGV.size != 0 then
-  greeting = greet( MESSAGE, name = ARGV[ 0 ] )
-else
-  greeting = greet( MESSAGE )
-end
+greeting = ARGV.size != 0 ? greet( MESSAGE, name = ARGV[ 0 ] ) : greet( MESSAGE )
 puts greeting
 
 puts '» José Carlos Monteiro «'
