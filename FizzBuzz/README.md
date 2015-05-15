@@ -77,12 +77,43 @@ Dojo to register different programming paradigms of FizzBuzz Challenge.
 
 ----
 
+### Notes
+
+The Design Patterns **Decorator** and **Chain of Responsibility** are not properly implemented, although the end result is ok. Why?
+
+#### Decorators
+
+A decorator adds behavior to an existing object, without changing the object. It also descends from the same base object as the object it decorates, meaning that where in code that object is required then the code can be changed to use the decorator.
+
+A decorator does not depend or keep track of results from other decorators.
+
+And this is where the implementation here in this dojo fails: the decorator must handle state from other decorators, which is kept in the array of words.
+
+#### Chain of Responsibility
+
+A chain is made up of "links" that descend from a base object. Meaning that each link in the chain should offer the same set of methods. If one link isn't responsible for the implementation of a method it then passes that evocation to the next link, and so on up until the last link the chain.
+
+Each link, called here in this dojo as step, does not depend or keep track of results from other links.
+
+And this is where these steps fail to properly implement the design pattern: the base object handles state of all links in an array of words.
+
 ### Challenge
 
 Add another prime number pair ( 7, Dazz ) and compare coding effort of each variant and version to adapt to this new requirement.
 
 #### Procedural
 
+- V1 is very verbose and prone to human error, more so as more pairs are added;
+- V2 is easy to adapt to new pairs: just requires a new line of code: ```line += ( i % [PRIME] == 0 ) ? "[WORD]" : "";```
+- V3 is the easiest to adapt to new pairs: just requires a new key-value-pair: ```{..., [PRIME]:[WORD] }```
+
+**Note**: it's great when a language offers collection types as almost basic types.
+
 #### Object Oriented
+
+- V1 is the third best to adapt to new pairs: requires 2 new lines of code for each pair;
+- V2 is also a second best to adapt and could be even better if instead of hard-coded instances would process a map of pairs. It would then be the best of all, as is Procedural V3;
+- V3 requires one new line of code for each pair and new Decorator class ( to follow this Design Pattern convention );
+- V4 requires 2 new lines of code for each pair plus changing one line of code ( introduce a new step in the chain ).
 
 #### Functional
