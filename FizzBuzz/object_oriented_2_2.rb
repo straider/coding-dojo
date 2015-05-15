@@ -7,7 +7,8 @@ PRIME_WORDS = { 3 => 'Fizz', 5 => 'Buzz' }
 
 if __FILE__ == $0
   prime_words = []
-  PRIME_WORDS.each do | key, value |
+  PRIME_WORDS.keys.sort.each do | key |
+    value = PRIME_WORDS[ key ]
     prime_words << PrimeWord.new( key, value )
   end
 
