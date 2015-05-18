@@ -1,0 +1,4 @@
+package bogus;
+
+class LibraryModule {
+}
