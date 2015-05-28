@@ -11,8 +11,8 @@ Quick Reference Guide
 
 ## 6.3. For
 
-## 6.4. While
+## 6.4. While, Until
 
-### 6.4.1. Statement Modifiers
+### 6.1.1. Statement Modifiers
 
 ## 6.5. Exceptions
