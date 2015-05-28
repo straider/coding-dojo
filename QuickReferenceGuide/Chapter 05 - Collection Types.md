@@ -11,7 +11,7 @@ There are two special iterators in Ruby: the module **Enumerable** and the class
 - The ```Enumerable.inject()``` method accumulates a value across the members of a collection;
 - The ```Enumerable.partition()``` method divides a collection into two parts.
 
-## 5.1. Struct
+## 5.1. Structs
 
 A Struct is a convenient way to bundle a number of attributes together, using accessor methods, without having to write an explicit class. The Struct class is a generator of specific classes, each one of which is defined to hold a set of variables and their accessors.
 
@@ -87,7 +87,7 @@ array_of_words = %w{ this is a string as typed, without single or double quotes 
 
 **Note**: the %w{ ... } operator strips all whitespace. Works just like string.split( ' ' ).
 
-## 5.3. Hashes
+## 5.3. Hashes, Maps or Dictionaries
 
 - Hashes ( sometimes known as associative arrays, maps, or dictionaries ) are similar to arrays in that they are indexed collection of object references;
 - A Hash is an unordered collection of key-value pairs;
