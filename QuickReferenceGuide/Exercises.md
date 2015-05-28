@@ -10,20 +10,20 @@ Quick Reference Exercises
 - Write one-liner comment "This is an one-liner comment";
 - Write multi-line comments, using the above comment in several consecutive lines;
 - Write language self-documenting comments;
-- Does the language have DocTest features?
+- Does the language have DocTest features?<br />**Yes**
 
 ## 2.2. Statements
 
 - Write multiple statements in one line ( which is the statement separator in this case? );
-- Does the language allow statements without END_OF_STATEMENT_CHARACTER ( are linefeeds considered a statement separator )?
+- Does the language allow statements without END_OF_STATEMENT_CHARACTER ( are linefeeds considered a statement separator )?<br />**Yes**
 - Write a statement that spans across several lines ( which is the LINEFEED_ESCAPE_CHARACTER? );
-- Does the language impose restrictive indentation?
+- Does the language impose restrictive indentation?<br />**No**
 
 ## 2.3. Keywords and Identifiers
 
-## 2.4. Loading Sources
+## 2.4. Packages / Namespaces
 
-## 2.5. Console Input / Output
+## 2.5. Import Libraries
 
 ### 2.5.1. Console Output 101
 
@@ -34,7 +34,7 @@ Quick Reference Exercises
 ### 2.5.2. Console Input 101
 
 - Input from user, using message "What's your name: " ;
-- Does the language require cutting off the linefeed entered by user?
+- Does the language require cutting off the linefeed entered by user?<br />**No**, if using ```fmt.Scan()``` or ```fmt.Scanln()```, but it seems to require if using ```fmt.Scanf()``` on Windows.
 
 ### 2.5.3. Command Line Arguments 101
 
@@ -45,30 +45,23 @@ Quick Reference Exercises
 
 ### 2.6. UTF-8 Encoding
 
-- Output "» José Carlos Monteiro «" to the console;
-- Ask input for EUR or GBP currency symbol and output "Currency Symbol: €‚ £" to the console.
+- Output "Â» JosÃ© Carlos Monteiro Â«" to the console;
+- Ask input for EUR or GBP currency symbol and output "Currency Symbol: â‚¬ / Â£" to the console.
 
 # 3. The Basics
 
-Write a fully documented "Circle Area Calculator", using a constant for PI and receiving an argument: radius.
-
 ## 3.1. Variables
-
-> Typed variables is a concept, in Ruby. A variable is said to be of a type when it refers to a value of that type. Given the dynamic features of Ruby, a variable does not have a fixed type and once declared is also initialized ( unless it's a class or instance variable ).
 
 - Declare typed uninitialized numeric variables ( short, int, long, float, double, complex );
 - Declare untyped uninitialized numeric variables ( short, int, long, float, double, complex );
 - Declare typed initialized numeric variables ( short, int, long, float, double, complex );
-- Declare untyped initialized numeric variables ( short, int, long, float, double, complex ).
-
+- Declare untyped initialized numeric variables ( short, int, long, float, double, complex );
 - Declare typed uninitialized string variables ( character, string, symbol );
 - Declare untyped uninitialized string variables ( character, string, symbol );
 - Declare typed initialized string variables ( character, string, symbol );
 - Declare untyped initialized string variables ( character, string, symbol );
-
-- Declare typed uninitialized collection variables ( range, array, list, set, map ~;
-- Declare untyped uninitialized collection variables ( range, array, list, set, map );
-- Declare typed initialized collection variables ( range, array, list, set, map );
+- Declare typed uninitialized collection variables ( range, array, list, set, map );
+- Declare untyped uninitialized collection variables ( range, array, list, set, map - Declare typed initialized collection variables ( range, array, list, set, map );
 - Declare untyped initialized collection variables ( range, array, list, set, map ).
 
 - Declare multiple variables in one line;
@@ -77,23 +70,18 @@ Write a fully documented "Circle Area Calculator", using a constant for PI and r
 - Assign a value to a variable if it doesn't already have a value;
 - Swap the values of two variables of same type;
 - Swap the values of two variables of different types.
-
-Exercises:
-
-- Declare a variable with the number of seconds in a hour;
-- Declare a variable with the perimeter of a rectangle with sides 2 and 3.
-
+ 
 ### 3.1.6. Function Type Variables
 
 - Can a variable hold a function value?
 
 ### 3.1.7. Scope
 
-- Does the language allow global variables?
-- Does the language allow local variables?
+- Does the language allow global variables?<br />**Yes**
+- Does the language allow local variables?<br />**Yes**
 - Does the language allow instance variables ( properties or fields )?
 - Does the language allow class variables ( properties or fields )?
-- Do local variables shadow higher level variables of the same name?
+- Do local variables shadow higher level variables of the same name?<br />**Yes**
 
 ## 3.2 Constants
 
@@ -108,49 +96,41 @@ Exercises:
 - Declare typed uninitialized collection constants ( range, array, list, set, map );
 - Declare untyped uninitialized collection constants ( range, array, list, set, map );
 - Declare typed initialized collection constants ( range, array, list, set, map );
-- Declare untyped initialized collection constants ( range, array, list, set, map );
+- Declare untyped initialized collection constants ( range, array, list, set, map ).
+
 - Declare multiple constants in one line;
 - Assign multiple values to multiple constants in one line;
 - Assign same value to multiple constants in one line;
-- Does the language enforce that constant is unchanged after assignment?
-
-Exercises:
-
-- Declare an integer constant, KB, which represents the number 2 ^ 10;
-- Declare multiple integer constants, KB and MB, which represents the numbers 2 ^ 10 and 2 ^ 20;
-- Declare a decimal constant, PI, with the value of [Pi](http://en.wikipedia.org/wiki/Pi) up to 10th decimal digit;
-- Declare multiple constants, PI and e, with the value of Pi and [Euler's Number](http://en.wikipedia.org/wiki/E_(mathematical_constant)), up to the 10th decimal digit, in one line;
-- Declare multiple constants, KB and PI and "Hello, World!" and true, in one line.
+- Does the language enforce that constant is unchanged after assignment?<br />**Yes**
 
 # 4. Basic Types
 
-- Swap the values of two variables of same type;
-- Swap the values of two variables of different types;
-- Compare ```0.3 - 0.2 == 0.1```, using **float**, **Rational** and **BigDecimal**;
-- Output the value of ```3/10 - 2/10``` in rational format.
-
 ## 4.1. Numeric
 
+- Does the language allow Cardinal ( also known as Unsigned Numbers )?<br />**Yes**
+
+- Add two numbers;
+- Subtract one number from another;
+- Multiply two numbers;
+- Divide one number by another;
+- Divide one number by the other and get the remainder ( modulus );
+- Raise one number with an exponent of another.
+
 - Are there short-notation operators for basic mathematical operations?
-- Does the language have increment and decrement operators ( postfix and prefix forms )?
+- Does the language have increment and decrement operators ( postfix and prefix forms )?<br />**Yes**, but only in postfix form.
 - Does the language have bitwise operators ( AND, OR, XOR, One's Complement, Shift - left and right )?
+
 - Does the language provide a decimal type suitable for money and currency operations ( avoiding floating point precision errors )?
-- Does the language allow Cardinal ( also known as Unsigned Numbers )?
-
-Exercises:
-
-- Calculate the circumference of a circle with radius 8 ( 2**p**r );
-- Calculate the area of a circle with radius 8 ( r**p**^2 );
 
 ## 4.2. Strings
 
-- Are string mutable or immutable?
+- Are string mutable or immutable?<br />**Immutable**
 - Concatenate two strings;
 - Does the language have string interpolation?
 - Append a string to another string;
 - Output several values of distinct types with formatting verbs;
 - Does the language allow HereDoc notation?
-- Does the language allow back-tick strings, that issue commands to the operating system?
+- Does the language allow back-tick strings, that issue commands to the operating system?<br />**No**
 
 Exercises:
 
@@ -170,7 +150,6 @@ Exercises:
 
 ## 4.4. Booleans
 
-- What are the boolean operators?
 - Is null / nil equal to itself?
 - Is false and null / nill and 0 equal to one another?
 - Is true and 1 equal to one another?
@@ -178,26 +157,32 @@ Exercises:
 
 # 5. Collection Types
 
-- Does the language offer **structs**?
-- Does the language offer **arrays** or **lists**?
-- Does the language offer **sets**?
-- Does the language offer **maps** or **hashes**?
-- Does the language offer **ranges**?
-- Does the language offer **iterators**?
+- Does the language offer **structs**?<br />**Yes**
+- Does the language offer **arrays** or **lists**?<br />**Yes**
+- Does the language offer **sets**?<br />**Yes**
+- Does the language offer **maps** or **hashes**?<br />**Yes**
+- Does the language offer **ranges**?<br />**Yes**
+- Does the language offer **iterators**?<br />**Yes**
+
+## 5.1. Sequences
+
+## 5.5. Regular Expressions
+
+## 5.6. Enumerables 
 
 # 6. Control Flow Structures
 
-- Does the language allow **if..else if..else**?
-- Does the language allow **unless..else**?
-- Does the language allow **if statement modifiers**?
-- Does the language allow **ternary operator**?
-- Does the language allow **switch**?
-- Does the language allow **for** loops?
-- Does the language allow **while** loops?
-- Does the language allow **while statement modifiers**?
-- Does the language allow **until** loops?
-- Does the language allow **until statement modifiers**?
-- Does the language allow catching exceptions?
+- Does the language allow **if..else if..else**?<br />**Yes**
+- Does the language allow **unless..else**?<br />**No**
+- Does the language allow **if statement modifiers**?<br />**No**
+- Does the language allow **ternary operator**?<br />**No**
+- Does the language allow **switch**?<br />**Yes**
+- Does the language allow **for** loops?<br />**Yes**
+- Does the language allow **while** loops?<br />**No**
+- Does the language allow **while statement modifiers**?<br />**N/A**
+- Does the language allow **until** loops?<br />**No**
+- Does the language allow **until statement modifiers**?<br />**/NA**
+- Does the language allow catching exceptions?<br />**Yes**
 
 Exercises:
 
@@ -213,9 +198,9 @@ Exercises:
 
 # 7. Functions
 
-- Can functions with same name and different arguments exist?
-- Are functions with arguments having default values allowed?
-- Are functions with variable number of arguments allowed?
+- Can functions with same name and different arguments exist?<br />**No**
+- Are functions with arguments having default values allowed?<br />**Yes**
+- Are functions with variable number of arguments allowed?<br />**Yes**
 
 Exercises:
 
@@ -225,36 +210,26 @@ Exercises:
 
 # 8. Closures
 
-# 9. Objects
+# 9. Classes
 
-## 9.1. Classes
+# 10. Mixins
 
-## 9.2. Interfaces / Modules
+# 11. Concurrency
 
-## 9.3. Mixins
+# 12. Core Packages / Standard Library
 
-# 10. Concurrency
+# 13. Libraries
 
-# 11. Core Packages / Standard Library
+- Math: holds Infinity and NaN
+- Handle short / long command line options
+- Logging
+- SQL: Database and Drivers ( Connection, Statements, DataSets, ... )
+- Unit Testing Frameworks
 
-## 11.1 BigDecimal
+# 14. Testing
 
-## 11.2. File Handling / Input-Output
+# 15. Benchmarking
 
-## 11.3. Random Numbers
+# 16. File Handling / Input-Output
 
-## 11.4. Date and Time
-
-## 11.5. Regexp
-
-## 11.6. Testing
-
-## 11.7. Benchmarking
-
-# 12. Gems
-
-## 12.1. SQL
-
-## 12.2. Networking
-
-## 12.3. Concurrency
+# 17. Random Numbers

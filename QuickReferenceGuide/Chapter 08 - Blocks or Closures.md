@@ -1,10 +1,8 @@
 Quick Reference Guide
 =====================
 
-# 8. Blocks
+# 8. Closures
 
-## 8.1. Lambdas
+> Go programming language provides flexibility to create functions on the fly and use them as values.
 
-## 8.2. Procs
-
-## 8.3. List Comprehension
+In Go, a closure is an anonymous function created locally to another function.
