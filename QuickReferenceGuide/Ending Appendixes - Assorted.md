@@ -97,9 +97,16 @@ The ```match()``` method returns an instance of **MatchData** when there's a mat
 
 For more information, visit the site [Using Regular Expressions with Ruby](http://www.regular-expressions.info/ruby.html).
 
-## 11.6. Testing
+## 11.6. Serialization / Marshalling
 
-## 11.7. Benchmarking
+- ```Marshal.dump()``` can be used to save a serialized version of an instance to a file;
+- ```Marshal.load()``` can be used to read a serialized version of an instance from a file.
+
+> Marshal only serializes data structures. It can't serialize Ruby code ( like Proc objects ) or resources allocated by other processes ( like file handles or database connections ). Marshal just gives you an error when you try to serialize a file.
+
+## 11.7. Testing
+
+## 11.8. Benchmarking
 
 Ruby provides Benchmark for timing code.
 

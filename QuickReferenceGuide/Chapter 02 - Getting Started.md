@@ -46,7 +46,7 @@ These are reserved words:
 
 Identifiers are used to name variables, constants, methods and classes. The coding style for each will be given in Chapter 03. Any identifier is case-sensitive and is a sequence of alphanumeric and underscore characters. Some special characters can be used, following a convention for identifying variables and methods:
 - Identifiers for variables can be prefixed with "$", "@" or "@@";
-- Identifiers for methods can be suffixed with "?" or "!".
+- Identifiers for methods can be suffixed with "?", "!" or "=".
 
 **Note**: an identifier can start with an underscore.
 

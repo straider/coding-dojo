@@ -72,6 +72,50 @@ end
 - **next** skips rest of iteration and jumps to the start of next iteration in the most internal loop;
 - **redo** restarts the iteration, without checking most internal loop's condition.
 
+### 6.3.1. times()
+
+```ruby
+5.times do | value |
+  puts value
+end
+```
+
+**Note**: ```times()``` will return the last iterated value, and always starts at 0.
+
+### 6.3.2. upto()
+
+```ruby
+1.upto( 5 ) do | value |
+  puts value
+end
+```
+
+**Note**: ```upto()``` will return the start value.
+
+### 6.3.3. downto()
+
+```ruby
+5.downto( 1 ) do | value |
+  puts value
+end
+```
+
+**Note**: ```downto()``` will return the start value.
+
+### 6.3.4. step()
+
+```ruby
+( 1 .. 10 ).step( 2 ) do | value |
+  puts value
+end
+
+1.step( 10, 2 ) do | value |
+  puts value
+end
+```
+
+**Note**: ```step()``` will return the range or the start value.
+
 ## 6.4. While
 
 ```ruby

@@ -27,7 +27,7 @@ def method_with_arguments( argument1, argument2 )
   ...
 end
 
-def method_with_argument_with_default_value( argument1, argument2 = 'default', argument 3 )
+def method_with_argument_with_default_value( argument1, argument2 = 'default', argument3 )
   ...
 end
 ```
@@ -50,7 +50,7 @@ end
 alias legacy_method some_method
 ```
 
-**Attention**: methods have to be declared the statements that calls them.
+**Attention**: methods have to be declared before the statements that calls them.
 
 ## 7.3. Scope
 

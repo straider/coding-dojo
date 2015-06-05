@@ -16,6 +16,8 @@ An object oriented program is made up of classes and objects. A class is like th
 
 An object has state, kept by its attributes, and behavior, declared in its methods. Therefor objects are also called smart data structures.
 
+> **Duck Typing** means an object type is defined by what it can do, not by what it is. Duck Typing refers to the tendency of being less concerned with the class of an object and more concerned with what methods can be called on it and what operations can be performed on it.
+
 ## 9.1. Classes
 
 > In Ruby, classes are never closed: you can always add methods to an existing class. This applies to the classes you write as well as the standard, built-in classes. All you have to do is open up a class definition for an existing class, and the new contents you specify will be added to whatever's there.
@@ -46,7 +48,7 @@ ObjectSpace.each_object do | object |
 end
 ```
 
-## 9.1.1. Attributes
+### 9.1.1. Attributes
 
 A class can have two types of attributes:
 
@@ -83,7 +85,7 @@ Klass::CONSTANT_ATTRIBUTE
 
 > All Ruby objects have a set of instance variables. These are not defined by the object's class - they are simply created when a value is assigned to them. Because instance variables are not defined by a class, they are unrelated to sub-classing and the inheritance mechanism.
 
-## 9.1.2. Methods
+### 9.1.2. Methods
 
 A class can have two types of methods:
 
@@ -190,7 +192,7 @@ Dummy.new.unknown()
 
 > When we define top-level methods, we're actually creating ( private ) instance methods for class Object. Because top-level methods are private, you can't call them with an explicit receiver; you can only call them by using the implied receiver, self. That means self must be an object on whose method search path the given top-level method lies. But every object's search path includes the Kernel module, because the class Object mixes in Kernel, and every object's class has Object as an ancestor. That means you can always call any top-level method, wherever you are in your program. It also means you can never use an explicit receiver on a top-level method.
 
-## 9.1.3. Inheritance
+### 9.1.3. Inheritance
 
 > Inheritance is a relation between two classes. We know that all cats are mammals, and all mammals are animals. The benefit of inheritance is that classes lower down the hierarchy get the features of those higher up, but can also add specific features of their own. If all mammals breathe, then all cats breathe.
 
@@ -204,21 +206,43 @@ Dummy.new.unknown()
 
 > The **BasicObject** class is the parent class of all classes in Ruby. Its methods are therefore available to all objects unless explicitly overridden. Prior to Ruby 1.9, **Object** class was the root of the class hierarchy. The new class BasicObject serves that purpose, and Object is a subclass of BasicObject. BasicObject is a very simple class, with almost no methods of its own. When you create a class in Ruby, you extend Object unless you explicitly specify the super-class, and most programmers will never need to use or extend BasicObject.
 
-## 9.1.4. Method Overriding
+### 9.1.4. Method Overriding
 
 > Method overriding, in object oriented programming, is a language feature that allows a subclass to provide a specific implementation of a method that is already provided by one of its ancestors. The implementation in the sub-class overrides ( replaces ) the implementation in the ancestor class.
 
-## 9.1.5. Method Overloading
+### 9.1.5. Method Overloading
 
 Ruby doesn't allow two different versions of a method with the same name - the last declaration prevails. The workaround for this is to handle a variable number of arguments, with logic inside the method that branches for each different version, depending on the number and type of arguments passed into the method.
 
-## 9.1.6. Abstract Classes
+### 9.1.6. Abstract Classes
 
 Ruby allows a class to invoke certain methods that are not defined in its declaration. In this case the class is called an abstract class and delegates to its sub-classes the responsibility of declaring those methods.
 
-## 9.1.7. Freezing Objects
+### 9.1.7. Freezing Objects
+
+- Mutable objects are objects whose state can change;
+- Immutable objects are objects whose state never changes after creation.
+
+Immutable objects have many desirable properties:
+
+- Immutable objects are thread-safe. Threads cannot corrupt what they cannot change;
+- Immutable objects make it easier to implement encapsulation. If part of an object's state is stored in an immutable object, then accessor methods can return that object to outside callers, without fear that those callers can change the object's state;
+- Immutable objects make good hash keys, since their hash codes cannot change.
+
+> In Ruby, Mutability is a property of an instance, not of an entire class. Any instance can become immutable by calling ```freeze()```.
 
 It's possible to prevent an object from being changed, after it has been created. The ```Object.freeze()``` turns an object into a frozen instance. A frozen instance doesn't allow its instance variables to change value. To check if an object has been frozen there's the method ```Object.frozen?()```, which returns true if the object was already frozen and false otherwise.
+
+> The ```Object.freeze()``` method prevents you from changing an object, effectively turning an object into a constant. After we freeze an object, an attempt to modify it results in **RuntimeError**.
+
+### 9.1.8. self
+
+> At every point when your program is running, there is one and only one self - the current or default object accessible to you in your program. You can tell which object self represents by following a small set of rules:
+
+- **Top level context**: The top level context is before entering any other context, such as a class definition. Therefore the term top level refers to program code written outside of a class or module. Top-level methods are always private. Ruby provides a start-up self at the top level: **main**. It's a special term that the default self object uses to refer to itself. The class of the main object is Object;
+- **Inside class and module**: self is the class or module object;
+- **In instance method**: self inside this method will be some future object that has access to this method;
+- **In singleton-method and class-method**: self is the object that owns the method. self inside a singleton method (a class method, in this case) is the object whose singleton method it is.
 
 ## 9.2. Modules
 
@@ -229,6 +253,8 @@ It's possible to prevent an object from being changed, after it has been created
 > Modules define a namespace, a sandbox in which methods and constants can play without having to worry about being stepped on by other methods and constants.
 
 Modules resemble classes but have some restrictions: modules can't create instances and can't have subclasses.
+
+> Class names tend to be nouns, while module names are often adjectives.
 
 ```ruby
 module [MODULE_NAME]
