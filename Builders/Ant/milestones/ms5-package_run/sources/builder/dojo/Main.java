@@ -9,7 +9,7 @@ public class Main {
 
   public static void main( final String[] arguments ) {
     final Greeter greeter = ( arguments.length == 0 ) ? new Greeter() : new Greeter( arguments[ 0 ] );
-    final String  message = greeter.greet()
+    final String  message = greeter.greet();
     logger.info( "Message: " + message );
     System.out.println( message );
 

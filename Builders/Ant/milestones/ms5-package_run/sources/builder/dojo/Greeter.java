@@ -9,12 +9,12 @@ public class Greeter {
   private static final Logger logger = Logger.getLogger( Greeter.class );
 
   public Greeter() {
-    logger.debug( "Creating an instance of " + this.class + " without any arguments" );
+    logger.debug( "Creating an instance of Greeter without any arguments" );
     name = "World";
   }
 
   public Greeter( final String name ) {
-    logger.debug( "Creating an instance of " + this.class + " with argument: " + name );
+    logger.debug( "Creating an instance of Greeter with argument: " + name );
     this.name = name;
   }
 
