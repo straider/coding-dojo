@@ -1,0 +1,40 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project name = "ms3-build_classes" default = "build" basedir = ".">
+
+  <description>Milestone 3 - Java Project, build.</description>
+
+  <property file = "build.properties" />
+
+  <target name = "clean" description = "Removes the working folders.">
+    <delete includeEmptyDirs = "true" failonerror = "false">
+      <fileset dir = "${build_folder}/"        includes = "**/*" />
+      <fileset dir = "${distribution_folder}/" includes = "**/*" />
+    </delete>
+
+    <delete dir = "${build_folder}"        />
+    <delete dir = "${distribution_folder}" />
+  </target>
+
+  <target name = "init" description = "Initializes the project with required working folders.">
+    <mkdir dir = "${build_folder}"        />
+    <mkdir dir = "${distribution_folder}" />
+  </target>
+
+  <fileset dir = "${legacy_jre}\lib" includes = "**/*.jar" id = "legacy_bootstrap_fileset" />
+  <pathconvert property = "legacy_bootstrap" refid = "legacy_bootstrap_fileset" />
+
+  <target name = "build" depends = "init" description = "Builds the class files.">
+    <javac srcdir            = "${sources_folder}"
+           destdir           = "${build_folder}"
+           encoding          = "utf-8"
+           compiler          = "${compiler_version}"
+           source            = "${source_version}"
+           target            = "${target_version}"
+           includeAntRuntime = "false"
+           bootclasspath     = "${legacy_bootstrap}"
+    >
+      <compilerarg line = "-Xlint:unchecked -Xlint:deprecation" />
+    </javac>
+  </target>
+
+</project>

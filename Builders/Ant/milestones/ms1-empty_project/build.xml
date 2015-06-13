@@ -1,0 +1,4 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project name = "ms1-empty_project" default = "" basedir = ".">
+  <description>Milestone 1 - Empty Project ( without any targets ).</description>
+</project>

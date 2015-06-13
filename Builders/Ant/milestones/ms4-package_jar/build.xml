@@ -1,0 +1,61 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project name = "ms4-package_jar" default = "package-jar" basedir = ".">
+
+  <description>Milestone 4 - Java Project, library JAR.</description>
+
+  <property file = "build.properties" />
+
+  <target name = "clean" description = "Removes the working folders.">
+    <delete includeEmptyDirs = "true" failonerror = "false">
+      <fileset dir = "${build_folder}/"        includes = "**/*" />
+      <fileset dir = "${distribution_folder}/" includes = "**/*" />
+    </delete>
+
+    <delete dir = "${build_folder}"        />
+    <delete dir = "${distribution_folder}" />
+  </target>
+
+  <target name = "init" description = "Initializes the project with required working folders.">
+    <mkdir dir = "${build_folder}"        />
+    <mkdir dir = "${distribution_folder}" />
+  </target>
+
+  <fileset dir = "${legacy_jre}\lib" includes = "**/*.jar" id = "legacy_bootstrap_fileset" />
+  <pathconvert property = "legacy_bootstrap" refid = "legacy_bootstrap_fileset" />
+
+  <target name = "build" depends = "init" description = "Builds the class files.">
+    <javac srcdir            = "${sources_folder}"
+           destdir           = "${build_folder}"
+           encoding          = "utf-8"
+           compiler          = "${compiler_version}"
+           source            = "${source_version}"
+           target            = "${target_version}"
+           includeAntRuntime = "false"
+           bootclasspath     = "${legacy_bootstrap}"
+    >
+      <compilerarg line = "-Xlint:unchecked -Xlint:deprecation" />
+    </javac>
+  </target>
+
+  <tstamp>
+    <format property = "build-time" pattern = "yyyy-MM-dd HH:mm:ss" />
+  </tstamp>
+
+  <target name = "package-jar" depends = "build" description = "Creates the JAR archive for distribution.">
+    <jar destfile = "${distribution_folder}/${application_file}-${application_version}.jar" >
+      <fileset dir = "${build_folder}">
+        <include name = "**/*.class" />
+      </fileset>
+
+      <manifest>
+        <attribute name = "Implementation-Title"     value = "${application_name}"    />
+        <attribute name = "Implementation-Version"   value = "${application_version}" />
+        <attribute name = "Implementation-Vendor"    value = "${application_vendor}"  />
+        <attribute name = "Implementation-Timestamp" value = "${build-time}"          />
+        <attribute name = "Built-Date"               value = "${build-time}"          />
+        <attribute name = "Built-By"                 value = "${user.name}"           />
+      </manifest>
+    </jar>
+  </target>
+
+</project>

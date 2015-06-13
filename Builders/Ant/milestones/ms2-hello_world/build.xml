@@ -1,0 +1,10 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project name = "ms2-hello_world" default = "greet" basedir = ".">
+
+  <description>Milestone 2 - HelloWorld Project.</description>
+
+  <target name = "greet" description = "Outputs Hello, World! to the console.">
+    <echo message = "Hello, World!" />
+  </target>
+
+</project>
