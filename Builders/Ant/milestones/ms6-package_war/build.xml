@@ -1,5 +1,5 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
-<project name = "ms6-package_war" default = "package-war" basedir = ".">
+<project name = "ms6-package_war" default = "package-war" basedir = "." xmlns:if = "ant:if">
 
   <description>Milestone 5 - Java Project, application WAR.</description>
 
@@ -55,6 +55,9 @@
 
   <target name = "package-war" depends = "build" description = "Creates the WAR archive for distribution.">
     <war destfile = "${distribution_folder}/${application_file}.war" needxmlfile = "false">
+      <classes dir = "${sources_folder}" if:set = "include_sources">
+        <include name = "**/*.java" />
+      </classes>
       <classes dir = "${build_folder}">
         <include name = "**/*.class" />
       </classes>

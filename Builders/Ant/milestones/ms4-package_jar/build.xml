@@ -1,5 +1,5 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
-<project name = "ms4-package_jar" default = "package-jar" basedir = ".">
+<project name = "ms4-package_jar" default = "package-jar" basedir = "." xmlns:if = "ant:if">
 
   <description>Milestone 4 - Java Project, library JAR.</description>
 
@@ -43,6 +43,9 @@
 
   <target name = "package-jar" depends = "build" description = "Creates the JAR archive for distribution.">
     <jar destfile = "${distribution_folder}/${application_file}-${application_version}.jar" >
+      <fileset dir = "${sources_folder}" if:set = "include_sources">
+        <include name = "**/*.java" />
+      </fileset>
       <fileset dir = "${build_folder}">
         <include name = "**/*.class" />
       </fileset>

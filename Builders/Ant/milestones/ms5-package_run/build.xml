@@ -73,6 +73,9 @@
 
   <target name = "package-run" depends = "build,prepare" description = "Creates the JAR archive for distribution.">
     <jar destfile = "${distribution_folder}/${application_file}.jar" >
+      <fileset dir = "${sources_folder}" if:set = "include_sources">
+        <include name = "**/*.java" />
+      </fileset>
       <fileset dir = "${build_folder}">
         <include name = "**/*.class" />
       </fileset>
