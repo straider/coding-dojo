@@ -63,13 +63,13 @@ It's also important to understand XML namespaces.
 
 ## 2.1. Hello World
 
-Deliver a WAR file, with a **Greeter** class which defines a method that answers requests like http://localhost:[PORT]/dojo-jaxrs/Greeter?wsdl. It provides one method only, ```greet()```, that returns the string "Hello, World!".
+Deliver a WAR file, with a **Greeter** class which defines a method that answers requests like http://localhost:[PORT]/dojo-jaxws/GreeterService?wsdl. It provides one method only, ```hello()```, that returns the string "Hello, World!".
 
-- Code the **GreeterInterface** interface, annotated with FIXME and that declares the method ```greet()```;
-- Code the **Greeter** class, which implements the above interface, with ```greet()``` method annotated with FIXME;
-- Package a WAR file, named dojo-jaxrs.war;
+- Code the **GreeterInterface** interface, annotated with WebService, SOAPBinding and that declares the ```hello()``` method, annotated with WebMethod as "hello" and WebResult as "response";
+- Code the **Greeter** class, which implements the above interface, with ```hello()```;
+- Package a WAR file, named dojo-jaxws.war;
 - Deploy the WAR file on a Java Application Server, for example: on a GlassFish domain, with portbase 10000;
-- Verify the WSDL file at http://localhost:100080/dojo-jaxrs/Greet?wsdl.
+- Verify the WSDL file at http://localhost:100080/dojo-jaxws/GreeterService?wsdl.
 
 **Note**: the interface is optional but since it's a best-practice one should be familiar with the pair of interface and implementation for a WebService.
 
@@ -77,26 +77,84 @@ Deliver a WAR file, with a **Greeter** class which defines a method that answers
 
 Deliver a WAR file, with an improved **Greeter** class which defines a new method that answers requests with a name between ```<name>``` tag. This method, ```greet( name )```, returns the string "Hello, World!" if the value if null or "Hello, {name}!" when the value is not null.
 
-- Improve the interface **GreeterInterface** class, with the new declaration for the method ```greet( name )```;
-- Improve the **Greeter** class, which implements the above interface, with ```greet( name )``` method annotated with FIXME;
-- Package a WAR file, named dojo-jaxrs.war;
+- Improve the **GreeterInterface** interface, with the new declaration for the ```greet( name )``` method, annotated with WebMethod as "greet" and WebResult as "response";
+- Improve the **Greeter** class, which implements the above interface, with ```greet( name )``` method;
+- Package a WAR file, named dojo-jaxws.war;
 - Deploy the WAR file on a Java Application Server, for example: on a GlassFish domain, with portbase 10000;
-- Verify the WSDL file at http://localhost:100080/dojo-jaxrs/Greet?wsdl.
+- Verify the WSDL file at http://localhost:100080/dojo-jaxws/GreeterService?wsdl.
 
 **Note**: a WebService can provide several methods, which should be related in some easily understandable way.
 
 ## 2.3. Checksum
 
-Deliver a WAR file, with a new **ChecksumService** class which defines a new method that answers requests with an algorithm between ```<algorithm>``` tag and a list of several text values between ```<values>``` tag, which contains n elements of ```<text>``` tags. This method, ```checksum( algorithm, values )```, returns the a response in a format similar to the request but where each ```<text>``` tag as a new attribute "checksum" with the result of computing the checksum in the given algorithm over each of the text values.
+Deliver a WAR file, with a new **Checksumer** class which defines new methods that answers requests with an algorithm between ```<algorithm>``` tag and a text value between ```<text>``` tag. This method, ```checksum( algorithm, text )```, returns the response as a string.
 
-- Code a new **ChecksumServiceRequest** and **ChecksumServiceResponse**, using JAXB annotations to represent the data in the request body and in the response body, respectively;
-- Code a new **ChecksumServiceInterface** interface, annotated with FIXME and that declares the method ```checksum()```;
-- Code a new **ChecksumService** class, which implements the above interface, with ```checksum()``` method annotated with FIXME;
-- Package a WAR file, named dojo-jaxrs.war;
+- Code a new **ChecksumerInterface** interface, annotated with WebService, SOAPBinding and that declares the methods:
+  - ```calculateCRC32( text )```, annotated with WebMethod as "crc32" and WebResult as "response";
+  - ```calculateHash( algorithm, text )```, annotated with WebMethod as "hash" and WebResult as "response";
+- Code a new **Checksumer** class, which implements the above interface;
+- Package a WAR file, named dojo-jaxws.war;
 - Deploy the WAR file on a Java Application Server, for example: on a GlassFish domain, with portbase 10000;
-- Verify the WSDL file at http://localhost:100080/dojo-jaxrs/ChecksumService?wsdl.
+- Verify the WSDL file at http://localhost:100080/dojo-jaxws/ChecksumerService?wsdl.
 
-**Note**: optionally, add another method named ```listAlgorithms()``` annotated with FIXME, that outputs the list of HashAlgorithms available in XML format.
+**Note**: optionally, add another method named ```listAlgorithms()``` annotated with annotated with WebMethod as "list" and WebResult as "response", that outputs the list of HashAlgorithms available, serialized as a string.
+
+## 2.4. Checksum Multiple Algorithm
+
+Deliver a WAR file, with an improved **Checksumer** class which defines a new method that answers requests a text value between ```<text>``` tag. This method, ```calculateHashes( text )```, returns the response in an XML format.
+
+- Code a new **MultipleAlgorithmsResponse** class, using JAXB annotations to represent the data in the response body;
+- Improve the **ChecksumerInterface** interface, by declaring the new method ```calculateHashes( text )``` annotated with WebMethod as "hashes" and WebResult as "response";
+- Improve the **Checksumer** class, which implements the above interface;
+- Package a WAR file, named dojo-jaxws.war;
+- Deploy the WAR file on a Java Application Server, for example: on a GlassFish domain, with portbase 10000;
+- Verify the WSDL file at http://localhost:100080/dojo-jaxws/ChecksumerService?wsdl.
+
+The response XML, roughly, should be something like this:
+
+```xml
+<response>
+  <list>
+    <value>...</value>
+  </list>>
+</response>
+```
+
+## 2.5. Checksum Multiple Values
+
+Deliver a WAR file, with an improved **Checksumer** class which defines a new method that answers requests which define an algorithm between ```<algorithm>``` tag a a list of text values between ```<list>``` tag, where each element of this list is a value defined between ```<text>``` tag. This method, ```processMultiple( request )```, returns the response in an XML format.
+
+- Code new **MultipleValuesRequest** and **MultipleValuesResponse** classes, using JAXB annotations to represent the data in the request body and in the response body, respectively;
+- Improve the **ChecksumerInterface** interface, by declaring the new method ```processMultiple( request )``` annotated with WebMethod as "hashes" and WebResult as "response";
+- Improve the **Checksumer** class, which implements the above interface;
+- Package a WAR file, named dojo-jaxws.war;
+- Deploy the WAR file on a Java Application Server, for example: on a GlassFish domain, with portbase 10000;
+- Verify the WSDL file at http://localhost:100080/dojo-jaxws/ChecksumerService?wsdl.
+
+The request XML, roughly, should be something like this:
+
+```xml
+<request>
+  <algorithm>...</algorithm>
+  <list>
+    <text>...</text>
+  </list>>
+</request>
+```
+
+The response XML, roughly, should be something like this:
+
+```xml
+<response>
+  <algorithm>...</algorithm>
+  <list>
+    <item>
+      <text>...</text>
+      <hash>...</hash>
+    </item>
+  </list>>
+</response>
+```
 
 # 3. TDD - Test-Driven Development
 
