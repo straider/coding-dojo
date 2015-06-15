@@ -11,7 +11,7 @@
 
 ## 1.1. Goal & Objetives
 
-The objective of this dojo is to give an introduction to JAX-RS API through several small and simples coding exercises.
+The objective of this dojo is to give an introduction to JAX-RS API through several small and simple coding exercises.
 
 The goal on each milestone is to access a fully defined [WADL](https://jersey.java.net/documentation/latest/wadl.html). The content type can just be plain text but, optionally, it can also be XML or JSON. The deliverables on each milestone must include an **ApplicationWrapper** class that inherits from [Application](https://jax-rs-spec.java.net/nonav/2.0/apidocs/javax/ws/rs/core/Application.html) class.
 
