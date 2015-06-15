@@ -1,7 +1,7 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
-<project name = "ms6-package_war" default = "package-war" basedir = "." xmlns:if = "ant:if">
+<project name = "ms6-package_war" default = "package" basedir = "." xmlns:if = "ant:if">
 
-  <description>Milestone 5 - Java Project, application WAR.</description>
+  <description>Milestone 6 - Java Project, application WAR.</description>
 
   <property file = "build.properties" />
 
@@ -53,7 +53,7 @@
     <format property = "build-time" pattern = "yyyy-MM-dd HH:mm:ss" />
   </tstamp>
 
-  <target name = "package-war" depends = "build" description = "Creates the WAR archive for distribution.">
+  <target name = "package" depends = "build" description = "Creates the WAR archive for distribution.">
     <war destfile = "${distribution_folder}/${application_file}.war" needxmlfile = "false">
       <classes dir = "${sources_folder}" if:set = "include_sources">
         <include name = "**/*.java" />
