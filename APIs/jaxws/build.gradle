@@ -1,0 +1,64 @@
+// XPTS419 - 2015.06.12: Prepare a FileTree with JRE 6 JARs.
+// XPTS419 - 2015.06.12: The target version of the code must be Java 6, and not Java 7 or later.
+def legacyJRE = legacy_jre
+def files     = []
+def tree      = fileTree( dir: legacyJRE , include: '**/*.jar' )
+tree.each { File file ->
+  files << file
+}
+def legacyBootClasspath = files.join( ';' )
+
+apply plugin: 'base'
+apply plugin: 'java'
+apply plugin: 'war'
+
+sourceSets {
+  main {
+    java {
+      srcDir sources_folder
+    }
+    resources {
+      srcDir resources_folder
+    }
+  }
+}
+
+clean {
+  delete distribution_folder
+}
+
+sourceCompatibility = source_version
+targetCompatibility = target_version
+
+dependencies {
+  providedCompile fileTree( dir: vendors_folder + '/javax/jaxrs', include: '*.jar' )
+}
+
+compileJava {
+  classpath            = configurations.compile
+  options.compilerArgs = [ '-Xlint:unchecked' ]
+  options.encoding     = 'UTF-8'
+  options.incremental  = true
+  options.fork         = true
+
+  if ( sourceCompatibility == '1.6' ) {
+    options.bootClasspath = legacyBootClasspath
+  }
+}
+
+war {
+  archiveName    = application_file + '.' + extension
+  destinationDir = file( distribution_folder )
+  manifest {
+    attributes ( 'Implementation-Title'    : application_name                     ,
+                 'Implementation-Version'  : application_version                  ,
+                 'Implementation-Vendor'   : application_vendor                   ,
+                 'Implementation-Timestamp': new Date()                           ,
+                 'Built-Date'              : new Date()                           ,
+                 'Built-JDK'               : System.getProperty( 'java.version' ) ,
+                 'Built-By'                : System.getProperty( 'user.name'    ) )
+  }
+}
+
+task( 'package', description: 'Packages all artifacts.', dependsOn: war ) << {
+}

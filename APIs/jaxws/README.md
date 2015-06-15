@@ -11,11 +11,11 @@
 
 > SOAP was designed as an object-access protocol in 1998 by Dave Winer, Don Box, Bob Atkinson, and Mohsen Al-Ghosein for Microsoft, where Atkinson and Al-Ghosein were working at the time. The [SOAP specification](http://www.w3.org/TR/soap/) is currently maintained by the XML Protocol Working Group of the World Wide Web Consortium.
 
-[Metro](https://metro.java.net/) is the reference implementation and the API is specified at [https://jax-ws.java.net/).
+[Metro](https://metro.java.net/) is the reference implementation and the API is specified at [JAX-WS Specification](https://jax-ws.java.net/).
 
 > **JAXB** or _Java Architecture for XML Binding_ allows Java developers to map Java classes to XML representations. JAXB provides two main features: the ability to marshal Java objects into XML and the inverse, i.e. to unmarshal XML back into Java objects. In other words, JAXB allows storing and retrieving data in memory in any XML format, without the need to implement a specific set of XML loading and saving routines for the program's class structure. JAXB is a part of the Java SE platform and one of the APIs in the Java EE platform, and is part of the Java Web Services Development Pack (JWSDP).
 
-[Metro](https://metro.java.net/) is the reference implementation and the API is specified at [https://jaxb.java.net/).
+[Metro](https://metro.java.net/) is the reference implementation and the API is specified at [JAXB Specification](https://jaxb.java.net/).
 
 ## 1.1. Goal & Objetives
 
@@ -34,6 +34,8 @@ By the end of the dojo the programmer should be able to understand and use the f
 - JAXB:
   - [@XmlRootElement](http://docs.oracle.com/javaee/5/api/javax/xml/bind/annotation/XmlRootElement.html)
   - [@XmlElement](http://docs.oracle.com/javaee/5/api/javax/xml/bind/annotation/XmlElement.html)
+  - [@XmlElements](http://docs.oracle.com/javaee/5/api/javax/xml/bind/annotation/XmlElements.html)
+  - [@XmlElementWrapper](http://docs.oracle.com/javaee/5/api/javax/xml/bind/annotation/XmlElementWrapper.html)
   - [@XmlAttribute](http://docs.oracle.com/javaee/5/api/javax/xml/bind/annotation/XmlAttribute.html)
   - [@XmlAccessorType](http://docs.oracle.com/javaee/5/api/javax/xml/bind/annotation/XmlAccessorType.html)
   - [@XmlType](http://docs.oracle.com/javaee/5/api/javax/xml/bind/annotation/XmlType.html)
