@@ -1,0 +1,5 @@
+task greet( description : 'Outputs "Hello, World!" to the console.' ) << {
+  println "Hello, World!"
+}
+
+defaultTasks ':greet'

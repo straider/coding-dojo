@@ -1,0 +1,60 @@
+apply plugin: 'base'
+apply plugin: 'java'
+
+clean {
+  delete distribution_folder
+  delete fileTree( dir: reports_folder, include: '**/*' )
+}
+
+sourceSets {
+  main {
+    java {
+      srcDir sources_folder
+    }
+    resources {
+      srcDir resources_folder
+    }
+  }
+}
+
+task initialize( description : 'Creates working folders: build/ and distribution/.' ) << {
+  def build_directory = new File( build_folder )
+  build_directory.mkdirs()
+
+  def distribution_directory = new File( distribution_folder )
+  distribution_directory.mkdirs()
+}
+
+task legacyJRE( description : 'Collects JARs to set as bootstrap classes before compiling.' ) {
+  def files = []
+  def tree  = fileTree( dir: legacy_jre , include: '**/*.jar' )
+  tree.each { File file ->
+    files << file
+  }
+
+  ext.bootClasspath = files.join( ';' )
+}
+
+task compile( description : 'Prepares bootstrap classes and builds *.class files.', dependsOn : ':compileJava' ) << {
+}
+
+sourceCompatibility = source_version
+targetCompatibility = target_version
+
+dependencies {
+  compile fileTree( dir: vendors_folder, include: '**/*.jar' )
+}
+
+compileJava {
+  classpath            = configurations.compile
+  options.compilerArgs = [ '-Xlint:unchecked' ]
+  options.encoding     = 'UTF-8'
+  options.incremental  = true
+  options.fork         = true
+
+  if ( sourceCompatibility == '1.6' ) {
+    options.bootClasspath = legacyJRE.bootClasspath
+  }
+}
+
+defaultTasks ':compile'

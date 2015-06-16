@@ -1,0 +1,79 @@
+apply plugin: 'base'
+apply plugin: 'java'
+apply plugin: 'war'
+
+clean {
+  delete distribution_folder
+  delete fileTree( dir: reports_folder, include: '**/*' )
+}
+
+sourceSets {
+  main {
+    java {
+      srcDir sources_folder
+    }
+    resources {
+      srcDir resources_folder
+    }
+  }
+}
+
+task initialize( description : 'Creates working folders: build/ and distribution/.' ) << {
+  def build_directory = new File( build_folder )
+  build_directory.mkdirs()
+
+  def distribution_directory = new File( distribution_folder )
+  distribution_directory.mkdirs()
+}
+
+task legacyJRE( description : 'Collects JARs to set as bootstrap classes before compiling.' ) {
+  def files = []
+  def tree  = fileTree( dir: legacy_jre , include: '**/*.jar' )
+  tree.each { File file ->
+    files << file
+  }
+
+  ext.bootClasspath = files.join( ';' )
+}
+
+task compile( description : 'Prepares bootstrap classes and builds *.class files.', dependsOn : ':compileJava' ) << {
+}
+
+sourceCompatibility = source_version
+targetCompatibility = target_version
+
+dependencies {
+  providedCompile fileTree( dir: vendors_folder, include: '**/*.jar' )
+}
+
+compileJava {
+  classpath            = configurations.compile
+  options.compilerArgs = [ '-Xlint:unchecked' ]
+  options.encoding     = 'UTF-8'
+  options.incremental  = true
+  options.fork         = true
+
+  if ( sourceCompatibility == '1.6' ) {
+    options.bootClasspath = legacyJRE.bootClasspath
+  }
+}
+
+war {
+  archiveName = application_file + '.' + extension
+  manifest {
+    attributes ( 'Implementation-Title'    : application_name                     ,
+                 'Implementation-Version'  : application_version                  ,
+                 'Implementation-Vendor'   : application_vendor                   ,
+                 'Implementation-Timestamp': new Date()                           ,
+                 'Built-Date'              : new Date()                           ,
+                 'Built-JDK'               : System.getProperty( 'java.version' ) ,
+                 'Built-By'                : System.getProperty( 'user.name'    ) )
+  }
+}
+
+task distribute( description : 'Creates a final JAR file for distribution.', dependsOn : [ ':compile', ':war' ], type : Copy ) {
+  from build_folder + '/libs/'
+  into distribution_folder
+}
+
+defaultTasks ':distribute'
