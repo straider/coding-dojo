@@ -3,6 +3,8 @@ coding-dojo / Builders / Ant
 
 Dojo to learn and explore Apache Ant, the most common and used Java Builder Tool.
 
+----
+
 # 1. Introduction
 
 > [Ant](http://en.wikipedia.org/wiki/Apache_Ant) is a software tool for automating software build processes. It originally came from the Apache Tomcat project in early 2000. It was a replacement for the unix **make** build tool, and was created due to a number of problems with the unix make. It is similar to Make but is implemented using the Java language, requires the Java platform, and is best suited to building Java projects. The most immediately noticeable difference between Ant and Make is that Ant uses XML to describe the build process and its dependencies, whereas Make uses Makefile format.
@@ -50,6 +52,8 @@ This dojo is suitable to any programmer that wants to learn how to work with Ant
 
 **Note**: Other build tools, such as Maven, Gradle or BuildR, use more concise scripts at the expense of generality and flexibility.
 
+----
+
 # 2. Installation
 
 > Ant requires a Java JDK or JRE to be installed, version 1.4 or higher.
@@ -70,6 +74,8 @@ This dojo is suitable to any programmer that wants to learn how to work with Ant
 build -Ddist.dir=/DevKits/Java/ant-1.9.5/ dist
 build install
 ```
+
+----
 
 # 3. Milestones
 
@@ -92,39 +98,38 @@ Each milestone should improve the content of the buildfiles - **build.xml** e **
 
 ## 3.2. HelloWorld Project
 
-- build.xml, without build.properties, with one target: **greet**;
+- A build.xml, without build.properties, with one target: **greet**;
 - It outputs the message "Hello, World!" to the console by using ```<echo>``` task.
 
 **Note**: an Ant project is made up of targets that are in turn made up of tasks.
 
 ## 3.3. Java Project, build
 
-- build.xml with several _targets_, that should depend on variables set on build.properties:
+- A build.xml with several targets, that should depend on variables set on build.properties:
   - **clean**: use ```delete``` task to delete working folder and temporary files ( build/, distribution/ and reports/**/* );
   - **init**: use ```mkdir``` task to create working folders ( build/, distribution/ and reports/ );
-  - **build**: use ```javac``` task to build the .class files, one for each .java file that exists inside sources/ folder.
+  - **build**: use ```javac``` task to build the .class files, one for each .java file that exists inside sources/ folder.<br />This target depends on init target.
 
 **Note**: properties in Ant are **immutable**.
 
 ## 3.4. Java Project, library JAR
 
-- build.xml with a new target: **package-jar**;
+- A build.xml with targets from milestone 3 and a new target: **package**, that depends on the **build** target;
 - This new target uses ```<jar>``` task to build the final JAR file, with a complete MANIFEST.INF:
-  - Implementation-Title: Dojo Builders - Ant
+  - Implementation-Title: Dojo Java Builders - Ant
   - Implementation-Version: 1.0.0
   - Implementation-Vendor: DoWeDo-IT
   - Implementation-Timestamp: current date and time;
   - Built-Date: current date and time;
   - Built-By: username.
-- This new target depends on the target **build**.
 
-**Note**: a target may depend on another target, which means that the deliverables of a target may depend on deliverables of a previous target.
+**Note**: a target may depend on another target, which means that the deliverables of a target will depend on deliverables of a previous target.
 
 ## 3.5. Java Project, runnable JAR
 
-- build.xml with new targets:
-  - **package-run**: uses ```<jar>``` task to build a final JAR file. To make it  runnable the JAR manifest file must state which is the main class and what are the libraries that it depends on runtime - which are located in distribution/libraries/ folder:  
-      - Implementation-Title: Dojo Builders - Ant
+- A build.xml with targets from milestone 3 and these new targets:
+  - **package**: uses ```<jar>``` task to build a final JAR file. To make it  runnable the JAR manifest file must state which is the main class and what are the libraries that it depends on runtime - which are located in distribution/libraries/ folder:  
+      - Implementation-Title: Dojo Java Builders - Ant
       - Implementation-Version: 1.0.0
       - Implementation-Vendor: DoWeDo-IT
       - Implementation-Timestamp: current date and time;
@@ -132,15 +137,22 @@ Each milestone should improve the content of the buildfiles - **build.xml** e **
       - Built-By: username.
       - Main-Class: fully qualified class name, with its package name, of the main class ( the one that defines the ```main()``` method );
       - Class-Path: list of 3rd party libraries, separated by whitespace, that are required ar runtime.
-  - **launch**: uses ```<java>``` task to execute the main class ( without or with arguments ).
+  - **launch**: uses ```<java>``` task to execute the main class ( without or with arguments ) and it depends on target **package**.
 
 **Note**: although it's possible to set different values for the execution arguments it's not possible to pass arguments to the main class through the command-line, because each argument on the command-line is seen by Ant as a target to execute.
 
 ## 3.6. Java Project, application WAR
 
-- deal with MANIFEST.INF
-- deal with WEB-INF/ folders
-- deal with META-INF/ folders
+- A build.xml with targets from milestone 3 and a new target: **package**, that depends on the **build** target;
+- This new target uses ```<war>``` task to build the final WAR file, with a complete MANIFEST.INF:
+  - Implementation-Title: Dojo Java Builders - Ant
+  - Implementation-Version: 1.0.0
+  - Implementation-Vendor: DoWeDo-IT
+  - Implementation-Timestamp: current date and time;
+  - Built-Date: current date and time;
+  - Built-By: username.
+
+**Note**: the ```<war>``` usually includes resources, such as web.xml, from resources/ folder, into the WEB-INF/ folder in the WAR file. More complex WAR files will also require other resources put into WEB-INF/lib/ or WEB-INF/classes/META-INF/ folders.
 
 ## 3.7. Java Project, application EAR
 
