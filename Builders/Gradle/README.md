@@ -25,7 +25,7 @@ Each milestone already has the necessary source files with Java classes and ther
 
 ## 1.2. Audience
 
-This dojo is suitable to any programmer that wants to learn how to work with Ant in order to build Java projects.
+This dojo is suitable to any programmer that wants to learn how to work with Gradle in order to build Java projects.
 
 ## 1.3. History
 
@@ -55,6 +55,12 @@ This dojo is suitable to any programmer that wants to learn how to work with Ant
 # 2. Installation
 
 > Gradle requires a Java JDK or JRE to be installed, version 6 or higher. Gradle ships with its own Groovy library, therefore Groovy does not need to be installed. Any existing Groovy installation is ignored by Gradle.
+
+To verify that the installation is successfully issue the following command:
+
+```bash
+gradle --version
+```
 
 ## 2.1. Binaries
 
@@ -91,7 +97,7 @@ It's possible to install Gradle, in Linux / MacOS or Windows, with **Groovy enVi
 
 # 3. Milestones
 
-Each milestone should improve the content of the buildfiles - **build.xml** e **build.properties** - upon the content of the previous one. This means that's wise to copy the buildfiles of the previous milestone into the current milestone and just do some minor editions to the content, instead of having to type everything all over again.
+Each milestone should improve the content of the buildfiles - **build.gradle**, **gradle.properties** and **settings.gradle** - upon the content of the previous one. This means that's wise to copy the buildfiles of the previous milestone into the current milestone and just do some minor editions to the content, instead of having to type everything all over again.
 
 **Note** the folder structure, of each milestone, is:
 
@@ -102,10 +108,6 @@ Each milestone should improve the content of the buildfiles - **build.xml** e **
 - **build/**: working folder, with the temporary *.class files that are the outcome of the build stage;
 - **distribution/**: working folder, with the final files for distribution that are the result of the package stage.
 
-**Note**: Gradle key concepts are **projects** and **tasks**:
-- Every Gradle build is made up of one or more projects;
-- Each project is made up of one or more tasks.<br />A task represents some atomic piece of work which a build performs. 
-
 Gradle, by convention, assumes specific folder paths for its sourceSets:
 - sources should be under src/main/java/;
 - resources should be under src/main/resources/;
@@ -113,6 +115,10 @@ Gradle, by convention, assumes specific folder paths for its sourceSets:
 - distribution will be at build/libs/.
 
 These default folder paths must be overridden to match this dojo folder structure ( and it's a good test on how hard it can be to not follow a convention ).
+
+**Note**: Gradle key concepts are **projects** and **tasks**:
+- Every Gradle build is made up of one or more projects;
+- Each project is made up of one or more tasks.<br />A task represents some atomic piece of work which a build performs. 
 
 ## 3.1. Empty Project
 
@@ -217,5 +223,6 @@ By default, Gradle without any plugins offers the following tasks:
 ## 3.8. Java Project, with Sub-Projects
 
 - declare sub-projects in settings.gradle
+- declare sub-project dependencies among each other
 - declare common configuration for all sub-projects
-- how to declare common configuration for a subset of sub-projects?
+- declare specific configuration for a subset of sub-projects
