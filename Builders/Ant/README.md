@@ -58,6 +58,12 @@ This dojo is suitable to any programmer that wants to learn how to work with Ant
 
 > Ant requires a Java JDK or JRE to be installed, version 1.4 or higher.
 
+To verify that the installation is successfully issue the following command:
+
+```bash
+ant -version
+```
+
 ## 2.1. Binaries
 
 - Download latest stable version from [official site](http://ant.apache.org/bindownload.cgi);
@@ -79,7 +85,7 @@ build install
 
 # 3. Milestones
 
-Each milestone should improve the content of the buildfiles - **build.xml** e **build.properties** - upon the content of the previous one. This means that's wise to copy the buildfiles of the previous milestone into the current milestone and just do some minor editions to the content, instead of having to type everything all over again.
+Each milestone should improve the content of the buildfiles - **build.xml** and **build.properties** - upon the content of the previous one. This means that's wise to copy the buildfiles of the previous milestone into the current milestone and just do some minor editions to the content, instead of having to type everything all over again.
 
 **Note** the folder structure, of each milestone, is:
 
