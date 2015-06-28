@@ -39,6 +39,14 @@ Go 1 was released on March 28, 2012.
 - Go aims to be fast to compile and fast to execute;
 - Go also strives to be modern, with support for networked and multi-core computing.
 
+> Go is designed to scale efficiently so that it can be used to build very big applications and to compile even a large program in mere seconds on a single computer. The lightning-fast compilation speed is made possible to a small extent because the language is easy to parse, but mostly because of its dependency management. Since Go programs are so fast to build, it is practical to use them in situations where scripting languages are normally used.
+
+> Go uses a very clean and easy-to-understand syntax that avoids the complexity
+and verbosity of older languages. And Go is a strongly statically typed language, something which many programmers regard as essential for writing large programs. Yet Go's typing is not burdensome due to Go's short _declare and initialize_ variable declaration syntax ( with type inference ) and because Go also supports a powerful and convenient version of duck typing.
+
+> Arguably, C++, Objective-C, and Java have all attempted to be better Cs ( the
+latter indirectly as a better C++ ). Go can also be seen as an attempt to be a better C, even though Go's clean, light syntax is reminiscent of Python and Go's slices and maps are very similar to Python's lists and dicts. However, Go is closer in spirit to C than to any other language, and can be seen as an attempt to avoid C's drawbacks while providing all that's best in C, as well as adding many powerful and useful features that are unique to Go.
+
 ## 1.5. Features
 
 - Compiled, instead of interpreted or byte-coded for a virtual machine;
@@ -51,29 +59,22 @@ Go 1 was released on March 28, 2012.
 - Garbage Collector;
 - Easy concurrency, with Channels and GoRoutines;
 - Support for UTF-8;
-- Built-in support for ~~rational numbers,~~ complex numbers and arbitrary-precision arithmetic;
+- Built-in support for rational numbers, complex numbers and arbitrary-precision arithmetic;
 - Embedding code in strings ( interpolation );
 - Literal notation for arrays, hashes, regular expressions ~~and symbols~~;
-
-FIXME
-
-----
-
 - Lexical closures, iterators ~~and generators, with a unique block syntax~~;
 - Methods can have arguments with default values and a variable number of arguments;
-- ~~Thoroughly~~ object-oriented with inheritance, ~~mixins~~ and metaclasses;
-- Four levels of variable scope ( global, class, instance, and local )~~, denoted by _sigils_ ( $, @ ) or the lack thereof~~;
+- Object-oriented with composition and duck typing, through interfaces, without mixins and without introspection and reflection;
+- Two levels of variable scope, either global or local;
 - ~~Dynamic reflection and alteration of objects to facilitate metaprogramming~~;
 - ~~First-class continuations~~;
-- Operator overloading;
+- ~~Operator overloading~~;
 - Exception handling;
 - ~~Custom dispatch behavior ( through method_missing and const_missing )~~;
 - Native plug-in API in C;
 - ~~Centralized package management through RubyGems~~;
 - Large standard library, including modules for YAML, JSON, XML, CGI, OpenSSL, HTTP, FTP, RSS, curses, zlib, and Tk;
 - **Open Source**.
-
-FIXME
 
 ----
 

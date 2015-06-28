@@ -40,6 +40,25 @@ switch any expression of type T {
 }
 ```
 
+```c
+switch x.( type ) {
+  case bool :
+    fmt.Printf( "param #%d is a bool\n", i )
+  case float64, float32 :
+    fmt.Printf( "param #%d is a float\n", i )
+  case int, int8, int16, int32, int64:
+    fmt.Printf( "param #%d is an int\n", i )
+  case uint, uint8, uint16, uint32, uint64 :
+    fmt.Printf( "param #%d is an unsigned int\n", i )
+  case nil:
+    fmt.Printf( "param #%d is nil\n", i )
+  case string:
+    fmt.Printf( "param #%d is a string\n", i )
+  default:
+    fmt.Printf( "param #%d's type is unknown\n", i )
+}
+```
+
 - The type of the evaluated value in the switch and the case must match;
 - If there is no expression at all in the switch, then by default it is bool. The block that evaluates to true is executed, and none of the others are executed;
 - If more than one case statements match, then the first in the lexical order is executed;
@@ -90,7 +109,7 @@ Label:
 
 There are no **while** or **until** statements in Go.
 
-## 6.5. Exceptions
+## 6.5. Exceptions / Errors
 
 ## 6.6. Goto
 

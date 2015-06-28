@@ -13,6 +13,8 @@ Quick Reference Guide
 - In addition there two alias types: byte which is the same as uint8 and rune which is the same as int32;
 - There are also 3 machine dependent integer types: uint, int and uintpt.
 
+The Go Standard Library offers two more types: big.Ints and big.Rats.
+
 There are literal prefixes:
 
 - without any prefix it means the number is in decimal notation;
@@ -94,7 +96,26 @@ imaginary parts ): complex64 and complex128.
 
 ### 4.1.3. Complex
 
+> Complex numbers can be created using the built-in ```complex()``` function or by using constant literals involving imaginary numbers. Complex numbers' components
+can be retrieved using the built-in ```real()``` and ```imag()``` functions, both of which return a float64 ( or a float32 for complex64s ).
+
+```c
+x := -7.3 - 8.9i
+y := complex64( -18.3 + 8.9i )
+z := complex( 3.2e5, 13.2 )
+```
+
 #### 4.1.3.1 Operators
+
+| Operator | Operation      |
+|:--------:|:---------------|
+| +        | Addition       |
+| -        | Subtraction    |
+| *        | Multiplication |
+| /        | Division       |
+
+> The only comparison operators that can be used with complex numbers
+are == and !=.
 
 ## 4.2. Strings
 

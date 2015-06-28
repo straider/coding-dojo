@@ -58,9 +58,10 @@ Identifiers are used to name variables, constants, types, functions and more.
 
 ## 2.4. Packages
 
-FIXME
-
-----
+> Go operates in terms of packages rather than files. This means that we can split
+a package across as many files as we like, and from Go's point of view if they all
+have the same package declaration, they are all part of the same package and
+no different than if all their contents were in a single file. Naturally, we can also break our applications' functionality into as many local packages as we like, to keep everything neatly modularized.
 
 - All Go files start with package [PACKAGE_NAME];
 - Declarations have an order in a file: package always first, then import, then everything else;
@@ -101,10 +102,6 @@ import (
 
 > The reason for having no warnings. If it's worth complaining about, it's worth fixing in the code. And if it's not worth fixing, it's not worth mentioning. Nowadays, most Go programmers use a tool, **goimports**, which automatically rewrites a Go source file to have the correct imports, eliminating the unused imports issue in practice.
 
-FIXME
-
-----
-
 ## 2.5. Console Input / Output
 
 To handle console input and output it's required to import a package, called **fmt**.
@@ -144,3 +141,6 @@ In the package os there's a special variable: ```var Args []string```
 Args holds the command-line arguments, starting with the program name. os.Args provides access to raw command-line arguments. Note that the first value in this slice is the path to the program, and ```os.Args[ 1 : ]``` holds the arguments to the program.
 
 ### 2.6. UTF-8 Encoding
+
+> In Go, an individual code point ( i.e., a character ) is represented by a **rune** in memory. Unicode text — whether in files or in memory — must be represented using an encoding. The Unicode standard defines various Unicode Transformation Formats ( encodings ), such as UTF-8, UTF-16,and UTF-32. Go uses the UTF-8 encoding for strings. UTF-8 is the most widely used encoding; it is also the defacto standard encoding for text files and the default encoding for XML and
+JSON files.

@@ -49,10 +49,16 @@ While calling a function, there are two ways that arguments can be passed to a f
 
 ## 7.5. Variadic Functions
 
-> By using ... before the type name of the last parameter you can indicate that it takes zero or more of those parameters. We invoke the function like any other function except we can pass as many values as we want.
+> There is a special form available for the last parameter in a Go function. They are known as Variadic functions and can be called with any number of trailing arguments. By using ... before the type name of the last parameter you can indicate that it takes zero or more of those parameters. We invoke the function like any other function except we can pass as many values as we want.
 
 ```c
-func FIXME( ...int ) ( FIXME ) { FIXME }
+func add( numbers ...int ) ( int ) {
+  total := 0
+  for _, number := range numbers { # Use blank identifier to discard index.
+    total += number
+  }
+  return total
+}
 ```
 
 ## 7.6. Return Values
