@@ -13,14 +13,30 @@ Dojo to learn and explore Maven, one of the Java Builder Tools.
 
 Maven key concepts are:
 - The pom.xml file - [Project Object Model](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) - is the core of a project's configuration in Maven. It is a single configuration file that contains the majority of information required to build a project in just the way you want. The POM is huge and can be daunting in its complexity, but it is not necessary to understand all of the intricacies just yet to use it effectively;
-- **Plugins**;
-- **Lifecycles**: are a list of [named phases](http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html) that can be used to give order to goal execution. The specific goal executed per phase is dependent upon the packaging type of the project. Maven defines 3 [lifecycles](http://maven.apache.org/ref/3.3.3//maven-core/lifecycles.html): **default**, **clean** and **site**. Goals provided by plugins can be associated with different phases of the lifecycle.
+- **Lifecycles**: are a list of [named phases](http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html) that can be used to give order to goal execution. The specific goal executed per phase is dependent upon the packaging type of the project. Maven defines 3 [lifecycles](http://maven.apache.org/ref/3.3.3//maven-core/lifecycles.html): **default**, **clean** and **site**. Goals provided by plugins can be associated with different phases of the lifecycle;
+- **Plugins**.
+
+> Maven is actually a plugin execution framework where every task is actually done by plugins. A plugin generally provides a set of goals and which can be executed using following syntax:
+
+```bash
+mvn [plugin-name]:[goal-name]
+```
 
 > Maven is a multi-platform tool. It runs on every operating system on which Java can be installed.
 
-> Using Maven, the user provides only configuration for the project, while the configurable plug-ins do the actual work of compiling the project, cleaning target directories, running unit tests, generating API documentation and so on. In general, users should not have to write plugins themselves. Contrast this with Ant and make, in which one writes imperative procedures for doing the aforementioned tasks.
+> Using Maven, the user provides only configuration for the project, while the configurable plug-ins do the actual work of compiling the project, cleaning target directories, running unit tests, generating API documentation and so on. In general, users should not have to write plugins themselves. Contrast this with Ant and Make, in which one writes imperative procedures for doing the aforementioned tasks.
 
 Neal Ford, Director, Software Architect, and Meme Wrangler at ThoughtWorks, has a post with the title [Why Everyone (Eventually) Hates (or Leaves) Maven](http://nealford.com/memeagora/2013/01/22/why_everyone_eventually_hates_maven.html) where he points out two sides of build tools: contextual, such as Maven, and composable, such as Rake or Gradle.
+
+> Maven is a project management and comprehension tool.
+
+> Maven provides developers a complete build lifecycle framework.
+
+> Development team can automate the project's build infrastructure in almost no time as Maven uses a standard directory layout and a default build lifecycle.
+
+> In case of multiple development teams environment, Maven can set-up the way to work as per standards in a very short time.
+
+> As most of the project setups are simple and reusable, Maven makes life of developer easy while creating reports, checks, build and testing automation setups.
 
 ## 1.1. Goals & Objectives
 
@@ -123,7 +139,8 @@ mvn archetype:generate -DgroupId=[PACKAGE_PATH] -DartifactId=[APPLICATION_ID] -D
 ## 3.1. Empty Project
 
 - An empty pom.xml that Maven can handle;
-- ~~It doesn't have any tasks, besides the default tasks~~.
+- Must be compliant with [schema 4.0.0](http://maven.apache.org/xsd/maven-4.0.0.xsd);
+- It doesn't include any plugins, therefor has no goals, besides the default ones.
 
 > The minimum requirement for a POM are the following:
 - **project root**;
@@ -132,96 +149,126 @@ mvn archetype:generate -DgroupId=[PACKAGE_PATH] -DartifactId=[APPLICATION_ID] -D
 - **artifactId**: the id of the artifact ( project )
 - **version**: the version of the artifact under the specified group.
 
-By default, Maven without any plugins offers the following ~~tasks~~:
+If not, then Maven complains with:
 
-- **init**: initializes a new Gradle build;
-- **wrapper**: generates Gradle wrapper files;
-- **tasks**: displays the tasks runnable from root project;
-- **projects**: displays the sub-projects of root project;
-- **components**: displays the components produced by root project.
+```bash
+[FATAL] Non-readable POM ...
+```
 
-**Note**: ~~this buildfile can actually be empty ( 0 bytes in size ) and Gradle copes with that, unlike Ant or Maven which require an empty XML content~~.
+By default, Maven without any plugins offers a complete set of phases and goals, which can be seen by the output of the following command:
+
+```bash
+mvn help:effective-pom
+```
 
 ## 3.2. HelloWorld Project
 
-- pom.xml, with one task: **greet**;
-- It outputs the message "Hello, World!" to the console by using ```~~println~~``` command.
+- pom.xml, with one goal, **greet**, for phase **greet**;
+- It outputs the message "Hello, World!" to the console by using ```~~echo~~``` command.
 
-**Note**: ~~a task can have pre and post code blocks. These are executed before and after the task code block executes, respectively~~.
+**Note**: this seems to be possible only by coding a new Maven Plugin!
 
 ## 3.3. Java Project, build
 
-- pom.xml with several ~~tasks, that should depend on variables set on maven.properties~~:
-  - **clean**: by default the folder build/ is removed by task clean but since we're using a custom distribution/ folder it's necessary to override clean task configuration to also remove distribution/ folder and resources/** files;
-  - ~~**initialize**: use ```mkdirs()``` method from Java **File** class to create working folders ( build/, distribution/ and reports/ )~~;
-  - **compile**: depends on ```classes``` task and must override ```~~compileJava~~``` task to build the .class files, one for each .java file encoded in UTF-8 mode that exists inside sources/ folder ( among other specific options for javac ).
+- pom.xml with several improved goals~~, that should depend on variables set on maven.properties~~:
+  - **clean**: by default the folder build/ is removed by task clean but since we're using a custom distribution/ folder it's necessary to override the clean goal of clean phase to also remove distribution/ folder and resources/** files;
+  - ~~**initialize**: should working folders ( build/, distribution/ and reports/ ) be created before hand~~?
+  - **compile**: override compile goal of lifecycle build to set sources encoded in UTF-8 mode in sources/ folder ( among other specific options for javac ), instead of the usual folder src/ ( by convention ).
 
-**Note**: include plugins base and java. These plugins will include new tasks:
+**Note**: it's necessary to change configuration of [**maven-compiler-plugin**](http://maven.apache.org/plugins/maven-compiler-plugin/). Although there is a [**properties-maven-plugin**](http://www.mojohaus.org/properties-maven-plugin/) it's not fully working.
 
-- base:
-  - **assemble**: assembles the outputs of this project;
-  - **build**: assembles and tests this project;
-  - **clean**: deletes the build directory;
-  - **check**: runs all checks.
-- java
-  - **javadoc**: generates Javadoc API documentation for the main source code;
-  - **jar**: assembles a jar archive containing the main classes;
-  - **test**: runs the unit tests;
+**Questions**:
+
+- how to keep the plugin up-to-date?
+- how to properly set bootclasspath? Is it really necessary, in Maven?
 
 ## 3.4. Java Project, library JAR
 
-- pom.xml based on milestone 3 with a new task - **distribute** - that inherits from ```Copy``` task;
-- This new task depends on the task **compile**;
-- This new task also depends on ```jar``` task ( already provided by plugin **java** ), which must be _overridden_ to build the final JAR file, with a complete MANIFEST.INF:
-  - Implementation-Title: Dojo Java Builders - Gradle
+- pom.xml based on milestone 3 with an improved **package** goal, which must be reconfigured to build the final JAR file, with a complete MANIFEST.INF:
+  - Implementation-Title: Dojo Java Builders - Maven
   - Implementation-Version: 1.0.0
   - Implementation-Vendor: DoWeDo-IT
   - Implementation-Timestamp: current date and time;
   - Built-Date: current date and time;
   - Built-By: username.
+- The final JAR file must be copied to distribute/ folder. To do this it's necessary to include plugin [**maven-dependency-plugin**](http://maven.apache.org/plugins/maven-dependency-plugin/) and configure an execution of **copy** goal to copy the artifact JAR from its usual location to distribution/ folder and rename it.
 
-**Note**: a task may depend on another task, which means that the deliverables of a task will depend on deliverables of a previous task.
+**Note**: it's necessary to change the configuration of [**maven-jar-plugin**](http://maven.apache.org/plugins/maven-jar-plugin/). This plugin already [knows plenty](http://maven.apache.org/shared/maven-archiver/index.html) on how to add content to a MANIFEST.INF file:
+
+- addDefaultImplementationEntries;
+- mainClass;
+- addClasspath;
+- manifestEntries, a list of key-value pairs.
+
+It also adds an INDEX.LIST file and a maven/ folder to the META_INF/ folder of the JAR.
+
+To calculate build-time it is necessary to add a property:
+
+```xml
+...
+  <properties>
+    ...
+    <build-time>${maven.build.timestamp}</build-time>
+    <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>    
+  </properties>
+...
+```
+
+**Questions**:
+
+- how to include source files in the final JAR?
+
+There is a plugin that also creates a JAR file with the sources, in the validate phase. This plugin is [maven-source-plugin](http://maven.apache.org/plugins/maven-source-plugin/) and it adds the following goals:
+
+- **source:aggregate**: aggregates sources for all modules in an aggregator project;
+- **source:jar**: is used to bundle the main sources of the project into a jar archive;
+- **source:test-jar**: is used to bundle the test sources of the project into a jar archive;
+- **source:jar-no-fork**: is similar to jar but does not fork the build lifecycle;
+- **source:test-jar-no-fork**: is similar to test-jar but does not fork the build lifecycle.
 
 ## 3.5. Java Project, runnable JAR
 
-- pom.xml based on milestone 3 with new tasks:
-  - **distribute**: similar to task of same name in milestone 4.<br />To make it runnable the JAR manifest file must state which is the main class and what are the libraries that it depends on runtime - which are located in distribution/libraries/ folder:  
-      - Implementation-Title: Dojo Java Builders - Gradle
+- pom.xml based on milestone 4 with improved goals:
+  - **package** that creates a MANIFEST.INF file that states which is the main class and what are the libraries that it depends on runtime - located in distribution/libraries/ folder:  
+      - Implementation-Title: Dojo Java Builders - Maven
       - Implementation-Version: 1.0.0
       - Implementation-Vendor: DoWeDo-IT
       - Implementation-Timestamp: current date and time;
       - Built-Date: current date and time;
       - Built-By: username.
       - Main-Class: fully qualified class name, with its package name, of the main class ( the one that defines the ```main()``` method );
-      - Class-Path: list of 3rd party libraries, separated by whitespace, that are required ar runtime.
-  - **launch**: inherits from ```JavaExec``` task to execute the main class ( without or with arguments ) and it depends on target **distribute**.
+      - Class-Path: list of 3rd party libraries, separated by whitespace, that are required at runtime.
+  - **exec** that executes the code of main method in the main class, from the distribution/ folder. To do this it's necessary to configure an execution of the **exec** goal provided by the [**exec-maven-plugin**](http://www.mojohaus.org/exec-maven-plugin/), associating it to phase **install**.
 
-**Note**: there are other plugins that can be included to help out in executing a JAR file. These plugins, distribution and application, will include new tasks:
+**Note**: although it's possible to set different values for the execution arguments it's not possible to pass arguments to the main class through the command-line, because each argument on the command-line is seen by Maven as a phase or phase:goal to execute.
 
-- distribution:
-  - **assembleMainDist**: assembles the main distributions, by bundling the project in a tarball and in a ZIP file in the build/distributions/ folder;
-  - **installDist**: installs the project as a distribution as-is, with OS specific scripts to launch the application, at the build/install/ folder.
-- application
-  - **installApp**: installs the project as a JVM application along with libs and OS specific scripts, at the build/install/ folder;
-  - **run**: runs this project as a JVM application.
+**Questions**:
 
-**Note**: although it's possible to set different values for the execution arguments it's not possible to pass arguments to the main class through the command-line, because each argument on the command-line is seen by Ant as a target to execute.
+- how to copy runtime dependency libraries to distribution/ folder?
+- how to execute with different arguments?
 
 ## 3.6. Java Project, application WAR
 
-- pom.xml based on milestone 3 with a new task - **distribute** - that inherits from ```Copy```;
-- This new task depends on the task **compile**.
-- This new task also depends on ```war``` task to build the final WAR file, with a complete MANIFEST.INF:
-  - Implementation-Title: Dojo Java Builders - Gradle
+- pom.xml similar to milestone 4, but with a packaging type of WAR instead of JAR and with an improved **package** goal, which must be reconfigured to build the final WAR file;
+- Add tag failOnMissingWebXml to disable inclusion of web.xml;
+- The final WAR file must be copied to distribute/ folder.
+
+**Note**: it's necessary to change the configuration of [**maven-war-plugin**](http://maven.apache.org/plugins/maven-war-plugin/). This plugin already [knows plenty](http://maven.apache.org/shared/maven-archiver/index.html) on how to add content to a MANIFEST.INF file:
+  - Implementation-Title: Dojo Java Builders - Maven
   - Implementation-Version: 1.0.0
   - Implementation-Vendor: DoWeDo-IT
   - Implementation-Timestamp: current date and time;
   - Built-Date: current date and time;
   - Built-By: username.
 
-**Note**: include plugin war that will include a new task: **war**. This new task generates a war archive with all the compiled classes, the web-app content and the libraries.
+**Note**: the **war** goal usually includes resources, such as web.xml, from resources/ folder, into the WEB-INF/ folder in the WAR file. More complex WAR files will also require other resources put into WEB-INF/lib/ or WEB-INF/classes/META-INF/ folders.
 
-**Note**: the ```war``` usually includes resources, such as web.xml, from resources/ folder, into the WEB-INF/ folder in the WAR file. More complex WAR files will also require other resources put into WEB-INF/lib/ or WEB-INF/classes/META-INF/ folders.
+If the inclusion of web.xml is not disabled then Maven ends with the following error:
+
+```
+Error assembling WAR: webxml attribute is required
+(or pre-existing WEB-INF/web.xml if executing in update mode)
+```
 
 ## 3.7. Java Project, application EAR
 
