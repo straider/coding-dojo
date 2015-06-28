@@ -17,8 +17,9 @@ The language is a successor of ABC, which was inspired by SETL and also builds o
 
 ## 1.2. Recent History
 
-- Python 2.0 was released on 16 October 2000, and included many major new features including a full garbage collector and support for Unicode. With this release the development process was changed and became more transparent and community-backed;
-- Python 3.0 ( also called Python 3000 or py3k ), a major, backwards-incompatible release, was released on 3 December 2008 after a long period of testing. Many of its major features have been backported to the backwards-compatible Python 2.6 and 2.7.
+- Python 3.0 ( also called Python 3000 or py3k ), a major, backwards-incompatible release, was released on December 03rd, 2008 after a long period of testing. Many of its major features have been back-ported to the backwards-compatible Python 2.6 and 2.7. The guiding principle of Python 3 was: _reduce feature duplication by removing old ways of doing things_;
+- Python 2.0 was released on October 16th, 2000, and included many major new features including list comprehensions, a full garbage collector and support for Unicode. With this release the development process was changed and became more transparent and community-backed;
+- Python 1.0 was released on January 26th, 1994.
 
 ## 1.3. Authors
 

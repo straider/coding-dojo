@@ -20,39 +20,25 @@ Python supports four different numerical types:
 For signed integers:
 
 ```python
->>> 10
 10
->>> 250
 250
->>> -123
 -123
->>> 060
-48
->>> -045
--37
->>> 0x16
-22
->>> -0x1234
--4660
+060
+-045
+0x16
+-0x1234
 ```
 
 For signed long integers:
 
 ```python
->>> 10L
 10L
->>> 250L
 250L
->>> -123L
 -123L
->>> 060L
-48L
->>> -045L
--37L
->>> 0x16L
-22L
->>> -0x1234L
--4660L
+060L
+-045L
+0x16L
+-0x1234L
 ```
 
 **Note**: in Python 3 it's not allowed to suffix values with either "L" or "l" and it's not possible to use octal literals.
@@ -96,16 +82,11 @@ For signed long integers:
 For floating-point numbers:
 
 ```python
->>> 0.0
 0.0
->>> 2.50
 2.5
->>> 3.14
 3.14
->>> 1.23e4
-12300.0
->>> -9.87e-5
--9.87e-05
+1.23e4
+-9.87e-5
 ```
 
 For rational numbers:
@@ -113,22 +94,22 @@ For rational numbers:
 ```python
 from fractions import Fraction
 
->>> Fraction()
-Fraction(0, 1)
->>> Fraction( 0 )
-Fraction(0, 1)
->>> Fraction( 1 )
-Fraction(1, 1)
->>> Fraction( 1.1 )
-Fraction(2476979795053773, 2251799813685248)
->>> Fraction( 3, 10 )
-Fraction(3, 10)
->>> Fraction( '3/10' )
-Fraction(3, 10)
->>> Fraction( 0.75 )
-Fraction(3, 4)
->>> Fraction( '-1.75' )
-Fraction(-7, 4)
+Fraction()
+>>> Fraction(0, 1)
+Fraction( 0 )
+>>> Fraction(0, 1)
+Fraction( 1 )
+>>> Fraction(1, 1)
+Fraction( 1.1 )
+>>> Fraction(2476979795053773, 2251799813685248)
+Fraction( 3, 10 )
+>>> Fraction(3, 10)
+Fraction( '3/10' )
+>>> Fraction(3, 10)
+Fraction( 0.75 )
+>>> Fraction(3, 4)
+Fraction( '-1.75' )
+>>> Fraction(-7, 4)
 ```
 
 #### 4.1.2.1. Operators
@@ -146,30 +127,26 @@ Fraction(-7, 4)
 #### 4.1.2.2. Precision
 
 ```python
->>> a = 1   / 10.0
->>> b = 2.0 / 10
->>> c = 3.0 / 10.0
->>> c - b == a
-False
+a = 1   / 10.0
+b = 2.0 / 10
+c = 3.0 / 10.0
+c - b == a
+>>> False
 
->>> a = Fraction( '1/10' )
->>> b = Fraction( '2/10' )
->>> c = Fraction( '3/10' )
->>> c - b == a
-True
+a = Fraction( '1/10' )
+b = Fraction( '2/10' )
+c = Fraction( '3/10' )
+c - b == a
+>>> True
 ```
 
 ### 4.1.3. Complex
 
 ```python
->>> 1+0j
-(1+0j)
->>> -2.5+3.4j
-(-2.5+3.4j)
->>> -5.25-2j
-(-5.25-2j)
->>> 7.75-8j
-(7.75-8j)
+1+0j
+-2.5+3.4j
+-5.25-2j
+7.75-8j
 ```
 
 #### 4.1.3.1 Operators
@@ -180,24 +157,46 @@ True
 
 - String literals are sequences of characters between single or double quotation marks;
 - Strings are **mutable**. They can expand as needed, without using much time and memory;
-- DocHere strings can be defined between ```[<<END_OF_DOCHERE]...[DOCHERE]```
 - A special kind of string exists that uses the back-tick ( "`" ) as a beginning and ending delimiter. This causes the string to the executed in the underlying operating system as a command.
+
+```python
+single_quote = 'Hello, World!'
+double_quote = "Hello, World!"
+
+string = 'aeiou'
+string[  1 ]    # 'e'
+string[ -2 ]    # 'o'
+len( string )   # 5
+string[ 1 : 4 ] # 'eio'
+string[ 2 : ]   # 'iou'
+string[ : 5 ]   # 'aeiou'
+```
 
 ### 4.2.1 Operators
 
-| Operator | Operation      |
-|:--------:|:---------------|
-| +        | Concatenation  |
-| *        | Copy n times   |
+| Operator | Operation        |
+|:--------:|:-----------------|
+| +        | Concatenation    |
+| *        | Copy n times     |
+| %        | Interpolation    |
+| in       | Includes         |
+| not in   | Does not Include |
+
+```python
+'%s can be %s' % ( 'strings', 'interpolated' )
+
+'{0} can be {1}'.format( 'strings', 'formatted' )
+'{name} hates {weekday}'.format( name = 'Garfield', weekday = 'Monday' )
+```
 
 ## 4.3. Booleans
 
 ```python
->>> True
 True
->>> False
 False
 ```
+
+> Python assumes any non-zero and non-null values as TRUE, and if it is either zero or null, then it is assumed as FALSE value.
 
 ### 4.3.1 Operators
 
@@ -211,19 +210,43 @@ False
 | <=       | Lesser or equal      |
 
 ```python
+True != False
 >>> True
-True
+False == False
+>>> True
+None == None
+>>> True
+False == None
 >>> False
-False
+```
 
->>> True != False
-True
->>> False == False
-True
->>> None == None
-True
->>> False == None
-False
+**Note**: Don't use the equality "==" symbol to compare objects to **None**. Use ```is``` instead ( or ```is not``` ). **False** and **0** are considered the same.
+
+```python
+None == None # BAD
+None != None # BAD
+None is None
+False is None
+True is not None
+
+a = None
+a == None # BAD
+a != None # BAD
+a is None
+
+b = True
+b == None # BAD
+b != None # BAD
+b is not None
+
+False == 0
+None == 0
+None == False
+None == ''
+None == ""
+None == []
+None == ()
+None == {}
 ```
 
 | Operator | Operation   |

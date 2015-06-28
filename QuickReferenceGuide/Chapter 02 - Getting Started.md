@@ -28,7 +28,9 @@ is actually a String.
 
 - Python provides no braces to indicate blocks of code for class and function definitions or flow control;
 - Blocks of code are denoted by line indentation, which is rigidly enforced;
-- The number of spaces in the indentation is variable, but all statements within the block must be indented the same amount.
+- Indentation consists of whitespace formed by blanks, tabs, and newlines;
+- The number of spaces in the indentation is variable, but all statements within the block must be indented in the same way as the leading statement.
+- Incorrect indentation can lead to errors.
 
 ### 2.2.2. Multi-Line Statements
 
@@ -52,13 +54,22 @@ is actually a String.
 
 These are the reserved keywords:
 
-|          |        |        |         |       |        |
-|----------|--------|--------|---------|-------|--------|
-| and      | def    | if     | exec    | not   | return |
-| assert   | del    | import | finally | or    | try    |
-| break    | elif   | in     | for     | pass  | while  |
-| class    | else   | is     | from    | print | with   |
-| continue | except | lambda | global  | raise | yield  |
+|          |        |         |        |       |        |
+|----------|--------|---------|--------|-------|--------|
+| and      | def    | exec    | if     | not   | return |
+| assert   | del    | finally | import | or    | try    |
+| break    | elif   | for     | in     | pass  | while  |
+| class    | else   | from    | is     | print | with   |
+| continue | except | global  | lambda | raise | yield  |
+
+```python
+import sys
+import keyword
+
+
+print "Python version: ", sys.version_info
+print "Python keywords: ", keyword.kwlist
+```
 
 > A Python identifier is a name used to identify a variable, function, class, module or other object. An identifier starts with a letter or an underscore, "_", followed by zero or more letters, underscores or digits. Python does not allow punctuation characters such as @, $, and % within identifiers. Python is a case sensitive programming language.
 
@@ -75,9 +86,13 @@ By convention:
 
 ### 2.5.1. Console Output 101
 
+- ```print```: outputs a comma separated list of values to the console with an ending newline.
+
+**Note**: values separated by commas are concatenated with an extra whitespace.
+
 ### 2.5.2. Console Input 101
 
-To get input from the console one uses the method ```raw_input()```.
+- ```raw_input()```: gets input from the console.
 
 ### 2.5.3. Command Line Arguments 101
 

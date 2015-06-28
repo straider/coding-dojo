@@ -12,7 +12,7 @@ Quick Reference Guide
 
 ### 3.1.1. Single Declaration
 
-Every variable declaration is untyped and initialized, except for class and instance variables which are still untyped but are not initialized.
+Every variable declaration is untyped and initialized, except for class and instance variables which are untyped and are not initialized.
 
 ### 3.1.2. Multiple Declaration
 
@@ -20,7 +20,29 @@ There's no such concept, in Python. One can declare and assign multiple variable
 
 ### 3.1.3. Type Inference
  
-There's no such concept, in Python. A variable is by nature untyped, a reference to an address space in memory.
+Variables are dynamic and therefor there's no need for type inference.
+
+To find the type of value that a variables refers to one can use the function ```type()```.
+
+In Python 2 the result is prefixed with **type**, while in Python 3 the result is prefixed with **class**.
+
+```python
+type( 1 )
+>>> <type 'int'>
+type( 1.0 )
+>>> <type 'float'>
+type( '1' )
+>>> <type 'str'>
+```
+
+```python
+type( 1 )
+>>> <class 'int'>
+type( 1.0 )
+>>> <class 'float'>
+type( '1' )
+>>> <class 'str'>
+```
 
 ### 3.1.4. Type Conversion
 
@@ -39,6 +61,19 @@ A variable can point to a function.
 ### 3.1.7. Scope
 
 A variable can have global or local scope. All local variables with the same name as global variables shadow those global variables and their values are kept untouched.
+
+To change the value of a global variable inside a function it's necessary to define it as global.
+
+```python
+number = 1
+
+def add( value ) :
+  global number
+  number += value
+
+add( 3 )
+print number
+```
 
 ## 3.2 Constants
 
