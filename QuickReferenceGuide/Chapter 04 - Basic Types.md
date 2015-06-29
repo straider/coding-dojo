@@ -5,7 +5,7 @@ Quick Reference Guide
 
 ## 4.1. Numeric
 
-### 4.1.1. Integer
+### 4.1.1. Integers
 
 #### 4.1.1.1 Operators
 
@@ -39,7 +39,7 @@ Quick Reference Guide
 | <<       | Bitwise Left Shift      |
 | >>       | Bitwise Right Shift     |
 
-### 4.1.2. Float, Rational
+### 4.1.2. Floats and Rationals
 
 #### 4.1.2.1. Operators
 
@@ -64,7 +64,7 @@ Quick Reference Guide
 
 #### 4.1.2.2. Precision
 
-### 4.1.3. Complex
+### 4.1.3. Complexs
 
 #### 4.1.3.1 Operators
 
@@ -96,3 +96,7 @@ Quick Reference Guide
 | and      | Logical AND |
 | or       | Logical OR  |
 | not      | Logical NOT |
+
+### 4.3.2. Short-Circuiting
+
+## 4.4. Basic Type Conversions

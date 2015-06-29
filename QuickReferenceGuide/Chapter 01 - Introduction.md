@@ -41,4 +41,4 @@ Follow the [QuickInstallationGuide](Chapter 00 - Installation.md) to have a full
 
 ## 1.6. Style Guides
 
-# 1.7. Official Documentation
+## 1.7. Official Documentation

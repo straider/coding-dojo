@@ -15,7 +15,7 @@ Quick Reference Exercises
 ## 2.2. Statements
 
 - Write multiple statements in one line ( which is the statement separator in this case? );
-- Does the language allow statements without END_OF_STATEMENT_CHARACTER ( are linefeeds considered a statement separator )?
+- Does the language allow statements without END_OF_STATEMENT_CHARACTER ( are linefeeds considered a statement separator )?<br />**Yes**
 - Write a statement that spans across several lines ( which is the LINEFEED_ESCAPE_CHARACTER? );
 - Does the language impose restrictive indentation?
 
@@ -46,7 +46,7 @@ Quick Reference Exercises
 ### 2.6. UTF-8 Encoding
 
 - Output "» José Carlos Monteiro «" to the console;
-- Ask input for EUR or GBP currency symbol and output "Currency Symbol: €‚ £" to the console.
+- Ask input for EUR or GBP currency symbol and output "Currency Symbol: € / £" to the console.
 
 # 3. The Basics
 
@@ -54,22 +54,25 @@ Write a fully documented "Circle Area Calculator", using a constant for PI and r
 
 ## 3.1. Variables
 
-> Typed variables is a concept, in Ruby. A variable is said to be of a type when it refers to a value of that type. Given the dynamic features of Ruby, a variable does not have a fixed type and once declared is also initialized ( unless it's a class or instance variable ).
+### 3.1.1. Basic Types
 
 - Declare typed uninitialized numeric variables ( short, int, long, float, double, complex );
 - Declare untyped uninitialized numeric variables ( short, int, long, float, double, complex );
 - Declare typed initialized numeric variables ( short, int, long, float, double, complex );
-- Declare untyped initialized numeric variables ( short, int, long, float, double, complex ).
-
+- Declare untyped initialized numeric variables ( short, int, long, float, double, complex );
 - Declare typed uninitialized string variables ( character, string, symbol );
 - Declare untyped uninitialized string variables ( character, string, symbol );
 - Declare typed initialized string variables ( character, string, symbol );
 - Declare untyped initialized string variables ( character, string, symbol );
 
-- Declare typed uninitialized collection variables ( range, array, list, set, map ~;
-- Declare untyped uninitialized collection variables ( range, array, list, set, map );
+### 3.1.2. Collections
+
+- Declare typed uninitialized collection variables ( range, array, list, set, map );
+- Declare untyped uninitialized collection variables ( range, array, list, set, map);
 - Declare typed initialized collection variables ( range, array, list, set, map );
 - Declare untyped initialized collection variables ( range, array, list, set, map ).
+
+Exercises:
 
 - Declare multiple variables in one line;
 - Assign multiple values to multiple variables in one line;
@@ -77,9 +80,6 @@ Write a fully documented "Circle Area Calculator", using a constant for PI and r
 - Assign a value to a variable if it doesn't already have a value;
 - Swap the values of two variables of same type;
 - Swap the values of two variables of different types.
-
-Exercises:
-
 - Declare a variable with the number of seconds in a hour;
 - Declare a variable with the perimeter of a rectangle with sides 2 and 3.
 
@@ -131,6 +131,13 @@ Exercises:
 
 ## 4.1. Numeric
 
+- Add two numbers;
+- Subtract one number from another;
+- Multiply two numbers;
+- Divide one number by another;
+- Divide one number by the other and get the remainder ( modulus );
+- Raise one number with an exponent of another.
+
 - Are there short-notation operators for basic mathematical operations?
 - Does the language have increment and decrement operators ( postfix and prefix forms )?
 - Does the language have bitwise operators ( AND, OR, XOR, One's Complement, Shift - left and right )?
@@ -139,8 +146,8 @@ Exercises:
 
 Exercises:
 
-- Calculate the circumference of a circle with radius 8 ( 2**p**r );
-- Calculate the area of a circle with radius 8 ( r**p**^2 );
+- Calculate the circumference of a circle with radius 8 ( 2pr );
+- Calculate the area of a circle with radius 8 ( pr^2 );
 
 ## 4.2. Strings
 
@@ -185,6 +192,12 @@ Exercises:
 - Does the language offer **ranges**?
 - Does the language offer **iterators**?
 
+## 5.1. Sequences
+
+## 5.5. Regular Expressions
+
+## 5.6. Enumerables 
+
 # 6. Control Flow Structures
 
 - Does the language allow **if..else if..else**?
@@ -195,7 +208,7 @@ Exercises:
 - Does the language allow **for** loops?
 - Does the language allow **while** loops?
 - Does the language allow **while statement modifiers**?
-- Does the language allow **until** loops?
+- Does the language allow **until** loops?<br />**Yes**
 - Does the language allow **until statement modifiers**?
 - Does the language allow catching exceptions?
 
@@ -203,6 +216,7 @@ Exercises:
 
 - FizzBuzz ( if, for, range );
 - FuzzBuzzDazzKezz ( for, range, string concatenation, map, iterator );
+- [Collatz conjecture](https://en.wikipedia.org/?title=Collatz_conjecture): Take any natural number n. If n is even, divide it by 2 to get n / 2. If n is odd, multiply it by 3 and add 1 to obtain 3n + 1. Repeat the process ( which has been called "Half Or Triple Plus One", or HOTPO ) indefinitely. The conjecture is that no matter what number you start with, you will always eventually reach 1. The property has also been called oneness. For this exercises, get the maximum number of the sequence of numbers produced by iterating over every step;
 - Convert numbers from 1 .. 7 into name of weekdays ( switch );
 - Refactor big if..elsif..else into a case..when..else ( switch );
 - Deaf Gradma, with random year ( input, while, random );
@@ -221,6 +235,7 @@ Exercises:
 
 - Fibonacci
 - Factorial
+- Is Palindrome
 - Temperature Converter
 
 # 8. Closures
@@ -251,10 +266,22 @@ Exercises:
 
 ## 11.7. Benchmarking
 
-# 12. Gems
+# 12. Libraries
 
 ## 12.1. SQL
 
 ## 12.2. Networking
 
 ## 12.3. Concurrency
+
+## 12.4. Logging
+
+## 12.5. Command Line Options
+
+## 12.5. Testing
+
+## 12.6. Benchmarking
+
+## 12.7. File Handling / Input-Output
+
+## 12,8. Random Numbers
