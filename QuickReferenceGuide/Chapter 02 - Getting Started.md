@@ -102,7 +102,7 @@ By convention:
   - sys.argv[ 0 ] is the program, ie. script name.
 - Python provides a getopt module that helps parse command-line options and arguments.
 
-### 2.6. UTF-8 Encoding
+## 2.6. UTF-8 Encoding
 
 > Unicode strings are expressed as instances of the **unicode** type, one of Python's repertoire of built-in types. It derives from an abstract type called basestring, which is also an ancestor of the str type; you can therefore check if a value is a string type with ```isinstance( value, basestring )```. Under the hood, Python represents Unicode strings as either 16- or 32-bit integers, depending on how the Python interpreter was compiled.
 

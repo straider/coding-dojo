@@ -13,7 +13,7 @@ Python supports four different numerical types:
 - **complex** ( complex numbers );
 - **rational** ( rational numbers, but it's not part of _core_ - it's in Standard Library, in the **fractions** module ).
 
-### 4.1.1. Integer
+### 4.1.1. Integers
 
 **Note**: integers can be represented in several base systems: decimal, octal and hexadecimal.
 
@@ -140,7 +140,7 @@ c - b == a
 >>> True
 ```
 
-### 4.1.3. Complex
+### 4.1.3. Complexs
 
 ```python
 1+0j
@@ -254,6 +254,8 @@ None == {}
 | and      | Logical AND |
 | or       | Logical OR  |
 | not      | Logical NOT |
+
+### 4.3.2. Short-Circuiting
 
 ## 4.4. Basic Type Conversions
 

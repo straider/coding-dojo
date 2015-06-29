@@ -67,17 +67,128 @@ else :
 
 Python does not allow if statement modifiers.
 
+### 6.1.2. Ternary Operator
+
+### 6.1.3. Elvis Operator
+
 ## 6.2. Switch
 
 Multi-way decision paths coded with if..elif..else may be too cumbersome. When that happens it's time to use switch statement.
 
 Usually switch statements have one downside when compared with if..elif..else statements: there can only be one variable and the case conditions must comply with variable's type. But usually there's also an upside: while if..elif..else only allows one of possible paths to be followed - and its code block to execute - the switch may allow several case block codes to be followed, which is known as case fall-through.
 
+Python doesn't offer a **switch** construct. One good article about it is [Why Doesn't Python Have Switch/Case?](http://www.pydanny.com/why-doesnt-python-have-switch-case.html), by Daniel Roy Greenfeld.
+
 ## 6.3. For
 
-## 6.4. While, Until
+> Executes a sequence of statements multiple times and abbreviates the code that manages the loop variable.
+
+```python
+for variable in [SEQUENCE] :
+  [STATEMENTS]
+else :
+  [STATEMENTS]
+```
+
+A **for** loop is considered a definite loop, since it usually iterates a pre-defined number of times, unless one of the following constructs is used in the loop code block:
+
+- Break from the loop;
+- Continue to the next iteration without completing current iteration;
+- Pass along all iterations, doing nothing.
+
+```python
+for i in [ 0, 1, 2, 3, 4 ] :
+  print i
+
+for i in [ 0, 1, 2, 3, 4 ] :
+  if i > 2 :
+    break
+  else :
+    print i
+
+for i in [ 0, 1, 2, 3, 4 ] :
+  if i % 2 == 0 :
+    continue
+  else :
+    print i
+
+for i in [ 0, 1, 2, 3, 4 ] :
+  pass
+```
+
+> If the **else** statement is used with a **for** loop, the else statement is executed when the loop has exhausted iterating the list.
+
+```python
+for i in [ 0, 1, 2, 3, 4 ] :
+  print i
+else :
+  print i
+```
+
+## 6.4. While / Until
+
+Python only provides **while** construct for indefinite loops. There's no **until** construct.
+
+> A while loop statement in Python programming language repeatedly executes a target statement as long as a given condition is true. When the condition becomes false, program control passes to the line immediately following the loop.
+
+```python
+while [EXPRESSION] :
+  [STATEMENTS]
+  ...
+  [ITERATION_CONTROL]
+else :
+  [STATEMENTS]
+```
+
+The [ITERATION_CONTROL] is usually one of the following constructs:
+
+- Change the value of the iteration variable;
+- Break from the loop;
+- Continue to the next iteration without completing current iteration;
+- Pass along all iterations, doing nothing.
+
+```python
+i = 0
+while i < 5 :
+  print i
+  i += 1
+
+i = 0
+while i < 5 :
+  if i > 2 :
+    break
+  else :
+    print i
+    i += 1
+
+i = 0
+while i < 5 :
+  i += 1
+  if i % 2 == 0 :
+    continue
+  else :
+    print i
+
+while True :
+  pass
+```
+
+**Note**: use **pass** carefully, since it may cause infinite loops. A loop becomes infinite loop if a condition never becomes FALSE.
+
+> If the **else** statement is used with a **while** loop, the else statement is executed when the condition becomes false.
+
+```python
+i = 0
+while i < 5 :
+  print i
+  i += 1
+else :
+  print i
+```
 
 ### 6.1.1. Statement Modifiers
+
+Python does not allow while statement modifiers.
 
 ## 6.5. Error Handling
 
@@ -85,7 +196,7 @@ Usually switch statements have one downside when compared with if..elif..else st
 - Exception Handling:
 - Assertions:
 
-## 6.5.1. Exceptions
+### 6.5.1. Exceptions / Errors
 
 > An exception is an event, which occurs during the execution of a program that disrupts the normal flow of the program's instructions. In general, when a Python script encounters a situation that it cannot cope with, it raises an exception. An exception is a Python object that represents an error. When a Python script raises an exception, it must either handle the exception immediately otherwise it terminates and quits.
 
@@ -133,7 +244,7 @@ raise [Exception [, args [, traceback]]]
 
 > Here, Exception is the type of exception and argument is a value for the exception argument. The argument is optional; if not supplied, the exception argument is None. The final argument, traceback, is also optional ( and rarely used in practice ), and, if present, is the traceback object used for the exception.
 
-## 6.5.2. Assertions
+### 6.5.2. Assertions
 
 > An assertion is a sanity-check that you can turn on or turn off when you are done with your testing of the program. The easiest way to think of an assertion is to liken it to a raise-if statement ( or to be more accurate, a raise-if-not statement ). An expression is tested, and if the result comes up false, an exception is raised. Assertions are carried out by the **assert** statement, the newest keyword to Python, introduced in version 1.5. Programmers often place assertions at the start of a function to check for valid input, and after a function call to check for valid output.
 

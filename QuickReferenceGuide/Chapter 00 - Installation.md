@@ -1,4 +1,4 @@
-# Python Installation Guide
+# Installation Guide
 
 ## Introduction
 
