@@ -47,3 +47,10 @@ Quick Reference Guide
 | Operator | Operation         |
 |:--------:|:------------------|
 
+## 5.6. Tuples
+
+### 5.6.1 Operators
+
+## 5.7. Regexp
+
+### 5.7.1 Operators
