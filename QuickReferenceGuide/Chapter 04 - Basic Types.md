@@ -14,7 +14,7 @@ Quick Reference Guide
 - Double: D or d
 - Float: F or f
 
-### 4.1.1. Integer
+### 4.1.1. Integers
 
 > The integral literal types are the same as in Java: byte, char, short, int, long and java.lang.BigInteger:
 
@@ -105,7 +105,7 @@ double monetaryAmount = 12_345_132.12
 
 > The bitwise collection of operators also includes compound operators, such as &=, |=, <<= and >>=.
 
-### 4.1.2. Float, Rational
+### 4.1.2. Floats and Rationals
 
 > The decimal literal types are the same as in Java: float, double and java.lang.BigDecimal:
 
@@ -145,7 +145,7 @@ BigDecimal bd =  3.456
 
 #### 4.1.2.2. Precision
 
-### 4.1.3. Complex
+### 4.1.3. Complexs
 
 #### 4.1.3.1 Operators
 
@@ -210,11 +210,11 @@ def c2 = 'B' as char
 def c3 = ( char ) 'C'
 ```
 
-## 4.4. Booleans
+## 4.3. Booleans
 
 > **true** and **false** are the only two primitive boolean values. False is false but so is 0, an empty string and null.
 
-### 4.4.1 Operators
+### 4.3.1. Operators
 
 | Operator | Operation            |
 |:--------:|:---------------------|
@@ -233,7 +233,7 @@ def c3 = ( char ) 'C'
 | ||       | Logical OR  |
 | !        | Logical NOT |
 
-### 4.4.2. Short-Circuiting
+### 4.3.2. Short-Circuiting
 
 > The logical "||" and "&&" operators supports short-circuiting:
 

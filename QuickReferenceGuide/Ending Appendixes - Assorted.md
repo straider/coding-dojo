@@ -1,8 +1,6 @@
 Quick Reference Guide
 =====================
 
-# 10. Concurrency
-
 # 11. Core Packages / Standard Library
 
 ## 11.1 BigDecimal

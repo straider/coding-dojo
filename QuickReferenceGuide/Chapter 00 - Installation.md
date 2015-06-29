@@ -1,4 +1,4 @@
-# Groovy Installation Guide
+# Installation Guide
 
 ## Introduction
 

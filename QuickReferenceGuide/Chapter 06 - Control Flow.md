@@ -102,7 +102,7 @@ for ( i in [ 0, 1, 2, 3, 4 ] ) {
 
 > Labels are used when you have nested loops - a loop within a loop. Both break and continue can be given a label that directs the program to another nesting level.
 
-## 6.4. While
+## 6.4. While / Until
 
 ```java
 def i = 0
@@ -117,7 +117,9 @@ while ( i < 5 ) {
 
 Groovy doesn't provide statement modifiers for **while**.
 
-## 6.5. Exceptions
+## 6.5. Error Handling
+
+### 6.5.1. Exceptions / Errors
 
 > You can specify a complete try-catch-finally, a try-catch, or a try-finally set of blocks. Braces are required around each block's body.
 
@@ -135,7 +137,7 @@ try {
 
 > The **throw** keyword is used to intentionally cause an exception.
 
-## 6.6. Power Assertions
+### 6.5.2. Assertions
 
 > Unlike Java with which Groovy shares the assert keyword, the latter in Groovy behaves very differently. First of all, an assertion in Groovy is always executed, independently of the -ea flag of the JVM. It makes this a first class choice for unit tests. The notion of "power asserts" is directly related to how the Groovy assert behaves. A power assertion is decomposed into 3 parts:
 

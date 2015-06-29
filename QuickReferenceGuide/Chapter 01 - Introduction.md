@@ -71,6 +71,6 @@ Cédric Champeau has an article on is blog, [Who is Groovy?](http://melix.github
 
 There's a work in progress [Style Guide](http://groovy-lang.org/style-guide.html).
 
-# 1.7. Official Documentation
+## 1.7. Official Documentation
 
 There's a [portal](http://groovy-lang.org/documentation.html) with the official documentation for Groovy.
