@@ -19,4 +19,4 @@ Quick Reference Guide
 
 ### 2.5.3. Command Line Arguments 101
 
-### 2.6. UTF-8 Encoding
+## 2.6. UTF-8 Encoding

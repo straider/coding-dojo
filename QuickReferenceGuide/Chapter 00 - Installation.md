@@ -1,4 +1,4 @@
-# Ruby Installation Guide
+# Installation Guide
 
 ## Introduction
 
@@ -6,9 +6,9 @@
 
 ### Windows 7 / 8
 
-#### Notes
-
 ### Linux Ubuntu 14.04 LTS - Trusty Tahr
+
+#### From Binaries
 
 #### From Sources
 
@@ -17,5 +17,3 @@
 ### MacOS
 
 ## Variants
-
-## Useful libraries / packages
