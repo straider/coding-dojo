@@ -199,7 +199,33 @@ _, exists := currencies[ "United States" ]
 fmt.Println( "Map has key:", exists )
 ```
 
-## 5.4. Slices
+## 5.4. Ranges
+
+> The range keyword is used in for loop to iterate over items of an array, slice, map or string. With array and slices, it returns the index of the item as integer. With maps, it returns the key of the next key-value pair.
+
+```c
+words := "Hello, World!"
+for index, character := range words {
+  fmt.Println( "Item in position", index, "has value", character )
+}
+
+array := [ 10 ] int { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }
+for index, item := range array {
+  fmt.Println( "Item in position", index, "has value", item )
+}
+
+slice := [] string { "foo", "bar" }
+for index, item := range slice {
+  fmt.Println( "Item in position", index, "has value", item )
+}
+
+currencies := map[ string ] string { "Portugal": "€", "England": "£", "United States": "$" }
+for key, value := range currencies {
+  fmt.Println( "Key:", key, "Value:", value )
+}
+```
+
+## 5.5. Slices
 
 > A slice is a segment of an array. Like arrays slices are indexable and have a length. Unlike arrays this length is allowed to change. Slices are always associated with some array, and although they can never be longer than the array, they can be smaller or equal.
 
@@ -219,7 +245,7 @@ slice = make( [] int, 0, 10 )
 
 > Note that the key can be an int, a float, complex number, string, pointer, even an interface that supports **equality**.
 
-### 5.4.1. Operators
+### 5.5.1. Operators
 
 - ```[ low : high ]```: slices an array of slice from low index to high index, but not including high position;
 
@@ -276,30 +302,4 @@ source := [] string { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" }
 target := make( [] string, 5 )
 copy( target, source )
 fmt.Println( source, target )
-```
-
-## 5.5. Ranges
-
-> The range keyword is used in for loop to iterate over items of an array, slice, map or string. With array and slices, it returns the index of the item as integer. With maps, it returns the key of the next key-value pair.
-
-```c
-words := "Hello, World!"
-for index, character := range words {
-  fmt.Println( "Item in position", index, "has value", character )
-}
-
-array := [ 10 ] int { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }
-for index, item := range array {
-  fmt.Println( "Item in position", index, "has value", item )
-}
-
-slice := [] string { "foo", "bar" }
-for index, item := range slice {
-  fmt.Println( "Item in position", index, "has value", item )
-}
-
-currencies := map[ string ] string { "Portugal": "€", "England": "£", "United States": "$" }
-for key, value := range currencies {
-  fmt.Println( "Key:", key, "Value:", value )
-}
 ```

@@ -71,7 +71,27 @@ func ( rectangle Rectangle ) perimeter() ( result float64 ) {
 }
 ```
 
-### 9.1.3. Inheritance
+### 9.1.3. Method Overriding
+
+### 9.1.4. Method Overloading
+
+### 9.1.5. Abstract Classes
+
+### 9.1.6. Freezing Objects
+
+## 9.2. Interfaces / Modules
+
+## 9.3. Mixins
+
+## 9.4. Garbage Collector
+
+## 9.5. Principles
+
+### 9.5.1. Abstraction
+
+### 9.5.2. Encapsulation
+
+### 9.5.3. Inheritance
 
 > Go provides two features that replace class inheritance. The first is embedding, an automated form of composition. The second are its interfaces.
 
@@ -79,24 +99,4 @@ func ( rectangle Rectangle ) perimeter() ( result float64 ) {
 
 > An interface is two things: it is a set of methods, but it is also a type. A core concept in Go is that instead of designing abstractions in terms of what kind of data the types can hold, one designs abstractions in terms of what actions the types can execute.
 
-### 9.1.4. Method Overriding
-
-### 9.1.5. Method Overloading
-
-### 9.1.6. Abstract Classes
-
-### 9.1.7. Freezing Objects
-
-## 9.2. Mixins
-
-## 9.3. Garbage Collector
-
-## 9.4. Principles
-
-### 9.4.1. Abstraction
-
-### 9.4.2. Encapsulation
-
-### 9.4.3. Inheritance
-
-### 9.4.4. Polymorphism
+### 9.5.4. Polymorphism

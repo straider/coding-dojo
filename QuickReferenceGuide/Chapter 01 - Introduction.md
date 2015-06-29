@@ -93,6 +93,6 @@ The [official coding style](https://github.com/golang/go/wiki/CodeReviewComments
 
 > Good code should be easy to maintain. If code follows a standard format for writing it becomes easier for maintaining it and also enhancing it. Especially when there are different developers looking at the code in the present and the future, a standard is helpful. Though Go standards do not insist on a coding style, it does strongly suggest certain styles. The **go fmt** tool is an implementation of those styles, so that code could be reformatted to fit the standard. 
 
-## 1.5. Official Documentation
+## 1.7. Official Documentation
 
 There is a [portal](https://golang.org/doc/) that lists the several official sources for learning and using Go.

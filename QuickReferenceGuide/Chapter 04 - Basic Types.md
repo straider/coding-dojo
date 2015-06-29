@@ -5,7 +5,7 @@ Quick Reference Guide
 
 ## 4.1. Numbers
 
-### 4.1.1. Integer
+### 4.1.1. Integers
 
 - Go’s integer types are: uint8, uint16, uint32, uint64, int8, int16, int32 and int64;
 - 8, 16, 32 and 64 tells how many bits each of the types use;
@@ -63,7 +63,7 @@ Go's definition of the modulus ( "%" ) operator matches the definitions in other
 | <<=      | Bitwise Left Shift Assignment  |
 | >>=      | Bitwise Right Shift Assignment |
 
-### 4.1.2. Decimal
+### 4.1.2. Floats and Rationals
 
 - Go has two floating point types: float32 and float64 ( also often referred to as single precision and double precision, respectively );
 - Like integers, floating point numbers have a certain size ( 32 bit or 64 bit ). Using a larger sized floating point number increases it's precision ( how many digits it can represent );
@@ -94,7 +94,7 @@ imaginary parts ): complex64 and complex128.
 
 **Attention**: Floating point precision is finite and you should always be very cautious when making comparisons on real numbers.
 
-### 4.1.3. Complex
+### 4.1.3. Complexs
 
 > Complex numbers can be created using the built-in ```complex()``` function or by using constant literals involving imaginary numbers. Complex numbers' components
 can be retrieved using the built-in ```real()``` and ```imag()``` functions, both of which return a float64 ( or a float32 for complex64s ).
@@ -142,3 +142,5 @@ are == and !=.
 | &&       | Logical AND |
 | ||       | Logical OR  |
 | !        | Logical NOT |
+
+### 4.3.2. Short-Circuiting

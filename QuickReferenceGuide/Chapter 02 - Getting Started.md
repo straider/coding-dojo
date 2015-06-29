@@ -140,7 +140,7 @@ In the package os there's a special variable: ```var Args []string```
 
 Args holds the command-line arguments, starting with the program name. os.Args provides access to raw command-line arguments. Note that the first value in this slice is the path to the program, and ```os.Args[ 1 : ]``` holds the arguments to the program.
 
-### 2.6. UTF-8 Encoding
+## 2.6. UTF-8 Encoding
 
 > In Go, an individual code point ( i.e., a character ) is represented by a **rune** in memory. Unicode text — whether in files or in memory — must be represented using an encoding. The Unicode standard defines various Unicode Transformation Formats ( encodings ), such as UTF-8, UTF-16,and UTF-32. Go uses the UTF-8 encoding for strings. UTF-8 is the most widely used encoding; it is also the defacto standard encoding for text files and the default encoding for XML and
 JSON files.

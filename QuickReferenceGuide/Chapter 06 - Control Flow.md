@@ -23,6 +23,12 @@ if [CONDITION_TRUE_1] {
 
 **Note**: there is no ternary operator in Go.
 
+### 6.1.1. Statement Modifiers
+
+### 6.1.2. Ternary Operator
+
+### 6.1.3. Elvis Operator
+
 ## 6.2. Switch
 
 ```c
@@ -105,11 +111,15 @@ Label:
   }
 ```
 
-## 6.4. While, Until
+## 6.4. While / Until
 
 There are no **while** or **until** statements in Go.
 
-## 6.5. Exceptions / Errors
+## 6.5. Error Handling
+
+### 6.5.1. Exceptions / Errors
+
+### 6.5.2. Assertions
 
 ## 6.6. Goto
 
