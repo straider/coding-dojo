@@ -172,3 +172,7 @@ divisible_by_n = proc     { | number, n | number % n == 0 }
 ```
 
 ## 8.3. List Comprehension
+
+## 8.4. High-Order Functions
+
+## 8.5. Pure Functions

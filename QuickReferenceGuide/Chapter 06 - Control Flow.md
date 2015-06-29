@@ -36,6 +36,10 @@ puts 'Something if true' if [CONDITION]
 puts 'Something unless false' unless [CONDITION]
 ```
 
+### 6.1.2. Ternary Operator
+
+### 6.1.3. Elvis Operator
+
 ## 6.2. Switch
 
 ```ruby
@@ -116,7 +120,7 @@ end
 
 **Note**: ```step()``` will return the range or the start value.
 
-## 6.4. While
+## 6.4. While / Until
 
 ```ruby
 while [CONDITION_TRUE] do
@@ -134,7 +138,9 @@ end
 
 These two control flow structures, **while** and **until**, can be used as suffix of other statements.
 
-## 6.5. Exceptions
+## 6.5. Error Handling
+
+### 6.5.1. Exceptions / Errors
 
 > An exception is a special kind of object, an instance of the class **Exception** or a descendant of that class that represents some kind of exceptional condition; it indicates that something has gone wrong. When this occurs, an exception is raised ( or thrown ).
 
@@ -198,3 +204,5 @@ end
 
 raise MyException, 'Program specific exception'
 ```
+
+### 6.5.2. Assertions

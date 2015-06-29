@@ -7,7 +7,7 @@ Quick Reference Guide
 
 In Ruby everything is an object and there are no primitive types. This means that there are no int, short, long, float or double.
 
-### 4.1.1. Integer, Fixnum, Bignum
+### 4.1.1. Integers, Fixnums, Bignums
 
 > Ruby will handle Bignums and Fixnums for you, and you can perform arithmetic and other operations without any problems. Results might vary depending on your system's architecture, but as these changes are handled entirely by Ruby, there's no need to worry.
 
@@ -59,7 +59,7 @@ In Ruby everything is an object and there are no primitive types. This means tha
 | <<       | Bitwise Left Shift      |
 | >>       | Bitwise Right Shift     |
 
-### 4.1.2. Float, Rational
+### 4.1.2. Floats and Rationals
 
 Ruby follows the [IEEE 754-2008 standard](http://en.wikipedia.org/wiki/IEEE_floating_point) and as such there are special numbers, required to deal with special values:
 - Infinity: occurs when dividing a float with 0. It's not an error, it's allowed and the value returned represent a positive or negative infinite number;
@@ -129,7 +129,7 @@ irb(main):004:0> Rational( 3, 10 ) - Rational( 2, 10 ) == Rational( 1, 10 )
 => true
 ```
 
-### 4.1.3. Complex
+### 4.1.3. Complexs
 
 > Complex or Imaginary numbers are used to solve equations that involve more than one solution (such as the quadratic equation).
 
@@ -147,7 +147,7 @@ Complex( '1/2+3/4i' )
 
 #### 4.1.3.1 Operators
 
-## 4.2. Strings
+## 4.2. Strings and Symbols
 
 - String literals are sequences of characters between single or double quotation marks;
 - Strings are **mutable**. They can expand as needed, without using much time and memory;
@@ -271,7 +271,7 @@ STACKED_2
 
 **Note**: the whitespaces are not discarded in HereDoc notation.
 
-## 4.3. Symbols
+### 4.2.2. Symbols
 
 - A symbol looks like a variable name but it's prefixed with a colon;
 - Symbols are useful because a given symbol name refers to the same object throughout a Ruby program;
@@ -288,7 +288,7 @@ Therefore, when do we use a string versus a symbol?
 :symbol.to_s
 ```
 
-## 4.4. Booleans
+## 4.3. Booleans
 
 - **nil** and **false** evaluate to _false_, everything else ( including **true** and **0** ) means _true_;
 - **nil** and **false** are different from one another;
@@ -301,7 +301,7 @@ puts false.class     # FalseClass
 puts false.object_id # 0  
 ```
 
-### 4.4.1 Operators
+### 4.3.1 Operators
 
 | Operator | Operation            |
 |:--------:|:---------------------|
@@ -325,3 +325,7 @@ puts false.object_id # 0
 | not      | Logical NOT |
 
 Each of these operators also have another notation: and = &&; or = || and not = !.
+
+### 4.3.2. Short-Circuiting
+
+## 4.4. Basic Type Conversions

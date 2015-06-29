@@ -81,7 +81,7 @@ Arguments passed on the command line are collected on a special array, called **
 
 - Class **GetoptLong** supports command-line option parsing;
 
-### 2.6. UTF-8 Encoding
+## 2.6. UTF-8 Encoding
 
 > The default character set for Ruby is ASCII, whose characters may be represented by single bytes. To change the character set use $KCODE at the beginning of the program to one of the allowed encoding modes.
 

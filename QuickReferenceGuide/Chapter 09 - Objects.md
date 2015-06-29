@@ -192,33 +192,19 @@ Dummy.new.unknown()
 
 > When we define top-level methods, we're actually creating ( private ) instance methods for class Object. Because top-level methods are private, you can't call them with an explicit receiver; you can only call them by using the implied receiver, self. That means self must be an object on whose method search path the given top-level method lies. But every object's search path includes the Kernel module, because the class Object mixes in Kernel, and every object's class has Object as an ancestor. That means you can always call any top-level method, wherever you are in your program. It also means you can never use an explicit receiver on a top-level method.
 
-### 9.1.3. Inheritance
-
-> Inheritance is a relation between two classes. We know that all cats are mammals, and all mammals are animals. The benefit of inheritance is that classes lower down the hierarchy get the features of those higher up, but can also add specific features of their own. If all mammals breathe, then all cats breathe.
-
-- Use method ```super()``` from a method of a sub-class to call the method of same name in the super-class:
-  - When invoked with no arguments then a message is sent to the parent of the current object, asking it to invoke a method of the same name as the method invoking super. It automatically forwards the arguments that were passed to the method from which it's called;
-  - Called with an empty argument list it sends no arguments to the higher-up method, even if arguments were passed to the current method;
-  - Called with specific arguments it sends exactly those arguments.
-- An instance variable used by a subclass cannot _shadow_ an instance variable in the super-class. If a subclass uses an instance variable with the same name as a variable used by one of its ancestors, it will overwrite the value of its ancestor's variable.
-
-**Note**: In Ruby, a class can only inherit from a single other class.
-
-> The **BasicObject** class is the parent class of all classes in Ruby. Its methods are therefore available to all objects unless explicitly overridden. Prior to Ruby 1.9, **Object** class was the root of the class hierarchy. The new class BasicObject serves that purpose, and Object is a subclass of BasicObject. BasicObject is a very simple class, with almost no methods of its own. When you create a class in Ruby, you extend Object unless you explicitly specify the super-class, and most programmers will never need to use or extend BasicObject.
-
-### 9.1.4. Method Overriding
+### 9.1.3. Method Overriding
 
 > Method overriding, in object oriented programming, is a language feature that allows a subclass to provide a specific implementation of a method that is already provided by one of its ancestors. The implementation in the sub-class overrides ( replaces ) the implementation in the ancestor class.
 
-### 9.1.5. Method Overloading
+### 9.1.4. Method Overloading
 
 Ruby doesn't allow two different versions of a method with the same name - the last declaration prevails. The workaround for this is to handle a variable number of arguments, with logic inside the method that branches for each different version, depending on the number and type of arguments passed into the method.
 
-### 9.1.6. Abstract Classes
+### 9.1.5. Abstract Classes
 
 Ruby allows a class to invoke certain methods that are not defined in its declaration. In this case the class is called an abstract class and delegates to its sub-classes the responsibility of declaring those methods.
 
-### 9.1.7. Freezing Objects
+### 9.1.6. Freezing Objects
 
 - Mutable objects are objects whose state can change;
 - Immutable objects are objects whose state never changes after creation.
@@ -235,7 +221,7 @@ It's possible to prevent an object from being changed, after it has been created
 
 > The ```Object.freeze()``` method prevents you from changing an object, effectively turning an object into a constant. After we freeze an object, an attempt to modify it results in **RuntimeError**.
 
-### 9.1.8. self
+### 9.1.7. self
 
 > At every point when your program is running, there is one and only one self - the current or default object accessible to you in your program. You can tell which object self represents by following a small set of rules:
 
@@ -244,7 +230,7 @@ It's possible to prevent an object from being changed, after it has been created
 - **In instance method**: self inside this method will be some future object that has access to this method;
 - **In singleton-method and class-method**: self is the object that owns the method. self inside a singleton method (a class method, in this case) is the object whose singleton method it is.
 
-## 9.2. Modules
+## 9.2. Interfaces / Modules
 
 > Modules are a way of grouping together methods, classes, and constants. Modules have two major benefits:
 - Modules provide a namespace and prevent name clashes;
@@ -299,3 +285,25 @@ end
 The memory model relies on a Garbage Collector ( GC ) to free objects from the heap. An object when created is store in the heap.
 
 The GC, which is Ruby is of type **conservative mark-and-sweep**, starts by checking those objects that are no longer in use. If they are still used then they're marked as _to_keep_ else they're eligible for removal. It finishes by sweeping all objects in the heap and removing those marked as not _to_keep_.
+
+## 9.5. Principles
+
+### 9.5.1. Abstraction
+
+### 9.5.2. Encapsulation
+
+### 9.5.3. Inheritance
+
+> Inheritance is a relation between two classes. We know that all cats are mammals, and all mammals are animals. The benefit of inheritance is that classes lower down the hierarchy get the features of those higher up, but can also add specific features of their own. If all mammals breathe, then all cats breathe.
+
+- Use method ```super()``` from a method of a sub-class to call the method of same name in the super-class:
+  - When invoked with no arguments then a message is sent to the parent of the current object, asking it to invoke a method of the same name as the method invoking super. It automatically forwards the arguments that were passed to the method from which it's called;
+  - Called with an empty argument list it sends no arguments to the higher-up method, even if arguments were passed to the current method;
+  - Called with specific arguments it sends exactly those arguments.
+- An instance variable used by a subclass cannot _shadow_ an instance variable in the super-class. If a subclass uses an instance variable with the same name as a variable used by one of its ancestors, it will overwrite the value of its ancestor's variable.
+
+**Note**: In Ruby, a class can only inherit from a single other class.
+
+> The **BasicObject** class is the parent class of all classes in Ruby. Its methods are therefore available to all objects unless explicitly overridden. Prior to Ruby 1.9, **Object** class was the root of the class hierarchy. The new class BasicObject serves that purpose, and Object is a subclass of BasicObject. BasicObject is a very simple class, with almost no methods of its own. When you create a class in Ruby, you extend Object unless you explicitly specify the super-class, and most programmers will never need to use or extend BasicObject.
+
+### 9.4.4. Polymorphism

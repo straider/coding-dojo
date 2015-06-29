@@ -1,4 +1,4 @@
-# Ruby Installation Guide
+# Installation Guide
 
 ## Introduction
 

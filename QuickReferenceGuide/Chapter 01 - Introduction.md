@@ -68,7 +68,7 @@ Matz received the 2011 Award for the Advancement of Free Software from the Free 
 - [The Ruby Style Guide](https://github.com/bbatsov/ruby-style-guide): A community-driven Ruby coding style guide;
 - [Ruby Guide](http://www.caliban.org/ruby/rubyguide.shtml): this document was originally written for internal use in the Operations department at Google. This document will suggest some guidelines for writing Ruby code in such a way that a common stylistic vocabulary may emerge, thereby increasing the ease with which source code may be read and shared.
 
-# 1.7. Official Documentation
+## 1.7. Official Documentation
 
 The [official documentation](http://ruby-doc.org/) is divided in two: Core API and Standard Library API.
 
