@@ -1,8 +1,6 @@
 Quick Reference Guide
 =====================
 
-# 10. Concurrency
-
 # 11. Core Packages / Standard Library
 
 ## 11.1 BigDecimal
@@ -13,18 +11,14 @@ Quick Reference Guide
 
 ## 11.4. Date and Time
 
-## 11.5. Regexp
+# 12. Libraries / Modules
 
-## 11.6. Testing
+## 12.1. Testing
 
-## 11.7. Benchmarking
+## 12.2. Benchmarking
 
-## 11.8. Logging
+## 12.3. SQL
 
-# 12. Libraries / Packages
+## 12.4. Networking
 
-## 12.1. SQL
-
-## 12.2. Networking
-
-## 12.3. Concurrency
+## 12.5. Concurrency
