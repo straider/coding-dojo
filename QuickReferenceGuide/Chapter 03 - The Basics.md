@@ -26,4 +26,7 @@ Quick Reference Guide
 ### 3.2.2. Multiple Declaration
  
 ### 3.2.3. Type Inference
- 
+
+## 3.3. Pointers
+
+## 3.4. Named Types
