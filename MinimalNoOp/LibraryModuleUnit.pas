@@ -1,4 +1,4 @@
-unit library_module;
+unit LibraryModuleUnit;
 
 interface
 
