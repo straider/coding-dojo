@@ -1,15 +1,16 @@
 using System;
+using System.Numerics; // dmcs -reference:System.Numerics.dll -out:Factorial100-CS.exe Factorial100.cs
 
 public class Factorial20
 {
 
-  private static long factorial( int value )
+  private static BigInteger factorial( int value )
   {
-    long result = 1;
+    BigInteger result = 1;
 
     for ( int iteration = 1; iteration <= value ; iteration++ )
     {
-      result = result * iteration;
+      result = BigInteger.Multiply( result, iteration );
     }
 
     return result;
@@ -21,7 +22,7 @@ public class Factorial20
     {
       for ( int value = 0; value <= 100; value++ )
       {
-        long result = Factorial20.factorial( value );
+        BigInteger result = Factorial20.factorial( value );
         Console.WriteLine( result );
       }
     }
