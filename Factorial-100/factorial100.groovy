@@ -4,7 +4,7 @@ BigInteger factorial( value ) {
   BigInteger result = 1
 
   for ( iteration = 1; iteration <= value; iteration++ ) {
-    result = result.multiply( BigInteger.valueOf( iteration ) )
+    result = result.multiply( iteration )
   }
 
   return result
