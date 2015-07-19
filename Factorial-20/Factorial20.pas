@@ -3,11 +3,11 @@ program Factorial20;
 var
   i      : longint;
   value  : integer;
-  result : longint;
+  result : int64;
 
-function factorial( value : integer ) : longint;
+function factorial( value : integer ) : int64;
 var
-  result    : longint;
+  result    : int64;
   iteration : integer;
 begin
   result := 1;
