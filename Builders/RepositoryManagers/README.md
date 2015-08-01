@@ -19,11 +19,7 @@ Dojo to research and learn how to install and use Maven Repository Managers.
 
 This dojo is suitable to any programmer that wants to learn how install, configure and use Maven Repository Managers.
 
-## 1.3. History
-
-## 1.4. Limitations
-
-## 1.5. Features
+## 1.3. Features
 
 > Using a repository manager provides the following benefits and features:
 - significantly reduced number of downloads off remote repositories, saving time and bandwidth resulting in increased build performance;
@@ -36,6 +32,8 @@ This dojo is suitable to any programmer that wants to learn how install, configu
 ----
 
 # 2. Installation
+
+Each Repository Manager is expected to run at least on top of a Servlet Container and not just in standalone mode. It's even better if it can run on top of Java Enterprise Application Servers.
 
 ## 2.1. Archiva
 

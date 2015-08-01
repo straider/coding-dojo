@@ -13,6 +13,7 @@ Dojo to learn and explore Maven, one of the Java Builder Tools.
 
 Maven key concepts are:
 - The pom.xml file - [Project Object Model](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html) - is the core of a project's configuration in Maven. It is a single configuration file that contains the majority of information required to build a project in just the way you want. The POM is huge and can be daunting in its complexity, but it is not necessary to understand all of the intricacies just yet to use it effectively;
+- **Profiles**: usuful to setup different configuration per working environment, such as DEV, TST, STG and PRD;
 - **Lifecycles**: are a list of [named phases](http://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html) that can be used to give order to goal execution. The specific goal executed per phase is dependent upon the packaging type of the project. Maven defines 3 [lifecycles](http://maven.apache.org/ref/3.3.3//maven-core/lifecycles.html): **default**, **clean** and **site**. Goals provided by plugins can be associated with different phases of the lifecycle;
 - **Plugins**.
 
