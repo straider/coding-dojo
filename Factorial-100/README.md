@@ -5,14 +5,14 @@ coding-dojo / Factorial-100
 
 Personal Coding Dojo, for simple benchmarking of several technologies.
 
-## 1.2. Goal and Objectives
+## 1.1. Goal and Objectives
 
 - To test execution times of nested loops;
 - Using intensive multiplication operation;
 - Evaluate technology precision between 32-bit and 64-bit long integer data types;
-- Evaluate technology support for BigInteger and its speed cost.
+- Evaluate technology support for [BigInteger](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic) and its speed cost.
 
-## 1.3. Constraints
+## 1.2. Constraints
 
 - Use primitive signed integers, as much as possible;
 - Compilers and code should have no optimization features turned on;
@@ -44,7 +44,15 @@ Use the following command to compile the solution in C# using Mono:
 dmcs -reference:System.Numerics.dll -out:Factorial100.exe Factorial100.cs
 ```
 
-**Note**: there are some non-standard libraries that may work, even for .NET 2.0.
+**Note**: there are some non-standard libraries that may work, even for .NET 2.0:
+
+- [BigInteger Library](http://www.codeproject.com/Articles/60108/BigInteger-Library): BigInteger is a .NET 2.0 and Mono library for handling very large integers, up to 10240 binary digits or approximately (safe to use) 3000 decimal digits;
+- [C# BigInteger Class](http://www.codeproject.com/Articles/2728/C-BigInteger-Class)
+- [BigInteger](https://biginteger.codeplex.com/): The implementation supports BigIntegers of arbitrary size and is compatible with C# 2;
+- [IntX](http://intx.codeplex.com/): IntX is an arbitrary precision integers library written in pure C# 2.0 with fast - about O(N * log N) - multiplication/division algorithms implementation;
+- [W3b.Sine](http://sine.codeplex.com/): This is a BSD licensed library for use by CLR/DLR languages (like VB.NET, C#, and F#) when developers would like to include arbitrary-precision arithmetic in their applications;
+- [GNU Multi-Precision Library for .NET](http://web.rememberingemil.org/Projects/GnuMpDotNet/GnuMpDotNet.html): The GNU Multi-Precision Library for .NET is a .NET wrapper (written in C#) of the GNU MP Bignum Library, which is probably the fastest general purpose large number arithmatic library in the world;
+- [GNU MP wrapper for .NET](https://gnumpnet.codeplex.com/)
 
 ### 2.1.4. Java
 

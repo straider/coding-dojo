@@ -15,8 +15,8 @@ sub factorial {
   return $result;
 }
 
-for ( my $i = 0; $i <= 50000; $i++ ){
-  for ( my $value = 0; $value <= 100; $value++ ){
+for ( my $i = 0; $i <= 50000; $i++ ) {
+  for ( my $value = 0; $value <= 100; $value++ ) {
     my $result = factorial( $value );
     print "$result\n"
   }

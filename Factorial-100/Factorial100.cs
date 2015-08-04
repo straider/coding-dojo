@@ -1,7 +1,7 @@
 using System;
 using System.Numerics; // dmcs -reference:System.Numerics.dll -out:Factorial100-CS.exe Factorial100.cs
 
-public class Factorial20
+public class Factorial100
 {
 
   private static BigInteger factorial( int value )

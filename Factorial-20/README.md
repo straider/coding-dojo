@@ -5,13 +5,13 @@ coding-dojo / Factorial-20
 
 Personal Coding Dojo, for simple benchmarking of several technologies.
 
-## 1.2. Goal and Objectives
+## 1.1. Goal and Objectives
 
 - To test execution times of nested loops;
 - Using intensive multiplication operation;
 - Evaluate technology precision between 32-bit and 64-bit long integer data types.
 
-## 1.3. Constraints
+## 1.2. Constraints
 
 - Use primitive signed integers, as much as possible;
 - Compilers and code should have no optimization features turned on;

@@ -1,7 +1,7 @@
 #!/bin/env python
 
 def factorial( value ) :
-  result = long( 1 )
+  result = 1
   for iteration in range( 1, value + 1 ) :
     result = result * iteration
 
