@@ -41,6 +41,8 @@ def method_with_argument_with_default_value( argument1, argument2 = 'default2', 
 
 **Note**: the arguments with default values comes in last, in the method signature definition.
 
+Function can have, optionally, a multiline string just before their first statement. These are known as documentation strings and can be accessed by ```function_name.__doc__()``` method.
+
 ## 7.3. Scope
 
 In regards to a function a variable can either be local or global. Local variables with the same identifier as global variables shadow the global variable value inside the function, therefor keeping the global value unchanged.

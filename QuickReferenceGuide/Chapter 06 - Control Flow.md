@@ -88,6 +88,11 @@ for variable in [SEQUENCE] :
   [STATEMENTS]
 else :
   [STATEMENTS]
+
+for variable in range( [START], [END] ) :
+  [STATEMENTS]
+else :
+  [STATEMENTS]
 ```
 
 A **for** loop is considered a definite loop, since it usually iterates a pre-defined number of times, unless one of the following constructs is used in the loop code block:
@@ -123,6 +128,26 @@ for i in [ 0, 1, 2, 3, 4 ] :
   print i
 else :
   print i
+```
+
+### 6.3.1. Iterators
+
+```python
+list = [ 'one', 'two', 'three' ]
+
+for index, value in enumerate( list ) :
+  print index, value
+
+dictionary = { 'name' : 'joe', 'age' : 44 }
+
+for key in dictionary.keys() :
+  print key
+
+for value in dictionary.values() :
+  print value
+
+for key, value in dictionary.items() :
+  print key, value
 ```
 
 ## 6.4. While / Until

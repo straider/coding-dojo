@@ -156,7 +156,7 @@ c - b == a
 > Python accepts single ( ' ), double ( " ) and triple ( ''' or """ ) quotes to denote string literals, as long as the same type of quote starts and ends the string.
 
 - String literals are sequences of characters between single or double quotation marks;
-- Strings are **mutable**. They can expand as needed, without using much time and memory;
+- Strings are **immutable**;
 - A special kind of string exists that uses the back-tick ( "`" ) as a beginning and ending delimiter. This causes the string to the executed in the underlying operating system as a command.
 
 ```python
@@ -254,6 +254,18 @@ None == {}
 | and      | Logical AND |
 | or       | Logical OR  |
 | not      | Logical NOT |
+
+It's possible to chain comparison operators:
+
+```python
+a = 5
+
+if 0 < a < 10 :
+  print 'Hit'
+  
+if a > 0 and a < 10 :
+  print 'Hit'
+```
 
 ### 4.3.2. Short-Circuiting
 

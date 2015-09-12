@@ -31,6 +31,18 @@ py -2 # executes Python 2 interpreter
 py -3 # executes Python 3 interpreter
 ```
 
+On Windows, to build native wheels, it's recommended to use the same Visual C++ compiler version that was used in building the interpreter:
+
+- Python 2.7: Visual Studio 2008 ( MSVC 9.0 )
+- Python 3.4: Visual Studio 2010 ( MSVC 10.0 )
+
+For Python 2.7 it's recommended to download and install [Visual C++ Compiler for Python 2.7](http://www.microsoft.com/en-us/download/details.aspx?id=44266) and edit the batch file **vcvarsall.bat** to also set the following environment variables ( since this compiler is not a full blown Visual C++ compiler ):
+
+```batch
+set DISTUTILS_USE_SDK=1
+set MSSdk=1
+```
+
 ### Linux Ubuntu 14.04 LTS - Trusty Tahr
 
 **Attention**: by default, an installation of Ubuntu 14.04 LTS already has both version of CPython: Python 2.7.6 and Python 3.4.0.
@@ -44,16 +56,18 @@ tar -zxvf Python-2.7.10.tgz
 cd Python-2.7.10/
 
 ./configure
-make
-make install
+make && make install
+cd ..
+rm -Rf Python-2.7.10/
 
 wget https://www.python.org/ftp/python/3.4.3/Python-3.4.3.tgz
 tar -zxvf Python-3.4.3.tgz
 cd Python-3.4.3/
 
 ./configure
-make
-make install
+make && make install
+cd ..
+rm -Rf Python-3.4.3/
 ```
 
 #### Ubuntu PPA
@@ -95,13 +109,14 @@ pyenv install jython-2.7.0
 
 There are other interpreters, that are not covered on this mini installation guide:
 
+- [PyPy](http://pypy.org/): PyPy is a fast, compliant alternative implementation of the Python language (2.7.8 and 3.2.5);
+- [Cython](http://cython.org/): Cython is an optimising static compiler for both the Python programming language and the extended Cython programming language (based on Pyrex). It makes writing C extensions for Python as easy as Python itself;
+- [Stackless Python](http://www.stackless.com/): Stackless Python is an enhanced version of the Python programming language. It allows programmers to reap the benefits of thread-based programming without the performance and complexity problems associated with conventional threads. The micro-threads that Stackless adds to Python are a cheap and lightweight;
+- [Portable Python](http://portablepython.com/): Portable Python is a Python programming language pre-configured to run directly on the Windows OS from any USB storage device, enabling you to have, at any time, a portable programming environment;
 - [jython](http://www.jython.org/): Jython is a Java implementation of Python that combines expressive power with clarity;
 - [IronPython](http://ironpython.net/): IronPython is an open-source implementation of the Python programming language which is tightly integrated with the .NET Framework. IronPython can use the .NET Framework and Python libraries, and other .NET languages can use Python code just as easily;
-- [PyPy](http://pypy.org/): PyPy is a fast, compliant alternative implementation of the Python language (2.7.8 and 3.2.5);
-- [Stackless Python](http://www.stackless.com/): Stackless Python is an enhanced version of the Python programming language. It allows programmers to reap the benefits of thread-based programming without the performance and complexity problems associated with conventional threads. The micro-threads that Stackless adds to Python are a cheap and lightweight;
 - [WinPython](http://winpython.github.io/): WinPython is a free open-source portable distribution of the Python programming language for Windows XP/7/8, designed for scientists, supporting both 32bit and 64bit versions of Python 2 and Python 3;
-- [Portable Python](http://portablepython.com/): Portable Python is a Python programming language pre-configured to run directly on the Windows OS from any USB storage device, enabling you to have, at any time, a portable programming environment;
-py -3- [Anaconda](https://store.continuum.io/cshop/anaconda/): Completely free enterprise-ready Python distribution for large-scale data processing, predictive analytics, and scientific computing;
+- [Anaconda](https://store.continuum.io/cshop/anaconda/): Completely free enterprise-ready Python distribution for large-scale data processing, predictive analytics, and scientific computing;
 - [ActivePython](http://www.activestate.com/activepython)
 - [Enthought Canopy](https://www.enthought.com/products/epd/): Enthought Canopy is a comprehensive Python analysis environment that provides easy installation of the core scientific analytic and scientific Python packages, creating a robust platform you can explore, develop, and visualize on. In addition to its pre-built, tested Python distribution, Enthought Canopy has valuable tools for iterative data analysis, visualization and application development.
 
