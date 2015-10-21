@@ -20,6 +20,6 @@ int countlines( char *filename ) {
   return lines;
 }
 
-void main( int argc, char *argv[] ) {
+int main( int argc, char *argv[] ) {
   printf( "%d\n", countlines( argv[ 1 ] ) );
 }
