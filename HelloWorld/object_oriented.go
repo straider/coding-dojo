@@ -22,7 +22,7 @@ func main() {
   } else {
     greeter = Greeter{ name: os.Args[ 1 ] }
   }
-  fmt.Printf( message, greeter.say()  )
+  fmt.Printf( message, greeter.say() )
 
   fmt.Println( "» José Carlos Monteiro «" )
 }
