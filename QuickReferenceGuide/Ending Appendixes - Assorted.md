@@ -7,6 +7,35 @@ Quick Reference Guide
 
 ## 11.2. File Handling / Input-Output
 
+These are the basic methods to work with files:
+
+- ```open()```: opens a file, for reading ( "r" ) or writing ( "w" ) and returns a file handler to it;
+- ```read()```: reads the entire file content to memory;
+- ```write()```
+- ```close()```
+
+**Note**: a file handler, returned from ```open()``` works just like a sequence.
+
+```python
+file_handler = open( 'somefile.txt', 'rU' )
+
+for line in file_handler :
+  print line
+```
+
+**Note**: ```U``` is the "Universal" option for text files where it's smart about converting different line-endings so they always come through as a simple ```'\n'```.
+
+To handle UTF-8 all it's required is to pass a 3rd argument while using codecs module:
+
+```python
+import codecs
+
+file_handler = codecs.open( 'somefile.txt', 'rU', 'UTF-8' )
+
+for line in file_handler :
+  print line
+```
+
 ## 11.3. Random Numbers
 
 - Python comes with a random number generator;

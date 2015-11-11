@@ -9,6 +9,10 @@ Quick Reference Guide
 
 ## 8.3. List Comprehension
 
+```python
+list = [ x for x in [SEQUENCE] if x % 2 == 0 ]
+```
+
 ## 8.4. High-Order Functions
 
 ## 8.5. Pure Functions
