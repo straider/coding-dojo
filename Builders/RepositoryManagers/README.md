@@ -150,27 +150,26 @@ Of the 3 repository managers there's just one simple and yet suitable solution: 
 
 ## 3.2. Artifactory
 
-
-### 3.1.1. Pros
+### 3.2.1. Pros
 
 - Runs in standalone mode, on top of Tomcat;
 - Can be deployed into a Servlet Container or Java Enterprise Application Server;
 - The User Interface is rich;
 - It's more than just a Repository Manager: can deal with gems and wheels.
 
-### 3.1.2. Cons
+### 3.2.2. Cons
 
 - Requires plenty of memory.
 
 ## 3.3. Nexus OSS
 
-### 3.1.1. Pros
+### 3.3.1. Pros
 
 - Runs in standalone mode, on top of Jetty;
 - The User Interface is rich;
 - It's more than just a Repository Manager: can deal with gems and wheels.
 
-### 3.1.2. Cons
+### 3.3.2. Cons
 
 - There's no official WAR to deploy into a Servlet Container or Java Enterprise Application Server.
 

@@ -5,6 +5,34 @@
 
   <property file = "build.properties" />
 
+  <hostinfo prefix = "host." />
+  <property name = "host_info" value = "${host.NAME}.${host.DOMAIN}" />
+  <property environment = "env" />
+  <tstamp>
+    <format property = "build_time" pattern = "yyyy-MM-dd HH:mm:ss" />
+  </tstamp>
+
+  <target name = "info" description = "Outputs project information.">
+    <echo>
+      Application    : ${application_name} v${application_version}
+      Hostname       : ${host_info}
+      Processors     : ${env.NUMBER_OF_PROCESSORS}
+      OS Name        : ${os.name}
+      OS Architecture: ${os.arch}
+      OS Version     : ${os.version}
+      Java Home      : ${java.home}
+      Run Date       : ${build_time}
+      Run By         : ${user.name}
+      Base           : ${basedir}
+      Build File     : ${ant.file}
+
+      Sources Folder     : ${sources_folder}/
+      Build Folder       : ${build_folder}/
+      Distribution Folder: ${distribution_folder}/
+      Vendors Folder     : ${vendors_folder}/
+    </echo>
+  </target>
+
   <target name = "clean" description = "Removes the working folders.">
     <delete includeEmptyDirs = "true" failonerror = "false">
       <fileset dir = "${build_folder}/"        includes = "**/*" />
