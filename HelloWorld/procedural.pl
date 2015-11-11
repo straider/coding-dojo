@@ -7,10 +7,14 @@ use v5.10.0;
 use utf8;
 binmode( STDOUT, ":unix:utf8" );
 
-if ( $#ARGV + 1 == 0 ) {
-  say "Hello, World!";
-} else {
-  say "Hello, $ARGV[ 0 ]!"
-}
+__PACKAGE__ -> main() unless caller;
 
-say "» José Carlos Monteiro «";
+sub main {
+  if ( $#ARGV + 1 == 0 ) {
+    say "Hello, World!";
+  } else {
+    say "Hello, $ARGV[ 0 ]!"
+  }
+
+  say "» José Carlos Monteiro «";
+}
