@@ -20,7 +20,8 @@ if __FILE__ == $0
 
   sequence = []
   for i in 0 .. 25_000
-    sequence += fibonnaci( LIMIT )
+    # sequence += fibonnaci( LIMIT )
+    sequence.push( *( fibonnaci( LIMIT ) ) )
   end
 
   sequence.each_with_index do | value, index |

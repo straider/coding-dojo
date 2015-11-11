@@ -18,7 +18,8 @@ LIMIT = 44
 
 def sequence = []
 for ( i in 0 .. 25000 ) {
-  sequence += fibonnaci( LIMIT )
+  // sequence += fibonnaci( LIMIT )
+  sequence.addAll( fibonnaci( LIMIT ) )
 }
 
 sequence.eachWithIndex { value, index ->

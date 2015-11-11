@@ -18,6 +18,7 @@ if __name__ == '__main__' :
   sequence = []
   for i in range( 0, 25000 + 1 ) :
     sequence += fibonnaci( LIMIT )
+    # sequence.extend( fibonnaci( LIMIT ) )
 
   index = 0
   for value in sequence :
