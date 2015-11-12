@@ -26,6 +26,7 @@ The default terminal emulator is [mintty](https://code.google.com/p/mintty/).
 
 ## 1.3. Caveats & Pitfalls
 
+- Babun officially lacks 64-bit support;
 - The installation requires Internet connectivity;
 - The default Shell is zsh instead of bash.
 

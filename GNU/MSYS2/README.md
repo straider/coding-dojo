@@ -21,7 +21,9 @@ The default terminal emulator is [mintty](https://code.google.com/p/mintty/).
 
 ## 2.1. Pre-Requirements
 
-- Fresh installation size: +175 MB.
+- Fresh installation size: +175 MB;
+- Size after first update: +200 MB;
+- Size after second update: +210 MB;
 - Internet connectivity, for post-installation steps.
 
 ## 2.2. Installation
@@ -33,12 +35,6 @@ Open MSYS2 Shell window and execute the following commands:
 ```bash
 pacman -Sy
 pacman —needed -S bash pacman pacman-mirrors msys2-runtime
-```
-
-Exit from MSYS2 Shell window and re-open it to execute the following commands:
-
-```bash
-pacman -Su
 ```
 
 The recent versions offer an update-core script, which is easier. Open MSYS2 Shell window and execute the following commands:
