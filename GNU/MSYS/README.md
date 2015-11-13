@@ -11,11 +11,9 @@ This document acts as a quick guide for installing and using [MSYS](http://www.m
 
 > MSYS is a fork of Cygwin and is more friendly to the Win32 user.  It offers only a user land environment for MinGW development.  It converts posix paths before executing a "native" win32 program.  This allows the users of the MinGW version of GCC to port and build packages in a GNU familiar way and removes the UNIX complexities that Cygwin adds.
 
-The default terminal emulator is [mintty](https://code.google.com/p/mintty/).
-
 ## 1.2. History
 
-> MinGW (Minimalist GNU for Windows) was created by Colin Peters. Colin used a very early release of the Cygwin suite to compile the first version of the MinGW compiler code and had made it available on his website.
+> MinGW (Minimalist GNU for Windows) was created by Colin Peters. Colin used Cygwin 1.3.3 suite to compile the first version of the MinGW compiler code and had made it available on his website.
 
 > The very first native MinGW compiler was provided by Jan-Jaap van der Heijden.
 
@@ -23,7 +21,13 @@ The default terminal emulator is [mintty](https://code.google.com/p/mintty/).
 
 ## 1.3. Caveats & Pitfalls
 
-- Up to version 1.0.11 there's only a 32 bits choice, instead of 64 bits, even when host is Windows 7 64 bits.
+- Up to version 1.0.11 there's only a 32 bits choice, instead of 64 bits, even when host is Windows 7 64 bits;
+- It runs on top of Command Prompt window, instead of [mintty](https://code.google.com/p/mintty/) by default.
+
+> Although both Cygwin and MinGW can be used to port UNIX software to Windows, they have different approaches:
+
+- Cygwin aims to provide a complete POSIX layer that provides emulations of several system calls and libraries that exist on Linux, UNIX, and the BSD variants;
+- Unlike  Cygwin, MinGW does not require a compatibility layer DLL and thus programs do not need to be distributed with run-time DLL. But because MinGW is dependent upon Windows API calls, it cannot provide a full POSIX API; it is unable to compile some UNIX applications that can be compiled with Cygwin.
 
 # 2. Installation Steps
 
