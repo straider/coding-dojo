@@ -1,5 +1,5 @@
-coding-dojo / Factorial-20
-==========================
+coding-dojo / benchmarking / Factorial-20
+=========================================
 
 # 1. Introduction
 

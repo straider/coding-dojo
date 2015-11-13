@@ -1,5 +1,5 @@
-coding-dojo / Fibonnaci
-=======================
+coding-dojo / benchmarking / Fibonnaci
+======================================
 
 # 1. Introduction
 

@@ -15,4 +15,6 @@ sub count_lines {
   return $lines;
 }
 
-print count_lines( $ARGV[ 0 ] );
+if ( ! caller ) {
+  print count_lines( $ARGV[ 0 ] );
+}

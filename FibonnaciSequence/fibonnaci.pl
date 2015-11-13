@@ -19,15 +19,17 @@ sub fibonnaci {
   return @sequence;
 }
 
-my $LIMIT = 44;
+if ( ! caller ) {
+  my $LIMIT = 44;
 
-my @sequence = ();
-for ( my $i = 0; $i <= 25000; $i++ ) {
-  push ( @sequence, fibonnaci( $LIMIT ) );
-}
+  my @sequence = ();
+  for ( my $i = 0; $i <= 25000; $i++ ) {
+    push ( @sequence, fibonnaci( $LIMIT ) );
+  }
 
-my $index = 0;
-foreach my $value ( @sequence ) {
-  printf ( "%02d: %9d\n", ( $index % ( $LIMIT + 1 ), $value ) );
-  $index++;
+  my $index = 0;
+  foreach my $value ( @sequence ) {
+    printf ( "%02d: %9d\n", ( $index % ( $LIMIT + 1 ), $value ) );
+    $index++;
+  }
 }
