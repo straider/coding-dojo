@@ -64,3 +64,9 @@ Useful to quickly check software development kits, compilers or interpreters set
 ----
 
 ### Notes
+
+- Offers **print** and **println** to output to console;
+- Does not handle UTF-8 encoding mode very well, strings have to declared with "\u" escape character;
+- Handles String concatenation with operator "+";
+- Handles String interpolation with **${ ... }**, inside double quoted strings;
+- Handles command line arguments through default **args** arguments array.
