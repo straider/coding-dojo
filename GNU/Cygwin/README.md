@@ -118,3 +118,14 @@ After installing **chere** package then execute the following command in Cygwin 
 ```bash
 chere -i -nf -t mintty
 ```
+
+### 2.3.4. Proxy
+
+### 2.3.5. Extra Packages
+
+```bash
+cyg-setup=[ABSOLUTE_PATH_TO_CYGWIN_SETUP_FOLDER] # /cygdrive/c/.../setup-x86.exe
+cyg-setup -q --packages=mksh
+```
+
+**Note**: the file that configures the session for [MirBSD Korn Shell](https://www.mirbsd.org/mksh.htm) is .mkshrc instead of the usual .profile.

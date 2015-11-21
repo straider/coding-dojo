@@ -36,3 +36,7 @@ FIXME
 ### 2.3.2. UTF-8
 
 ### 2.3.3. BASH Prompt Here
+
+### 2.3.4. Proxy
+
+### 2.3.5. Extra Packages
