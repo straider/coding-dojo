@@ -51,7 +51,7 @@ Import-Module posh-gvm
 
 #### Notes
 
-On Windows 64x bits it may be necessary to also fix the **JAVA_HOME** Environment Variable, making it local to user instead of system-wide.
+If Groovy complains about JAVA_HOME it may be because current console code page mode is set for UTF-8 ( 65001 ) instead of 1252. Execute the command ```chcp 1252``` and it should work fine.
 
 ### Linux Ubuntu 14.04 LTS - Trusty Tahr
 
