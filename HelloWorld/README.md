@@ -66,3 +66,9 @@ Useful to quickly check software development kits, compilers or interpreters set
 ----
 
 ### Notes
+
+- Offers **echo** and **printf** to output to console;
+- Handles UTF-8 encoding mode if enabled on console;
+- Handles String concatenation with operator ".";
+- Handles String interpolation with operators "$(...)" and "${...}";
+- Handles command line arguments.
