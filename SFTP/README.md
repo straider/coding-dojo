@@ -24,19 +24,19 @@ Personal Coding Dojo for benchmarking of several technologies while transfering 
 
 ### 2.1.1. Pascal
 
-### 2.1.2. C
+### 2.1.2. C / C++
 
 Libraries:
 
-- [libssh](https://www.libssh.org/) is a mulitplatform C library implementing the SSHv2 and SSHv1 protocol on client and server side;
-- [libssh2](http://www.libssh2.org/) is a client-side C library implementing the SSH2 protocol;
-- [libcurl](http://curl.haxx.se/libcurl/) is a free and easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, Telnet and TFTP.
+- [libcurl](http://curl.haxx.se/libcurl/) is a free and easy-to-use client-side URL transfer library, supporting DICT, FILE, FTP, FTPS, Gopher, HTTP, HTTPS, IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMTP, SMTPS, Telnet and TFTP;
+- [libssh](https://www.libssh.org/) is a multiplatform C library implementing the SSHv2 and SSHv1 protocol on client and server side;
+- [libssh2](http://www.libssh2.org/) is a client-side C library implementing the SSH2 protocol.
 
 Choices:
 
+- libcurl
 - libssh
 - libssh2
-- libcurl
 
 ### 2.1.3. C#
 
@@ -102,28 +102,6 @@ Choices:
 - Net::SSH2
 
 ### 2.2.2. Python / Jython
-
-- [ftplib](https://docs.python.org/2/library/ftplib.html) is part of the Standard Library and implements the client side of the FTP protocol;
-- [Python FTP server library](https://github.com/giampaolo/pyftpdlib) provides a high-level portable interface to easily write very efficient, scalable and asynchronous FTP servers with Python. It is the most complete RFC-959 FTP server implementation available for Python programming language;
-- [pysftp](https://pypi.python.org/pypi/pysftp) is a simple interface to SFTP, based on zeth’s ssh.py;
-- [paramiko](https://github.com/paramiko/paramiko) it's a module for python 2.6+ that implements the SSH2 protocol for secure (encrypted and authenticated) connections;
-  - [sshstdlib](https://github.com/stestagg/sshstdlib) is a standard library emulation layer over SSH that uses paramiko;
-- [Exscript](https://github.com/knipknap/exscript) is a Python module making Telnet and SSH easy, on top of paramiko;
-  - [spur.py](https://github.com/mwilliamson/spur.py) runs commands and manipulate files locally or over SSH using the same interface;
-  - [ssh](https://github.com/bitprophet/ssh/) started life as a fork of Paramiko but has now been fully merged back upstream.
-- [PySecure](https://github.com/dsoprea/PySecure) is a complete Python SSH/SFTP library based on libssh;
-- [Python SFTP Client](https://github.com/cis-yogesh/Python_sftp_client)
-- [PySSH](http://pyssh.sourceforge.net/) is a Python library for programmatically controlling ssh and scp.
-- [AsyncSSH](https://pypi.python.org/pypi/asyncssh) is a Python package which provides an asynchronous client and server implementation of the SSHv2 protocol on top of the Python 3.4+ asyncio framework;
-- [pysftpserver](https://github.com/unbit/pysftpserver) is an OpenSSH SFTP wrapper in Python;
-- [sftpserver](https://pypi.python.org/pypi/sftpserver) is a simple single-threaded SFTP server based on Paramiko’s SFTPServer;
-- [PycURL](http://pycurl.sourceforge.net/) is a Python interface to libcurl.
-
-Choices:
-
-- pysftp
-- paramiko
-- PySecure
 
 ### 2.2.3. Ruby / JRuby
 
