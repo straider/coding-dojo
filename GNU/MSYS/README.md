@@ -5,11 +5,11 @@
 
 This document acts as a quick guide for installing and using [MSYS](http://www.mingw.org/wiki/MSYS) on Windows 7 ( 32 bits ).
 
-## 1.1. Goals & Objectives
-
 > Minimal SYStem is a minimal POSIX system used in the Win32 OS to accomplish configuration and making of packages.
 
 > MSYS is a fork of Cygwin and is more friendly to the Win32 user.  It offers only a user land environment for MinGW development.  It converts posix paths before executing a "native" win32 program.  This allows the users of the MinGW version of GCC to port and build packages in a GNU familiar way and removes the UNIX complexities that Cygwin adds.
+
+## 1.1. Goals & Objectives
 
 ## 1.2. History
 
@@ -27,7 +27,7 @@ This document acts as a quick guide for installing and using [MSYS](http://www.m
 > Although both Cygwin and MinGW can be used to port UNIX software to Windows, they have different approaches:
 
 - Cygwin aims to provide a complete POSIX layer that provides emulations of several system calls and libraries that exist on Linux, UNIX, and the BSD variants;
-- Unlike  Cygwin, MinGW does not require a compatibility layer DLL and thus programs do not need to be distributed with run-time DLL. But because MinGW is dependent upon Windows API calls, it cannot provide a full POSIX API; it is unable to compile some UNIX applications that can be compiled with Cygwin.
+- Unlike Cygwin, MinGW does not require a compatibility layer DLL and thus programs do not need to be distributed with run-time DLL. But because MinGW is dependent upon Windows API calls, it cannot provide a full POSIX API; it is unable to compile some UNIX applications that can be compiled with Cygwin.
 
 # 2. Installation Steps
 
@@ -48,8 +48,6 @@ Install MSYS into C:\Hosting\msys1\:
 Last installation step is a post install that opens a Command Line window. It will ask several questions:
 
 ```
-C:\Hosting\msys1\postinstall>..\bin\sh.exe pi.sh
-
 This is a post install process that will try to normalize between
 your MinGW install if any as well as your previous MSYS installs
 if any.  I don't have any traps as aborts will not hurt anything.
@@ -61,22 +59,6 @@ When you install MinGW I suggest you install it to C:/mingw
 (replace C: with the drive of your choice).  Then create an
 /etc/fstab file with a line that has a value similar to:
 C:/mingw /mingw
-Press ENTER to continue
-
-        Normalizing your MSYS environment.
-
-You have script /bin/awk
-You have script /bin/cmd
-You have script /bin/echo
-You have script /bin/egrep
-You have script /bin/fgrep
-You have script /bin/printf
-You have script /bin/pwd
-
-MinGW-1.1 has a version of make.exe within it's bin/ directory.
-Please be sure to rename this file to mingw32-make.exe once youve
-    echo installed MinGW-1.1 because it\s very deficient in function.
-Press ENTER to continue.
 ```
 
 ### 2.3.1. Users & Groups
