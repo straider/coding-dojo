@@ -61,11 +61,22 @@ When you install MinGW I suggest you install it to C:/mingw
 C:/mingw /mingw
 ```
 
+To open terminal with mintty edit **msys.bat**, in C:\Hosting\msys1\, and replace line with ```set MSYSCON=unknown``` with ```set MSYSCON=mintty.exe```.
+
+Then, after opening the terminal, configure options:
+
+- Configure Text:
+  - Font as Consolas or Lucinda Console, size 9 points;
+  - Locale as C;
+  - Character Set as UTF-8 ( Unicode ).
+- Configure Window:
+  - Size 120 columns and 50 rows.
+
 ### 2.3.1. Users & Groups
 
 ### 2.3.2. UTF-8
 
-FIXME
+It was simply a matter of configuring the option Text on the MSYS Terminal window.
 
 ### 2.3.3. BASH Prompt Here
 
