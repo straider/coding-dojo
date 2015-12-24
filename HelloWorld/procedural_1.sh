@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -eu
+
 if [ $# -eq 0 ]; then
   name='World'
 else

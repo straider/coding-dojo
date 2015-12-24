@@ -1,11 +1,12 @@
 #!/usr/bin/env sh
 
+set -eu
+
 MESSAGE='Hello, %s!\n'
 
 function greet() {
   message="$1"
-  name="$2"
-  name=${name:-'World'}
+  name=${2:-'World'}
 
   printf "$message" "$name"
 }
