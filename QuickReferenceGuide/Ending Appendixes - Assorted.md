@@ -11,14 +11,20 @@ Quick Reference Guide
 
 ## 11.4. Date and Time
 
+## 11.5. Regexp
+
+## 11.6. Testing
+
+## 11.7. Benchmarking
+
+## 11.8. Logging
+
+## 11.9. Serialization / Marshalling
+
 # 12. Libraries / Modules
 
-## 12.1. Testing
+## 12.1. SQL
 
-## 12.2. Benchmarking
+## 12.2. Networking
 
-## 12.3. SQL
-
-## 12.4. Networking
-
-## 12.5. Concurrency
+## 12.3. Concurrency

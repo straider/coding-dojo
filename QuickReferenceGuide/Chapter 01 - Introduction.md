@@ -27,17 +27,17 @@ An [Unix Shell](https://en.wikipedia.org/wiki/Unix_shell) is a command line inte
 
 [Historical](http://www.ibm.com/developerworks/library/l-linux-shells/) there are 4 generations of distinct shell functionalities:
 
-- **1st Generation**: 
+- **1st Generation**:
   - [Thomson shell](https://en.wikipedia.org/wiki/Thompson_shell), created by [Ken Thompson](https://en.wikipedia.org/wiki/Ken_Thompson) in 1971;
   - [Mashey shell](https://en.wikipedia.org/wiki/PWB_shell), created by John Mashey in 1975.
-- **2nd Generation**: 
+- **2nd Generation**:
   - [Bourne shell](https://en.wikipedia.org/wiki/Bourne_shell), created by Stephen Bourne in 1977;
   - [C-shell](https://en.wikipedia.org/wiki/C_shell), created by Bill Joy in 1978.
-- **3rd Generation**: 
+- **3rd Generation**:
   - [tcsh](https://en.wikipedia.org/wiki/Tcsh), created by Ken Greer in 1981;
   - [ksh88](https://en.wikipedia.org/wiki/Korn_shell), created by David Korn ni 1983;
   - [ash](https://en.wikipedia.org/wiki/Almquist_shell), created by Kenneth Almquist in 1989, as replacement to the traditional "System V Release 4" Bourne shell due to the license war between AT&T and Berkeley.
-- **4th Generation**: 
+- **4th Generation**:
   - [bash](https://en.wikipedia.org/wiki/Bash_Unix_shell), created by Brian Fox in 1989;
   - [zsh](https://en.wikipedia.org/wiki/Z_shell), created by Paul Falstad in 1990;
   - [ksh93](https://en.wikipedia.org/wiki/Korn_shell), created by Ken Greer in 1993 and released under Eclipse Public License since 2005;
@@ -49,7 +49,7 @@ An [Unix Shell](https://en.wikipedia.org/wiki/Unix_shell) is a command line inte
 
 ## 1.4. Why?
 
-> 
+>
 - If cut wont cut it, try sed;
 - If sed makes you sad, try awk;
 - If awk becomes too awkward, try shell;

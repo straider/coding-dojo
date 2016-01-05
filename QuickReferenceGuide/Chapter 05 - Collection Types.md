@@ -5,7 +5,7 @@ Quick Reference Guide
 
 ## 5.1. Structs
 
-### 5.1.1 Operators
+N/A.
 
 ## 5.2. Arrays, Lists and Sets
 
@@ -17,15 +17,15 @@ Quick Reference Guide
 
 ## 5.4. Ranges
 
-### 5.4.1 Operators
+N/A.
 
 ## 5.5. Slices
 
-### 5.5.1 Operators
+N/A.
 
 ## 5.6. Tuples
 
-### 5.6.1 Operators
+N/A.
 
 ## 5.7. Regexp
 

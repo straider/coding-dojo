@@ -65,11 +65,11 @@ var1=a var2=b var3=c
 ```
 
 ### 3.1.3. Type Inference
- 
+
 ### 3.1.4. Type Conversion
 
 ### 3.1.5. Multiple Assignment
- 
+
 ### 3.1.6. Function Type Variables
 
 If a scalar variable holds the name of a function then it can be used to call that function. The ```eval``` statement can be used, to construct the command, execute it and evaluate the result.

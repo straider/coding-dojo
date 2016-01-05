@@ -120,3 +120,40 @@ done
 **Note**: the difference between $* and $@ is visible when used inside double quotes.
 
 ## 2.6. UTF-8 Encoding
+
+## 2.7. Interpreter Options
+
+Its considered good practice to enable the options -e and -u on each program:
+
+* **ErrorExit**: exits immediately if a pipeline, which may consist of a single simple command, a list, or a compound command returns a non-zero status;
+* **DoNotAllowUnset**: treats unset variables and parameters other than the special parameters ‘@’ or ‘*’ as an error when performing parameter expansion.
+
+```bash
+#!/usr/bin/env sh
+
+set -e
+set -u
+
+set -eu
+
+set -o errexit # Same as set -e.
+set -o nounset # Same as set -u.
+
+shopt -s -o errexit nounset # Same as set -eu, but only in Bash.
+```
+
+It's also possible to disable shell options:
+
+```bash
+set +e
+set +u
+
+set +eu
+
+set +o errexit # Same as set +e.
+set +o nounset # Same as set +u.
+
+shopt -u -o errexit nounset # Same as set +eu, but only in Bash.
+```
+
+**Note**: the command ```shopt``` only exists with Bash, not with Ksh or other Shell interpreters.

@@ -41,17 +41,11 @@ Quick Reference Guide
 
 ### A.3.3. Korn Shell
 
-- [Ksh Scripting](http://www.well.ox.ac.uk/~johnb/comp/unix/ksh.html) 
-- [Korn shell scripting](http://www.ibm.com/developerworks/aix/library/au-kornshellscripting/index.html?S_TACT=105AGX20&S_CMP=Cyberciti.biz) 
-- [UNIX shell scripting with ksh/bash](https://www.dartmouth.edu/~rc/classes/ksh/) 
+- [Ksh Scripting](http://www.well.ox.ac.uk/~johnb/comp/unix/ksh.html)
+- [Korn shell scripting](http://www.ibm.com/developerworks/aix/library/au-kornshellscripting/index.html?S_TACT=105AGX20&S_CMP=Cyberciti.biz)
+- [UNIX shell scripting with ksh/bash](https://www.dartmouth.edu/~rc/classes/ksh/)
 
 ## A.4. Assorted
 
 - [Greg's Wiki](http://mywiki.wooledge.org/)
 - [SHELLdorado](http://www.shelldorado.com/)
-
-- [Writing Robust Bash Shell Scripts](http://www.davidpashley.com/articles/writing-robust-shell-scripts/)
-- [Advancing in the Bash Shell](http://samrowe.com/wordpress/advancing-in-the-bash-shell/)
-- [Bash Pitfalls](http://mywiki.wooledge.org/BashPitfalls)
-- [The Bash Hackers Wiki](http://wiki.bash-hackers.org/start)
-- [List of Bash online-tutorials](http://wiki.bash-hackers.org/scripting/tutoriallist)

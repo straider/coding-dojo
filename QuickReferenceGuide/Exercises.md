@@ -146,8 +146,8 @@ Exercises:
 
 Exercises:
 
-- Calculate the circumference of a circle with radius 8 ( 2πr );
-- Calculate the area of a circle with radius 8 ( πr^2 );
+- Calculate the circumference of a circle with radius 8 ( 2pr );
+- Calculate the area of a circle with radius 8 ( pr^2 );
 
 ## 4.2. Strings
 
@@ -196,7 +196,7 @@ Exercises:
 
 ## 5.5. Regular Expressions
 
-## 5.6. Enumerables 
+## 5.6. Enumerables
 
 # 6. Control Flow Structures
 
