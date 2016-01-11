@@ -47,6 +47,8 @@ N/A.
 
 ## 4.2. Strings
 
+Any sequence of valid characters is considered a string. A string can be defined between single quotes or double quotes. The difference between them is that single quotes limit substitution while double quoted allows the shell to perform substitutions.
+
 ### 4.2.1 Operators
 
 | Form                  | Description |
@@ -61,8 +63,8 @@ N/A.
 | ${var//pattern/value} | Replaces all occurrences of pattern with value. |
 | ${var/%pattern/value} | Replaces an occurrence of pattern with value if suffix of var matches pattern. |
 | ${var/#pattern/value} | Replaces an occurrence of pattern with value if prefix of var matches pattern. |
-| ${#var^pattern}       | Converts the first lowercase letter that matches the pattern in value referenced by var to uppercase letters. |
-| ${#var^^pattern}      | Converts all lowercase letters that matches the pattern in value referenced by var to uppercase letters. |
+| ${#var\^pattern}       | Converts the first lowercase letter that matches the pattern in value referenced by var to uppercase letters. |
+| ${#var\^\^pattern}      | Converts all lowercase letters that matches the pattern in value referenced by var to uppercase letters. |
 | ${#var,pattern}       | Converts first uppercase letters that matches the pattern in value referenced by var to lowercase letters. |
 | ${#var,,pattern}      | Converts all uppercaee letters that matches the pattern in value referenced by var to lowercase letters. |
 
@@ -114,8 +116,8 @@ echo "Convert all letters to uppercase: ${original^^*}"
 echo "Convert first letter to lowercase: ${original,*}"
 echo "Convert all letters to lowercase: ${original,,*}"
 
-lowercase=√¢√©√≠√µu
-uppercase=√Ç√â√ç√ïU
+lowercase=‚ÈÌıu
+uppercase=¬…Õ’U
 
 echo "Convert first letter to uppercase: ${lowercase^*}"
 echo "Convert all letters to uppercase: ${lowercase^^*}"

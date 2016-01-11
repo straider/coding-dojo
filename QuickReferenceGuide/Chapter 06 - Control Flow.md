@@ -29,7 +29,20 @@ fi
 
 ### 6.1.1. Statement Modifiers
 
-N/A.
+Although there are no statement modifiers there are control operators:
+
+- **&&**: **and** operator that executes the command to the right if, and only if, the command to the left ended successfully ( return code was 0 );
+- **||**: **or** operator that executes the command to the right if, and only if, the command to the left ended without success ( return code was not 0 ).
+
+**Note**: instead of using control operators one should use ```set -e``` and normal control flow commands.
+
+```bash
+true && echo "OK"
+false && echo "NOK"
+
+true || echo "OK"
+false || echo "NOK"
+```
 
 ### 6.1.2. Ternary Operator
 

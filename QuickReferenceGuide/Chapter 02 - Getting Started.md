@@ -32,6 +32,45 @@ END_OF_COMMENT
 
 ## 2.2. Statements
 
+The interpreter reads commands from its input, which is usually given by the user on a command line session or from a file ( script ). Each line of input that is read is treated as a command: an instruction to be executed. Each line is split into words separated by whitespace. The first word is the name of the command to be executed and all remaining words are arguments to be passed to that command.
+
+### 2.2.1. Types of Statements
+
+- **Aliases** are word that are mapped to strings, usually a shorten version of a long statements. Aliases cannot be used within scripts;
+- **Functions** are names that are mapped to a set of commands, usually a compound statement ( sequence of commands between curly braces: ```{ ... }```;
+- **Builtins** are commands built into the interpreter;
+- **Keywords** are like builtins, but special parsing rules apply to them;
+- **Executables**, also known as external commands or applications, are programs that can be executed by referring to their absolute file path or simply by their name if their location are defined inside the PATH environment variable;
+- **Pipelines** are a convenient way of "connecting" two commands by way of linking the first process' standard output to the second process' standard input.
+
+**Note**: a compound statement is either a block of commands, between curly braces, or a list / sequence of commands separated by semi-colon.
+
+### 2.2.2. HereDoc
+
+HereDoc is an additional form of I/O redirection that provides a way to include content that will be given to the standard input of a command:
+
+```bash
+[COMMAND] <<[TOKEN]
+  multi-line content
+  to be used as standard input to the command above
+[TOKEN]
+```
+
+[TOKEN] can be any string of characters and the token that closes the HereDoc must start at column 1 ( no identation ) and must also match the one that starts it. If the token is single quoted than no substituions are performed on the content. If its
+
+**Note**: one can use ```<<``` or ```<<-``` to redirect the standard output. The difference between them is in the way that tab character is handled: the first doesn't ignore leading tabs while the second ignores leading tabs ( but not whitespace ).
+
+### 2.2.3. HereString
+
+HereString is like HereDoc, an additional form of I/O redirection, that is useful to pass strings as input to commands and does not require a token:
+
+```bash
+[COMMAND] <<<"
+  multi-line content
+  to be used as standard input to the command above
+"
+```
+
 ## 2.3. Keywords and Identifiers
 
 ## 2.4. Loading Sources
