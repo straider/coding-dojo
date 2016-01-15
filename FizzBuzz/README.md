@@ -40,21 +40,7 @@ Dojo to register different programming paradigms of FizzBuzz Challenge.
 
 ### Object Oriented
 
-#### Requirements
-
-- Iterate numbers from 1 to 100;
-- Output each number in a distinct line, to the console;
-- Unless the number is, in order:
-  - If divisible by 3 then output string "Fizz" instead;
-  - If divisible by 5 then output string "Buzz" instead;
-  - If divisible by 3 and by 5 then output string "FizzBuzz" instead.
-
-#### Constraints
-
-- v1: using object PrimeWord that after instantiated with a number and a word returns the word if a value is divisible by number else returns an empty string;
-- v2: using object PrimeWord, ordered list and Iterator;
-- v3: using object NumberWord and a Decorator for each pair;
-- v4: use steps in Chain Of Responsibility.
+N/A.
 
 ----
 
@@ -83,6 +69,14 @@ Add another prime number pair ( 7, Dazz ) and compare coding effort of each vari
 
 #### Procedural
 
+- V1 is very verbose and prone to human error, more so as more pairs are added;
+- V2 is easy to adapt to new pairs: just requires a new line of code: ```[[ $(( $i % [PRIME] )) -eq 0 ]] && line+='[WORD]' || line+=''```
+- V3 is the easiest to adapt to new pairs: just requires a new key-value-pair: ```{... [PRIME]="[WORD]" }```
+
+**Note**: it's great when a language offers collection types as almost basic types.
+
 #### Object Oriented
+
+N/A.
 
 #### Functional
