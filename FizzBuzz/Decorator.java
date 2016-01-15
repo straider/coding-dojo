@@ -2,7 +2,7 @@
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public abstract class Decorator implements Decoder {
 
@@ -10,7 +10,7 @@ public abstract class Decorator implements Decoder {
   protected final String  word   ;
   protected final Decoder decoder;
 
-  protected static final List< String > words = new LinkedList< String >();
+  protected static final List< String > words = new ArrayList< String >();
 
   protected Decorator( final Integer prime, final String word, final Decoder decoder ) {
     this.prime   = prime  ;

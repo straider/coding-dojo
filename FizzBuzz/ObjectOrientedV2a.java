@@ -2,7 +2,7 @@
 // Execute command: java ObjectOrientedV2a
 
 import java.util.List;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 public class ObjectOrientedV2a {
 
@@ -10,7 +10,7 @@ public class ObjectOrientedV2a {
     final PrimeWord fizz = new PrimeWord( 3, "Fizz" );
     final PrimeWord buzz = new PrimeWord( 5, "Buzz" );
 
-    final List< PrimeWord > collection = new LinkedList< PrimeWord >();
+    final List< PrimeWord > collection = new ArrayList< PrimeWord >();
     collection.add( fizz );
     collection.add( buzz );
 
