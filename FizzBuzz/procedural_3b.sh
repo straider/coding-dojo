@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PRIME_WORDS=( [3]='Fizz' [5]='Buzz' )
+PRIME_WORDS=( [3]='Fizz' [5]='Buzz' [7]='Dazz' )
 
 for i in {1..100}; do
   line=''
