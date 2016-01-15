@@ -18,7 +18,7 @@ class Decorator < NumberWord
     decode( value )
     result = @@words.join
     @@words.clear
-    
+
     return result
   end
 
