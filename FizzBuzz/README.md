@@ -75,6 +75,30 @@ Add another prime number pair ( 7, Dazz ) and compare coding effort of each vari
 
 **Note**: it's great when a language offers collection types as almost basic types.
 
+There are, at least, 3 ways to loop from 1 to 100:
+
+- Ksh and Bash 3 allows ranges, from start to last while Bash 4 allows steps, from start to last in step increments;
+- Bash allows for regular for loops;
+- Any shell can loop through a range, using **seq** command.
+
+```bash
+for i in {1..100}; do
+  ...
+done
+```
+
+```bash
+for (( i = 1; i <= 100; i++ )); do
+  ...
+done
+```
+
+```bash
+for i in $( seq 100 ); do
+  ...
+done
+```
+
 #### Object Oriented
 
 N/A.
