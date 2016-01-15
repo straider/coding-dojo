@@ -1,7 +1,7 @@
-// Compile command: javac ProceduralV1.java
-// Execute command: java ProceduralV1
+// Compile command: javac ProceduralV1a.java
+// Execute command: java ProceduralV1a
 
-public class ProceduralV1 {
+public class ProceduralV1a {
 
   public static void main( final String[] arguments ) {
     for ( int i = 1; i <= 100; i++ ) {

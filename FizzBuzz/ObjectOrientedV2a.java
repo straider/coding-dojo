@@ -1,10 +1,10 @@
-// Compile command: javac ObjectOrientedV2.java
-// Execute command: java ObjectOrientedV2
+// Compile command: javac ObjectOrientedV2a.java
+// Execute command: java ObjectOrientedV2a
 
 import java.util.List;
 import java.util.LinkedList;
 
-public class ObjectOrientedV2 {
+public class ObjectOrientedV2a {
 
   public static void main( final String[] arguments ) {
     final PrimeWord fizz = new PrimeWord( 3, "Fizz" );

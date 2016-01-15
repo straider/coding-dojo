@@ -1,7 +1,7 @@
-// Compile command: javac ObjectOrientedV1.java
-// Execute command: java ObjectOrientedV1
+// Compile command: javac ObjectOrientedV1a.java
+// Execute command: java ObjectOrientedV1a
 
-public class ObjectOrientedV1 {
+public class ObjectOrientedV1a {
 
   public static void main( final String[] arguments ) {
     final PrimeWord fizz = new PrimeWord( 3, "Fizz" );

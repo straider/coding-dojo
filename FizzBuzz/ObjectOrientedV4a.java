@@ -1,6 +1,7 @@
-// Compile command: javac ChainOfReponsibility.java
+// Compile command: javac ObjectOrientedV4a.java
+// Execute command: java ObjectOrientedV4a
 
-public class ChainOfReponsibility {
+class ChainOfReponsibility {
 
   private final StepChain fizz  ;
   private final StepChain buzz  ;
@@ -18,6 +19,20 @@ public class ChainOfReponsibility {
   public String say( final Integer value ) {
     fizz.execute( value );
     return fizz.say();
+  }
+
+}
+
+public class ObjectOrientedV4a {
+
+  public static void main( final String[] arguments ) {
+    final ChainOfReponsibility chain = new ChainOfReponsibility();
+
+    for ( int i = 1; i <= 100; i++ ) {
+      final String line = chain.say( i );
+
+      System.out.println( line );
+    }
   }
 
 }
