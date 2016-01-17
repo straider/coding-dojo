@@ -97,6 +97,22 @@ for item in WORD_1 WORD_2 ... WORD_N; do
 done
 ```
 
+The foor loop can also work with sequences / ranges. There are 3 variants, where [FIRST] is the first number in the sequence / range and [LAST] is the last number in the sequence / range:
+
+```bash
+for i in $(( i = [FIRST]; i <= [LAST]; i++ )); do
+  STATEMENTS_BLOCK
+done
+
+for item in {[FIRST]..[LAST]}; do
+  STATEMENTS_BLOCK
+done
+
+for item in $( seq [FIRST] [LAST] ); do
+  STATEMENTS_BLOCK
+done
+```
+
 All the loops support nesting concept which means you can put one loop inside another similar or different loops. This nesting can go upto unlimited number of times based on your requirement.
 
 The ```break``` statement is used to terminate the execution of the entire loop, after completing the execution of all of the lines of code up to the break statement. It then steps down to the code following the end of the loop.

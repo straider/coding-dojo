@@ -63,10 +63,15 @@ Any sequence of valid characters is considered a string. A string can be defined
 | ${var//pattern/value} | Replaces all occurrences of pattern with value. |
 | ${var/%pattern/value} | Replaces an occurrence of pattern with value if suffix of var matches pattern. |
 | ${var/#pattern/value} | Replaces an occurrence of pattern with value if prefix of var matches pattern. |
-| ${#var\^pattern}       | Converts the first lowercase letter that matches the pattern in value referenced by var to uppercase letters. |
-| ${#var\^\^pattern}      | Converts all lowercase letters that matches the pattern in value referenced by var to uppercase letters. |
-| ${#var,pattern}       | Converts first uppercase letters that matches the pattern in value referenced by var to lowercase letters. |
-| ${#var,,pattern}      | Converts all uppercaee letters that matches the pattern in value referenced by var to lowercase letters. |
+
+The following variable substituitions work only in version 4 of Bash:
+
+| Form                  | Description |
+|-----------------------|-------------|
+| ${var\^pattern}       | Converts the first lowercase letter that matches the pattern in value referenced by var to uppercase letters. |
+| ${var\^\^pattern}     | Converts all lowercase letters that matches the pattern in value referenced by var to uppercase letters. |
+| ${var,pattern}        | Converts first uppercase letters that matches the pattern in value referenced by var to lowercase letters. |
+| ${var,,pattern}       | Converts all uppercase letters that matches the pattern in value referenced by var to lowercase letters. |
 
 ```bash
 var="Hello, World!"
@@ -116,8 +121,8 @@ echo "Convert all letters to uppercase: ${original^^*}"
 echo "Convert first letter to lowercase: ${original,*}"
 echo "Convert all letters to lowercase: ${original,,*}"
 
-lowercase=‚ÈÌıu
-uppercase=¬…Õ’U
+lowercase=√¢√©√≠√µu
+uppercase=√Ç√â√ç√ïU
 
 echo "Convert first letter to uppercase: ${lowercase^*}"
 echo "Convert all letters to uppercase: ${lowercase^^*}"
