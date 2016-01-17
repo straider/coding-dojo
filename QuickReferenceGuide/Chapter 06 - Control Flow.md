@@ -100,7 +100,7 @@ done
 The foor loop can also work with sequences / ranges. There are 3 variants, where [FIRST] is the first number in the sequence / range and [LAST] is the last number in the sequence / range:
 
 ```bash
-for i in $(( i = [FIRST]; i <= [LAST]; i++ )); do
+for (( i = [FIRST]; i <= [LAST]; i++ )); do
   STATEMENTS_BLOCK
 done
 
