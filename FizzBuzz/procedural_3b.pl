@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use 5.10.0;
 
-my %PRIME_WORDS = ( 3 => 'Fizz', 5 => 'Buzz' );
+my %PRIME_WORDS = ( 3 => 'Fizz', 5 => 'Buzz', 7 => 'Dazz' );
 
 my @range = ( 1 .. 100 );
 
