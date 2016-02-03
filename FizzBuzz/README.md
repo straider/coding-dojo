@@ -69,6 +69,14 @@ Add another prime number pair ( 7, Dazz ) and compare coding effort of each vari
 
 #### Procedural
 
+- V1 is very verbose and prone to human error, more so as more pairs are added;
+- V2 is easy to adapt to new pairs: just requires a new line of code: ```$line .= '[WORD]' if ( $i % [PRIME] == 0 );```
+- V3 is the easiest to adapt to new pairs: just requires a new key-value-pair: ```( ... [PRIME] => '[WORD]' )```
+
+**Note**: it's great when a language offers collection types as basic types.
+
+**Attention**: it is necessary to sort the keys of the PrimeWords hash, in V3, since in Perl the hash is an unordered collection.
+
 #### Object Oriented
 
 N/A.
