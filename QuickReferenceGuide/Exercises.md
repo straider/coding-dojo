@@ -10,14 +10,14 @@ Quick Reference Exercises
 - Write one-liner comment "This is an one-liner comment";
 - Write multi-line comments, using the above comment in several consecutive lines;
 - Write language self-documenting comments;
-- Does the language have DocTest features?
+- Does the language have DocTest features?<br />**No**
 
 ## 2.2. Statements
 
 - Write multiple statements in one line ( which is the statement separator in this case? );
-- Does the language allow statements without END_OF_STATEMENT_CHARACTER ( are linefeeds considered a statement separator )?<br />**Yes**
+- Does the language allow statements without END_OF_STATEMENT_CHARACTER ( are linefeeds considered a statement separator )?<br />**No**
 - Write a statement that spans across several lines ( which is the LINEFEED_ESCAPE_CHARACTER? );
-- Does the language impose restrictive indentation?
+- Does the language impose restrictive indentation?<br />**No**
 
 ## 2.3. Keywords and Identifiers
 
@@ -156,7 +156,7 @@ Exercises:
 - Does the language have string interpolation?
 - Append a string to another string;
 - Output several values of distinct types with formatting verbs;
-- Does the language allow HereDoc notation?
+- Does the language allow HereDoc notation?<br />**Yes**
 - Does the language allow back-tick strings, that issue commands to the operating system?
 
 Exercises:
@@ -196,7 +196,7 @@ Exercises:
 
 ## 5.5. Regular Expressions
 
-## 5.6. Enumerables 
+## 5.6. Enumerables
 
 # 6. Control Flow Structures
 
@@ -208,7 +208,7 @@ Exercises:
 - Does the language allow **for** loops?
 - Does the language allow **while** loops?
 - Does the language allow **while statement modifiers**?
-- Does the language allow **until** loops?<br />**Yes**
+- Does the language allow **until** loops?
 - Does the language allow **until statement modifiers**?
 - Does the language allow catching exceptions?
 

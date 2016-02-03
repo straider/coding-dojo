@@ -10,6 +10,7 @@ FIXME: the set is unordered, as of 2015.11.05.
 ## B.1. Online / PDF
 
 - [Beginning Perl](http://learn.perl.org/books/beginning-perl/)
+- [Essential Perl](http://cslibrary.stanford.edu/108/EssentialPerl.html)
 - [Learning Perl the Hard Way](http://greenteapress.com/perl/)
 - [Modern Perl](http://www.modernperlbooks.com/)
 - [Impatient Perl](http://blob.perl.org/books/impatient-perl/iperl.htm)
