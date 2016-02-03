@@ -38,6 +38,12 @@ Dojo to register different programming paradigms of FizzBuzz Challenge.
 
 ----
 
+### Object Oriented
+
+N/A.
+
+----
+
 ### Functional
 
 #### Requirements
@@ -64,5 +70,7 @@ Add another prime number pair ( 7, Dazz ) and compare coding effort of each vari
 #### Procedural
 
 #### Object Oriented
+
+N/A.
 
 #### Functional
