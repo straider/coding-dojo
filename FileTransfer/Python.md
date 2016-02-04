@@ -1,16 +1,18 @@
-coding-dojo / benchmarking / SFTP / Python
-==========================================
+coding-dojo / benchmarking / FileTransfer / Python
+==================================================
 
 # 1. Introduction
 
-Personal Coding Dojo for benchmarking of several technologies while transfering files to and from a [SSH](https://en.wikipedia.org/wiki/Secure_Shell) server, using Python technology ( for client and server ).
+Personal Coding Dojo for benchmarking several technologies while transferring files to and from a [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol), [FTPS](https://en.wikipedia.org/wiki/FTPS) or [SFTP](https://en.wikipedia.org/wiki/SSH_File_Transfer_Protocol) server, using Python technology ( for client and server ).
 
 ## 1.1. Goal and Objectives
 
-- Learn how to code SSH clients and SSH servers, in Python;
+- Learn how to code FTP clients and servers, in Python;
+- Learn how to code FTPS clients and servers, in Python;
+- Learn how to code SFTP clients and servers, in Python;
 - Register installation and configuration steps for each choice;
 - Measure performance between different implementations;
-- Compare technology support for SSH file transfer operations ( put / get ) from best of breed 3rd party vendor ( FLOSS ).
+- Compare technology support for file transfer operations ( put / get ) from best of breed 3rd party vendor ( FLOSS ).
 
 ## 1.2. Constraints
 
@@ -180,6 +182,10 @@ Installation of **libcurl** or **libssh** is not trivial and did not complete su
 In fact, even with Visual C++ for Python and MinGW, the installation of **gmp** and **libssh2** did not succeed. MinGW managed to build **gmp** but not **libssh2** and Visual C++ for Python was not even attempted, due to lack of autoconf / automake tools.
 
 For all these reasons the final veredict was to install and use paramiko, which requires ecdsa and PyCrypto that in turn requires gmp. The installation on Linux was manual while the installation on Windows only succeeded after using **pip** ( which requires online connection to deal with dependencies ).
+
+## 3.1. Client
+
+## 3.2. Server
 
 # 4. WKE - Well Known Errors
 
