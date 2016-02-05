@@ -132,6 +132,7 @@ print          @$reference_array   , "\n";
 print keys   ( %$reference_hash   ), "\n";
 print values ( %$reference_hash   ), "\n";
 print          &$reference_code    , "\n";
+print          $reference_code->() , "\n";
 print          $$reference_glob    , "\n";
 ```
 

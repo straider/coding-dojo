@@ -53,6 +53,31 @@ Generally used as POD - Plain Old Documentation - format.
 
 ## 2.4. Loading Sources
 
+There are 3 distinct statements to load sources:
+
+- ```do```: will look for a file by searching the @INC path and if the file can't be found, it'll silently move on. But if it is found, then it will run the file just as if it was placed in a block within the main program – but with one slight difference: it can see the lexical variables from the main program;
+- ```require```: is like ```do```, but it'll only load and run once. It'll record the fact that a file has been loaded and will ignore further requests to require it again. It also fails with an error if it can't find the file;
+- ```use```: is like ```require```, except that Perl applies it before anything else in the program. If Perl sees a use statement anywhere in the program, it'll include that module.
+
+> **Note**: Using a bareword instead of a string tells Perl to look for a file called [bareword].pm in the @INC path. It also converts any instance of :: into a directory separator.
+
+```perl
+use Data::Dumper;
+
+require 'module_once.pm';
+
+do 'module_many.pm'
+```
+
+As a best practice, every program should use **strict** and **warnings**:
+
+```perl
+use strict;
+use warnings;
+
+...
+```
+
 ## 2.5. Console Input / Output
 
 ### 2.5.1. Console Output 101
@@ -70,7 +95,20 @@ use 5.010;
 say "Hello, World";
 ```
 
+To output to the console with formatting there's another command, ```printf```:
+
+```perl
+printf "%04d\n", 123;
+```
+
 ### 2.5.2. Console Input 101
+
+> Input is read from the user via the input stream.
+
+```perl
+my $input = <STDIN>;
+print "User has typed: ${input}\n";
+```
 
 ### 2.5.3. Command Line Arguments 101
 

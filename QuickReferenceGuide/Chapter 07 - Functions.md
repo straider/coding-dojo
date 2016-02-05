@@ -7,6 +7,14 @@ Quick Reference Guide
 
 ## 7.1. main()
 
+```perl
+__PACKAGE__ -> main() unless caller;
+
+sub main {
+  .. # Main block of statements
+}
+```
+
 ## 7.2. Signature and Body
 
 ```perl
@@ -18,6 +26,59 @@ sub my_subroutine {
 ```
 
 **Note**: Because Perl compiles the program before executing it, it doesn't matter where the subroutine is declared: before or after its first call.
+
+### 7.2.1. Default Values
+
+To handle arguments with default value one has to use the ```||``` operator.
+
+```perl
+sub my_subroutine {
+  my $variable = shift || 'DefaultValue';
+
+  .. # Block of statements for the subroutine
+
+  return [VALUE];
+}
+```
+
+### 7.2.2. Named Arguments
+
+To handle named arguments the solution is to pass the arguments inside an hash.
+
+```perl
+sub my_subroutine {
+  my %arguments = @_;
+
+  .. # Block of statements for the subroutine
+
+  return [VALUE];
+}
+```
+
+### 7.2.3. Subroutine Prototype
+
+> A subroutine prototype tells Perl what sort of arguments it's expecting. This can be used to check to ensure that the user is passing the right number of parameters, and it can also change the way Perl reads a program. Prototypes come between the name and the block of the subroutine definition, in brackets.
+
+```perl
+sub my_subroutine ($$) {
+  my ( $a, $b ) = ( shift, shift );
+
+  .. # Block of statements for the subroutine
+
+  return [VALUE];
+}
+```
+
+### 7.2.4. Subroutine Forward Definition, with References
+
+> When using prototypes one needs to ensure that Perl gets to read the prototype before using the subroutine, and to do this, one can use a forward definition at the top of the program.
+
+```perl
+sub my_subroutine_with_3_scalars ($$$);
+sub my_subroutine_with_2_arrays (\@\@);
+sub my_subroutine_with_1_hash (\%\%);
+sub my_subroutine_with_scalar_and_code ($\&);
+```
 
 ## 7.3. Scope
 
@@ -56,6 +117,8 @@ sub print_hash {
 my %currencies = ( 'pt' => '€', 'uk' => '£', 'us' => '$' );
 print_hash( %currencies );
 ```
+
+> **Note**: Unlike almost every other major programming language, Perl calls by reference. This means that the variables or values available inside the body of a subroutine are not copies of the originals. They are the originals.
 
 ## 7.5. Variadic Functions
 
