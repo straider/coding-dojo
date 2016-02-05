@@ -84,6 +84,67 @@ print $d, "\n";
 
 ### 3.2.3. Type Inference
 
-## 3.3. Pointers
+## 3.3. Pointers / References
+
+> It is easy to create a reference for any variable, subroutine or value by prefixing it with a backslash.
+
+```perl
+my $scalar = 'scalar';
+my @array  = ( 1, 2, ( 3, 4, ( 5 ) ) );
+my %hash   = (
+  'key1' => 'value1',
+  'key2' => 'value2',
+  'key3' => 'value3',
+);
+
+sub handler {
+  return "My Handler";
+}
+
+my $reference_scalar = \$scalar;
+my $reference_array  = \@array;
+my $reference_hash   = \%hash;
+my $reference_code   = \&handler;
+my $reference_glob   = \*pattern;
+```
+
+```perl
+my $reference_array = [ 1, 2, ( 3, 4, ( 5 ) ) ];
+```
+
+```perl
+my $reference_hash = {
+  'key1' => 'value1',
+  'key2' => 'value2',
+  'key3' => 'value3',
+};
+```
+
+```perl
+my $reference_code = sub { [STATEMENTS] };
+```
+
+> Dereferencing returns the value from a reference point to the location. To dereference a reference simply use ```$```, ```@``` or ```%``` sigils as prefix of the reference variable depending on whether the reference is pointing to a scalar, array, or hash. To dereference a code reference simply use ```&``` sigil as a prefix of the reference variable.
+
+```perl
+print          $$reference_scalar  , "\n";
+print          @$reference_array   , "\n";
+print keys   ( %$reference_hash   ), "\n";
+print values ( %$reference_hash   ), "\n";
+print          &$reference_code    , "\n";
+print          $$reference_glob    , "\n";
+```
+
+> If you are not sure about a variable type, then its easy to know its type using ref, which returns one of the following strings if its argument is a reference. Otherwise, it returns false
+
+```perl
+print ref( $reference_scalar ), "\n";
+print ref( $reference_array  ), "\n";
+print ref( $reference_hash   ), "\n";
+print ref( $reference_code   ), "\n";
+print ref( $reference_glob   ), "\n";
+```
+
+> **Attention**: A circular reference occurs when two references contain a reference to each other. One must be careful while creating references otherwise a circular reference can lead to memory leaks.
 
 ## 3.4. Named Types
