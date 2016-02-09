@@ -11,7 +11,7 @@ our @EXPORT_OK   = qw( print_score );
 our @EXPORT      = qw();
 our %EXPORT_TAGS = ();
 
-sub print_score {
+sub print_score ( $ ) {
 }
 
 1;

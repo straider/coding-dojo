@@ -11,11 +11,22 @@ our @EXPORT_OK   = qw( initialize_board reset_board show_board is_valid_cell is_
 our @EXPORT      = qw();
 our %EXPORT_TAGS = ();
 
-sub initialize_board { }
-sub reset_board      { }
-sub show_board       { }
-sub is_valid_cell    { }
-sub is_hit           { }
-sub store_piece      { }
+sub initialize_board ( $ ) {
+}
+
+sub reset_board ( @ ) {
+}
+
+sub show_board ( @ ) {
+}
+
+sub is_valid_cell ( @$$ ) {
+}
+
+sub is_hit ( @$$ ) {
+}
+
+sub store_piece ( @$$$ ) {
+}
 
 1;

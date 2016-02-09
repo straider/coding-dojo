@@ -11,11 +11,22 @@ our @EXPORT_OK   = qw( create_board clear_board get_piece set_piece is_valid_row
 our @EXPORT      = qw();
 our %EXPORT_TAGS = ();
 
-sub create_board    { }
-sub clear_board     { }
-sub get_piece       { }
-sub set_piece       { }
-sub is_valid_row    { }
-sub is_valid_column { }
+sub create_board ( $ ) {
+}
+
+sub clear_board ( @ ) {
+}
+
+sub get_piece ( @$$ ) {
+}
+
+sub set_piece ( @$$$ ) {
+}
+
+sub is_valid_row ( @$ ) {
+}
+
+sub is_valid_column ( @$ ) {
+}
 
 1;

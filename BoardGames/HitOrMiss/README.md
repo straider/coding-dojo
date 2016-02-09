@@ -158,7 +158,7 @@ For all variants there are common requirements:
 
 - Code function **create_score**( score );
 - Code function **set_hit**( score );
-- Code function **add_miss**( score ).
+- Code function **add_miss**( score );
 - Code function **count_games**( score ).
 
 ##### Score View

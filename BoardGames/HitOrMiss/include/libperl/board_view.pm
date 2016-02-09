@@ -11,7 +11,16 @@ our @EXPORT_OK   = qw( print_board );
 our @EXPORT      = qw();
 our %EXPORT_TAGS = ();
 
-sub print_board {
+sub print_separator ( $ ) {
+}
+
+sub print_header ( $ ) {
+}
+
+sub print_row ( @$ ) {
+}
+
+sub print_board ( @ ) {
 }
 
 1;

@@ -11,11 +11,22 @@ our @EXPORT_OK   = qw( play_game ask_cell_reference is_valid_cell_reference has_
 our @EXPORT      = qw();
 our %EXPORT_TAGS = ();
 
-sub play_game               { }
-sub ask_cell_reference      { }
-sub is_valid_cell_reference { }
-sub has_no_more_attempts    { }
-sub ask_play_another_game   { }
-sub is_valid_answer         { }
+sub play_game ( $$ ) {
+}
+
+sub ask_cell_reference () {
+}
+
+sub is_valid_cell_reference ( $$ ) {
+}
+
+sub has_no_more_attempts ( $$ ) {
+}
+
+sub ask_play_another_game () {
+}
+
+sub is_valid_answer ( $ ) {
+}
 
 1;

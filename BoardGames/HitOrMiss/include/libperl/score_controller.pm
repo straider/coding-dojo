@@ -11,10 +11,19 @@ our @EXPORT_OK   = qw( initialize_score show_score store_hit store_miss count_at
 our @EXPORT      = qw();
 our %EXPORT_TAGS = ();
 
-sub initialize_score { }
-sub show_score       { }
-sub store_hit        { }
-sub store_miss       { }
-sub count_attempts   { }
+sub initialize_score ( $ ) {
+}
+
+sub show_score ( $ ) {
+}
+
+sub store_hit ( $ ) {
+}
+
+sub store_miss ( $ ) {
+}
+
+sub count_attempts ( $ ) {
+}
 
 1;

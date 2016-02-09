@@ -11,9 +11,16 @@ our @EXPORT_OK   = qw( create_score set_hit add_miss count_games );
 our @EXPORT      = qw();
 our %EXPORT_TAGS = ();
 
-sub create_score { }
-sub set_hit      { }
-sub add_miss     { }
-sub count_games  { }
+sub create_score ( $ ) {
+}
+
+sub set_hit ( $ ) {
+}
+
+sub add_miss ( $ ) {
+}
+
+sub count_games ( $ ) {
+}
 
 1;
