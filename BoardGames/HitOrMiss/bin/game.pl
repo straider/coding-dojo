@@ -3,7 +3,8 @@
 use strict;
 use warnings;
 
-use lib 'include/libperl';
+use FindBin;
+use lib "$FindBin::Bin/../include/libperl";
 
 __PACKAGE__ -> main() unless caller;
 
