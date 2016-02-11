@@ -1,0 +1,83 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use File::Basename qw( dirname );
+use File::Spec::Functions qw( catdir );
+use FindBin;
+use lib catdir( dirname( $FindBin::Bin ), 'include/libperl' );
+
+use Test::Simple tests => 2;
+
+use ScoreController v1.00.00;
+
+my @start_score_lines = ( 'Game Results:'
+                        , "\tGames Played.........  0"
+                        , "\tPlayer has won.......  0 time(s)"
+                        , "\tPlayer has miss......  0 time(s)"
+                        );
+my @final_score_lines = ( 'Game Results:'
+                        , "\tGames Played.........  3"
+                        , "\tPlayer has won.......  2 time(s)"
+                        , "\tPlayer has miss...... 10 time(s)"
+                        );
+
+sub compare_score_lines ( \@\@ ) {
+  my $left_score_lines  = shift;
+  my $right_score_lines = shift;
+
+  my $left_score_lines_size  = scalar @$left_score_lines ;
+  my $right_score_lines_size = scalar @$right_score_lines;
+  my $same_size              = ( $left_score_lines_size == $right_score_lines_size );
+
+  my $match = 1;
+
+  if ( $same_size ) {
+    for my $lines_index ( 0 .. $left_score_lines_size - 1 ) {
+      my $left_line  = @$left_score_lines  [ $lines_index ];
+      my $right_line = @$right_score_lines [ $lines_index ];
+
+      if ( $left_line ne $right_line ) {
+        print "Left Line = $left_line vs. Right Line = $right_line\n";
+        $match = '';
+        last;
+      }
+    }
+  } elsif ( ! $same_size ) {
+    print "Left Score Lines Size = $left_score_lines_size; Right Score Lines Size = $right_score_lines_size\n";
+  }
+
+  return $same_size && $match;
+}
+
+use File::Spec;
+
+my $standard_output;
+open( $standard_output, ">&STDOUT" );
+open( STDOUT, '>', File::Spec->devnull() );
+
+initialize_score();
+my @start_score_result = show_score();
+ok ( compare_score_lines( @start_score_result, @start_score_lines ) == 1, 'show_score() using score at start' );
+
+initialize_score();
+store_games();
+store_misses();
+store_misses();
+store_hits();
+store_games();
+store_misses();
+store_misses();
+store_misses();
+store_misses();
+store_misses();
+store_games();
+store_misses();
+store_misses();
+store_misses();
+store_hits();
+my @final_score_result = show_score();
+ok ( compare_score_lines( @final_score_result, @final_score_lines ) == 1, 'show_score() using score at final' );
+
+open( STDOUT, ">&", $standard_output );
