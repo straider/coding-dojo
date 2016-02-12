@@ -12,21 +12,23 @@ use Getopt::Std;
 
 use GameController v1.00.00;
 
+our $VERSION = 'v1.00.00';
+
 $Getopt::Std::STANDARD_HELP_VERSION = 1;
 
-sub HELP_MESSAGE ( $ ) {
-  my $file_handle = shift;
+# sub HELP_MESSAGE ( $ ) {
+  # my $file_handle = shift;
 
-  print $file_handle "$0 -r|--rows NUMBER_OF_ROWS -c|--columns NUMBER_OF_COLUMNS\n\n";
-  print $file_handle "\t -r|--rows NUMBER_OF_ROWS: set the number of rows ( default is 3 )\n";
-  print $file_handle "\t -c|--columns NUMBER_OF_COLUMNS: set the number of columns ( default is 3 )\n";
-}
+  # print $file_handle "$0 -r|--rows NUMBER_OF_ROWS -c|--columns NUMBER_OF_COLUMNS\n\n";
+  # print $file_handle "\t -r|--rows NUMBER_OF_ROWS: set the number of rows ( default is 3 )\n";
+  # print $file_handle "\t -c|--columns NUMBER_OF_COLUMNS: set the number of columns ( default is 3 )\n";
+# }
 
-sub VERSION_MESSAGE ( $ ) {
-  my $file_handle = shift;
+# sub VERSION_MESSAGE ( $ ) {
+  # my $file_handle = shift;
 
-  print $file_handle "HitOrMiss - Procedural 1.00.00\n";
-}
+  # print $file_handle "HitOrMiss - Procedural $VERSION\n";
+# }
 
 __PACKAGE__ -> main() unless caller;
 
