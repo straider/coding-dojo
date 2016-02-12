@@ -7,7 +7,7 @@ DojoChallenge to implement a simple Hit or Miss game for 1 human player in conso
 
 # Goals
 
-- Code each variant in less than 4 hours;
+- Code each variant in less than 6 hours;
 - Use distinct source files and gain traction in mixing them all together;
 - Gain traction handling user input;
 - Gain traction with arrays and maps data structures;
@@ -18,8 +18,8 @@ DojoChallenge to implement a simple Hit or Miss game for 1 human player in conso
 The board must be outputted to the console in the following format:
 
 ```
-    A   B   C    
-  +---+---+---+  
+    A   B   C
+  +---+---+---+
 1 | . | . | . |
   +---+---+---+
 2 | . | . | . |
@@ -53,15 +53,15 @@ Try to accomplish a complete milestone with the maximum effort as such:
 |-----------------|-------:|---------------------------------------------|
 | Board MVC       |   2 hr | Board Model, View and Controller.           |
 | Score MVC       |   1 hr | Score Model, View and Controller.           |
-| Game Controller |   1 hr | Main functions and top auxiliary functions. |
+| Game Controller |   2 hr | Main functions and top auxiliary functions. |
 
 ## Board Milestones Stages
 
 | Milestone Stages | Effort | Description                                            |
 |------------------|-------:|--------------------------------------------------------|
 | Board Model      | 30 min | Functions to directly handle the board data structure. |
-| Board View       | 60 min | Functions that output the board to the console.        |
-| Board Controller | 30 min | Functions provided for use by Game Controller.         |
+| Board View       | 30 min | Functions that output the board to the console.        |
+| Board Controller | 60 min | Functions provided for use by Game Controller.         |
 
 ## Score Milestones Stages
 
@@ -75,10 +75,10 @@ Try to accomplish a complete milestone with the maximum effort as such:
 
 | Milestone Stages     | Effort | Description                                     |
 |----------------------|-------:|-------------------------------------------------|
-| Show Board and Score | 10 min | Just output a clean board and a no games score. |
-| Play Game and Hit    | 10 min | Play a game with a board with just one square.  |
-| Play Game and Miss   | 20 min | Play a game with a board with three squares.    |
-| Play One More Game   | 20 min | Play several games, sequentially.               |
+| Show Board and Score | 15 min | Just output a clean board and a no games score. |
+| Play Game and Hit    | 30 min | Play a game with a board with just one square.  |
+| Play Game and Miss   | 60 min | Play a game with a board with three squares.    |
+| Play One More Game   | 15 min | Play several games, sequentially.               |
 
 # Variants
 
@@ -215,3 +215,5 @@ The design and the validation of each function was done in TDD mode, by using th
 - It's indeed a good practice to code with subroutine prototypes;
 - Dealing with Perl references for arrays and hashes is cumbersome;
 - Coding a module seems a bit too verbose;
+- Having to code without boolean type, using 1 for true and '' for false, is prone to errors;
+- It's a good practice to surround boolean expressions with parenthesis.

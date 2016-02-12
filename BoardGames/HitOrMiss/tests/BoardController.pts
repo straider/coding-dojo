@@ -8,7 +8,7 @@ use File::Spec::Functions qw( catdir );
 use FindBin;
 use lib catdir( dirname( $FindBin::Bin ), 'include/libperl' );
 
-use Test::Simple tests => 35;
+use Test::Simple tests => 37;
 
 use BoardController v1.00.00;
 
@@ -112,14 +112,16 @@ ok ( is_valid_cell( 0    , 'A'   ) eq '', 'is_valid_cell() is false when ( 0, A 
 ok ( is_valid_cell( 1    , 'B'   ) eq '', 'is_valid_cell() is false when ( 1, B ) on a 1x1 board'          );
 ok ( is_valid_cell( undef, undef ) eq '', 'is_valid_cell() is false when pair is undefined on a 1x1 board' );
 ok ( is_hit( 1, 'A' ), 'is_hit() is always true when ( 1, A ) on a 1x1 board' );
-ok ( mark_cell( 1, 'A' ), 'mark_cell() on a 1x1 board' );
+ok ( mark_cell( 1, 'A' ) == 1 , 'mark_cell() is true  on an empty 1x1 board' );
+ok ( mark_cell( 1, 'A' ) eq '', 'mark_cell() is false on a filled 1x1 board' );
 my @show_board_result_win = show_board();
 ok ( compare_board_lines( @show_board_result_win, @winner_1x1_board_lines ), 'show_board() for a winning condition on a 1x1 board' );
 
 ok ( initialize_board( 1, 2 ) eq '1x2', 'initialize_board() for a 1x2 board' );
+ok ( reset_board()            eq '1x2', 'reset_board() for a 1x2 board'      );
 my @full_1x2_board_lines = ( is_hit( 1, 'A' ) ) ? @full_1x2_board_lines_1 : @full_1x2_board_lines_2;
-ok ( mark_cell( 1, 'A' ), 'mark_cell() on ( 1, A ) of a 1x2 board' );
-ok ( mark_cell( 1, 'B' ), 'mark_cell() on ( 1, B ) of a 1x2 board' );
+ok ( mark_cell( 1, 'A' ) eq 1, 'mark_cell() is true on ( 1, A ) of a 1x2 board' );
+ok ( mark_cell( 1, 'B' ) eq 1, 'mark_cell() is true on ( 1, B ) of a 1x2 board' );
 my @show_board_result_full = show_board();
 ok ( compare_board_lines( @show_board_result_full, @full_1x2_board_lines ), 'show_board() for a full a 1x2 board' );
 

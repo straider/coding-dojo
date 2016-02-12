@@ -8,7 +8,7 @@ use File::Spec::Functions qw( catdir );
 use FindBin;
 use lib catdir( dirname( $FindBin::Bin ), 'include/libperl' );
 
-use Test::Simple tests => 34;
+use Test::Simple tests => 37;
 
 use GameController v1.00.00;
 
@@ -73,6 +73,7 @@ open( $standard_output, ">&STDOUT" );
 open( STDOUT, '>', File::Spec->devnull() );
 
 ok ( GameController::initialize_game( 1, 1 ) eq '1x1', 'initialize_game() for a 1x1 board' );
+ok ( GameController::reset_game()            eq '1x1', 'reset_game() for a 1x1 board'      );
 my @show_board_result_1x1 = GameController::print_board();
 ok ( compare_board_lines( @show_board_result_1x1, @one_by_one_board_lines ), 'print_board() for an initialized 1x1 board' );
 ok ( GameController::is_valid_cell_reference( 1, 'A' ) == 1 , 'is_valid_cell_reference() is true  for reference ( 1, A ) on a 1x1 board' );
@@ -86,6 +87,7 @@ my @show_board_reset_1x1 = GameController::print_board();
 ok ( compare_board_lines( @show_board_reset_1x1, @one_by_one_board_lines ), 'print_board() after a reset on a 1x1 board' );
 
 ok ( GameController::initialize_game( 1, 2 ) eq '1x2', 'initialize_game() for a 1x2 board' );
+ok ( GameController::reset_game()            eq '1x2', 'reset_game() for a 1x2 board'      );
 my @show_board_result_1x2 = GameController::print_board();
 ok ( compare_board_lines( @show_board_result_1x2, @one_by_two_board_lines ), 'print_board() for an initialized 1x2 board' );
 ok ( GameController::is_valid_cell_reference( 1, 'A' ) == 1 , 'is_valid_cell_reference() is true  for reference ( 1, A ) on a 1x2 board' );
@@ -101,6 +103,7 @@ my @show_board_reset_1x2 = GameController::print_board();
 ok ( compare_board_lines( @show_board_reset_1x2, @one_by_two_board_lines ), 'print_board() after a reset on a 1x2 board' );
 
 ok ( GameController::initialize_game( 2, 2 ) eq '2x2', 'initialize_game() for a 2x2 board' );
+ok ( GameController::reset_game()            eq '2x2', 'reset_game() for a 2x2 board'      );
 GameController::put_piece ( 1, 'A' );
 ok ( GameController::has_no_more_attempts() eq '', 'has_no_more_attempts() is false after first move on a 2x2 board' );
 
