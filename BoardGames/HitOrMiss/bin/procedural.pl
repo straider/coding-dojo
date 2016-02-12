@@ -14,16 +14,16 @@ use GameController v1.00.00;
 
 our $VERSION = 'v1.00.00';
 
+# Getopt::Long::Configure( 'auto_version', 'auto_help' );
+
 sub HELP_MESSAGE () {
   print "$0 -r|--rows NUMBER_OF_ROWS -c|--columns NUMBER_OF_COLUMNS\n\n";
   print "\t -r|--rows NUMBER_OF_ROWS: set the number of rows ( default is 3 )\n";
   print "\t -c|--columns NUMBER_OF_COLUMNS: set the number of columns ( default is 3 )\n";
-  exit 0;
 }
 
 sub VERSION_MESSAGE () {
   print "HitOrMiss - Procedural $VERSION\n";
-  exit 0;
 }
 
 __PACKAGE__ -> main() unless caller;
@@ -35,8 +35,8 @@ sub main {
   my %options = ();
   GetOptions( 'rows=i'    => \$options{ r }
             , 'columns=i' => \$options{ c }
-            , 'help'      => sub { HELP_MESSAGE    () }
-            , 'version'   => sub { VERSION_MESSAGE () }
+            , 'help'      => sub { HELP_MESSAGE    (); exit 0; }
+            , 'version'   => sub { VERSION_MESSAGE (); exit 0; }
             ) or die( "Unable to parse command line options!\n" );
   $number_of_rows    = $options{ r } if ( defined( $options{ r } ) );
   $number_of_columns = $options{ c } if ( defined( $options{ c } ) );
