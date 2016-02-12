@@ -11,6 +11,7 @@ use lib catdir( dirname( $FindBin::Bin ), 'include/libperl' );
 use Test::Simple tests => 3;
 
 use ScoreView v1.00.00;
+use DataComparator v1.00.00;
 
 my %start_score = ( 'games' => 0, 'hits' => 0, 'misses' =>  0 );
 my %final_score = ( 'games' => 3, 'hits' => 2, 'misses' => 10 );
@@ -31,34 +32,6 @@ my @wrong_score_lines = ( 'Game Results:'
                         , "\tPlayer has won.......  0 time(s)"
                         , "\tPlayer has miss......  0 time(s)"
                         );
-
-sub compare_score_lines ( \@\@ ) {
-  my $left_score_lines  = shift;
-  my $right_score_lines = shift;
-
-  my $left_score_lines_size  = scalar @$left_score_lines ;
-  my $right_score_lines_size = scalar @$right_score_lines;
-  my $same_size              = ( $left_score_lines_size == $right_score_lines_size );
-
-  my $match = 1;
-
-  if ( $same_size ) {
-    for my $lines_index ( 0 .. $left_score_lines_size - 1 ) {
-      my $left_line  = @$left_score_lines  [ $lines_index ];
-      my $right_line = @$right_score_lines [ $lines_index ];
-
-      if ( $left_line ne $right_line ) {
-        print "Left Line = $left_line vs. Right Line = $right_line\n";
-        $match = '';
-        last;
-      }
-    }
-  } elsif ( ! $same_size ) {
-    print "Left Score Lines Size = $left_score_lines_size; Right Score Lines Size = $right_score_lines_size\n";
-  }
-
-  return $same_size && $match;
-}
 
 my @start_score_result = build_score_lines( %start_score );
 my @final_score_result = build_score_lines( %final_score );

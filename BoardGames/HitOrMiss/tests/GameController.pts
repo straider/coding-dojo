@@ -11,6 +11,7 @@ use lib catdir( dirname( $FindBin::Bin ), 'include/libperl' );
 use Test::Simple tests => 37;
 
 use GameController v1.00.00;
+use DataComparator v1.00.00;
 
 my @one_by_one_board_lines       = ( '     A  '
                                    , '   +---+'
@@ -37,34 +38,6 @@ my @first_move_1x2_board_lines_2 = ( '     A   B  '
                                    , ' 1 | O | . |'
                                    , '   +---+---+'
                                    );
-
-sub compare_board_lines ( \@\@ ) {
-  my $left_board_lines  = shift;
-  my $right_board_lines = shift;
-
-  my $left_board_lines_size  = scalar @$left_board_lines ;
-  my $right_board_lines_size = scalar @$right_board_lines;
-  my $same_size              = ( $left_board_lines_size == $right_board_lines_size ) ? 1 : 0;
-
-  my $match = 1;
-
-  if ( $same_size and $left_board_lines_size > 0 ) {
-    for my $lines_index ( 0 .. $left_board_lines_size - 1 ) {
-      my $left_line  = @$left_board_lines  [ $lines_index ];
-      my $right_line = @$right_board_lines [ $lines_index ];
-
-      if ( $left_line ne $right_line ) {
-        print "Left Line = $left_line vs. Right Line = $right_line\n";
-        $match = 0;
-        last;
-      }
-    }
-  } elsif ( ! $same_size ) {
-    print "Left Board Lines Size = $left_board_lines_size; Right Board Lines Size = $right_board_lines_size\n";
-  }
-
-  return $same_size && $match;
-}
 
 use File::Spec;
 

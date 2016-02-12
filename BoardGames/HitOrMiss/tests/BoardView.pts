@@ -11,39 +11,12 @@ use lib catdir( dirname( $FindBin::Bin ), 'include/libperl' );
 use Test::Simple tests => 28;
 
 use BoardView v1.00.00;
+use DataComparator v1.00.00;
 
 my @one_by_one_board     = ( [ 'x' ] );
 my @two_by_two_board     = ( [ '', '', ], [ '', 'x' ] );
 my @three_by_three_board = ( [ '' , '' , ''  ], [ '' , 'x', '' ], [ '' , '', '' ] );
 my @board_with_misses    = ( [ 'O', 'O', 'O' ], [ 'O', 'x', '' ], [ '' , '', '' ] );
-
-sub compare_board_lines ( \@\@ ) {
-  my $left_board_lines  = shift;
-  my $right_board_lines = shift;
-
-  my $left_board_lines_size  = scalar @$left_board_lines ;
-  my $right_board_lines_size = scalar @$right_board_lines;
-  my $same_size              = ( $left_board_lines_size == $right_board_lines_size );
-
-  my $match = 1;
-
-  if ( $same_size and $left_board_lines_size > 0 ) {
-    for my $lines_index ( 0 .. $left_board_lines_size - 1 ) {
-      my $left_line  = @$left_board_lines  [ $lines_index ];
-      my $right_line = @$right_board_lines [ $lines_index ];
-
-      if ( $left_line ne $right_line ) {
-        print "Left Line = $left_line vs. Right Line = $right_line\n";
-        $match = '';
-        last;
-      }
-    }
-  } elsif ( ! $same_size ) {
-    print "Left Board Lines Size = $left_board_lines_size; Right Board Lines Size = $right_board_lines_size\n";
-  }
-
-  return $same_size && $match;
-}
 
 ok ( BoardView::build_separator_line( 1 ) eq '   +---+'        , 'build_separator_line() for a board of size = 1' );
 ok ( BoardView::build_separator_line( 2 ) eq '   +---+---+'    , 'build_separator_line() for a board of size = 2' );

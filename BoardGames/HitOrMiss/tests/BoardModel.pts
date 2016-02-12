@@ -12,6 +12,7 @@ use lib catdir( dirname( $FindBin::Bin ), 'include/libperl' );
 use Test::Simple tests => 40;
 
 use BoardModel v1.00.00;
+use DataComparator v1.00.00;
 
 my @no_cells_board          = ();
 my @one_by_one_board        = ( [ '' ] );
@@ -21,52 +22,6 @@ my @three_by_three_board    = ( [ '', '' , '' ], [ '', '', ''  ], [ '' , '', '' 
 my @board_with_pieces       = ( [ '', 'X', '' ], [ '', '', 'O' ], [ '' , '', '' ] );
 my @board_with_more_pieces  = ( [ '', 'X', '' ], [ '', '', 'O' ], [ 'X', '', '' ] );
 my @board_with_other_pieces = ( [ '', 'O', '' ], [ '', '', 'O' ], [ '' , '', '' ] );
-
-sub compare_boards ( \@\@ ) {
-  my $left_board  = shift;
-  my $right_board = shift;
-
-  my $left_board_size  = scalar @$left_board ;
-  my $right_board_size = scalar @$right_board;
-  my $same_size        = ( $left_board_size == $right_board_size );
-
-  my $match = 1;
-
-  if ( $same_size and $left_board_size > 0 ) {
-
-    OUTER_LOOP:
-    for my $row_index ( 0 .. $left_board_size - 1 ) {
-      my $left_row  = @$left_board  [ $row_index ];
-      my $right_row = @$right_board [ $row_index ];
-
-      my $left_row_size = scalar @$left_row;
-      INNER_LOOP:
-      for my $column_index ( 0 .. $left_row_size - 1 ) {
-        my $left_cell  = @$left_row  [ $column_index ];
-        my $right_cell = @$right_row [ $column_index ];
-
-        if ( $left_cell ne $right_cell ) {
-          print "At ( $row_index, $column_index ): Left Cell = '$left_cell'; Right Cell = '$right_cell'\n";
-          $match = '';
-          last OUTER_LOOP;
-        }
-      }
-    }
-  } elsif ( ! $same_size ) {
-    print "Left Board Size = $left_board_size; Right Board Size = $right_board_size\n";
-  }
-
-  return $same_size && $match;
-}
-
-# ok ( compare_boards( @no_cells_board        , @no_cells_board       ), 'compare_boards() using no cells boards'      );
-# ok ( compare_boards( @one_by_one_board      , @one_by_one_board     ), 'compare_boards() using 1x1 board'            );
-# ok ( compare_boards( @two_by_two_board      , @two_by_two_board     ), 'compare_boards() using 2x2 board'            );
-# ok ( compare_boards( @three_by_two_board    , @three_by_two_board   ), 'compare_boards() using 3x2 board'            );
-# ok ( compare_boards( @three_by_three_board  , @three_by_three_board ), 'compare_boards() using 3x3 board'            );
-# ok ( compare_boards( @board_with_pieces     , @board_with_pieces    ), 'compare_boards() that match'                 );
-# ok ( compare_boards( @three_by_three_board  , @two_by_two_board     ), 'compare_boards() that do not match in size'  );
-# ok ( compare_boards( @board_with_more_pieces, @board_with_pieces    ), 'compare_boards() that do not match in cells' );
 
 my @create_board_result_1 = create_board( 1, 1 );
 my @create_board_result_2 = create_board( 2, 2 );

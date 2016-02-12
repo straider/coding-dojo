@@ -13,7 +13,6 @@ our %EXPORT_TAGS = ();
 use BoardModel;
 
 sub build_separator_line ( $ ) {
-
 }
 
 sub build_header_line ( $ ) {
