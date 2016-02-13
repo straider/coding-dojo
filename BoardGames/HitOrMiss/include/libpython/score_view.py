@@ -1,3 +1,4 @@
-def print_score( score ) :
+import score_model
+
+def build_score_lines( score ) :
   pass
-  

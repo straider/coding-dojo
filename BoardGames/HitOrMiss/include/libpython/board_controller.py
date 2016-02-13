@@ -1,17 +1,21 @@
-def initialize_board( board_size ) :
+import board_model
+import board_view
+
+def initialize_board( number_of_rows, number_of_columns ) :
   pass
 
-def reset_board( board ) :
+def reset_board() :
   pass
 
-def show_board( board ) :
+def show_board() :
   pass
 
-def is_valid_cell( board, row_number, column_letter ) :
+def is_valid_cell( row_number, column_letter ) :
   pass
 
-def is_hit( board, row_number, column_letter ) :
+def is_hit( row_number, column_letter ) :
   pass
 
-def store_piece( board, row_number, column_letter, piece ) :
+def mark_cell( row_number, column_letter ) :
   pass
+

@@ -1,14 +1,17 @@
-def initialize_score( score ) :
+import score_model
+import score_view
+
+def initialize_score() :
   pass
 
-def show_score( score ) :
+def show_score() :
   pass
 
-def store_hit( score ) :
+def store_games() :
   pass
 
-def store_miss( score ) :
+def store_hits() :
   pass
 
-def count_attempts( score ) :
+def store_misses() :
   pass
