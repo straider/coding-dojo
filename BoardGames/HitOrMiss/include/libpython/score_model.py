@@ -1,20 +1,38 @@
+import copy
+
+GAMES_KEY  = 'games'
+HITS_KEY   = 'hits'
+MISSES_KEY = 'misses'
+
 def create_score() :
-  pass
+  score = dict()
+
+  score[ GAMES_KEY  ] = 0
+  score[ HITS_KEY   ] = 0
+  score[ MISSES_KEY ] = 0
+
+  return score
+
+def add_value( score, key ) :
+  new_score = copy.deepcopy( score )
+  new_score[ key ] += 1
+
+  return new_score
 
 def add_games( score ) :
-  pass
+  return add_value( score, GAMES_KEY )
 
 def add_hits( score ) :
-  pass
+  return add_value( score, HITS_KEY )
 
 def add_misses( score ) :
-  pass
+  return add_value( score, MISSES_KEY )
 
 def get_games( score ) :
-  pass
+  return score[ GAMES_KEY  ]
 
 def get_hits( score ) :
-  pass
+  return score[ HITS_KEY   ]
 
 def get_misses( score ) :
-  pass
+  return score[ MISSES_KEY ]
