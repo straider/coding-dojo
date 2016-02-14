@@ -72,9 +72,9 @@ my $standard_output;
 open( $standard_output, ">&STDOUT" );
 open( STDOUT, '>', File::Spec->devnull() );
 
-is ( initialize_board( 0    , 1     ), '', 'initialize_board() for a 0x1 board' );
-is ( initialize_board( 1    , 0     ), '', 'initialize_board() for a 1x0 board' );
-is ( initialize_board( undef, undef ), '', 'initialize_board() for a board of undefined dimensions' );
+isnt ( initialize_board( 0    , 1     ), 1, 'initialize_board() for a 0x1 board' );
+isnt ( initialize_board( 1    , 0     ), 1, 'initialize_board() for a 1x0 board' );
+isnt ( initialize_board( undef, undef ), 1, 'initialize_board() for a board of undefined dimensions' );
 
 is ( initialize_board( 1, 1 ), '1x1', 'initialize_board() for a 1x1 board' );
 is ( reset_board()           , '1x1', 'reset_board() for a 1x1 board'      );

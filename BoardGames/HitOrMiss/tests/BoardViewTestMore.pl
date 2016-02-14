@@ -8,7 +8,7 @@ use File::Spec::Functions qw( catdir );
 use FindBin;
 use lib catdir( dirname( $FindBin::Bin ), 'include/libperl' );
 
-use Test::More tests => 29;
+use Test::More tests => 30;
 
 use_ok 'BoardView v1.00.00';
 use BoardView v1.00.00;
@@ -22,17 +22,17 @@ is ( BoardView::build_separator_line( 1 ), '   +---+'        , 'build_separator_
 is ( BoardView::build_separator_line( 2 ), '   +---+---+'    , 'build_separator_line() for a board of size = 2' );
 is ( BoardView::build_separator_line( 3 ), '   +---+---+---+', 'build_separator_line() for a board of size = 3' );
 
-is ( BoardView::build_separator_line( 0     ), '', 'build_separator_line() for a board of size =  0'      );
-is ( BoardView::build_separator_line( -1    ), '', 'build_separator_line() for a board of size = -1'      );
-is ( BoardView::build_separator_line( undef ), '', 'build_separator_line() for a board of size undefined' );
+isnt ( BoardView::build_separator_line(  0    ), 1, 'build_separator_line() for a board of size =  0'      );
+isnt ( BoardView::build_separator_line( -1    ), 1, 'build_separator_line() for a board of size = -1'      );
+isnt ( BoardView::build_separator_line( undef ), 1, 'build_separator_line() for a board of undefined size' );
 
 is ( BoardView::build_header_line( 1 ), '     A  '        , 'build_header_line() for a board of size = 1' );
 is ( BoardView::build_header_line( 2 ), '     A   B  '    , 'build_header_line() for a board of size = 2' );
 is ( BoardView::build_header_line( 3 ), '     A   B   C  ', 'build_header_line() for a board of size = 3' );
 
-isnt ( BoardView::build_header_line( 0     ), 1, 'build_header_line() for a board of size =  0'      );
+isnt ( BoardView::build_header_line(  0    ), 1, 'build_header_line() for a board of size =  0'      );
 isnt ( BoardView::build_header_line( -1    ), 1, 'build_header_line() for a board of size = -1'      );
-isnt ( BoardView::build_header_line( undef ), 1, 'build_header_line() for a board of size undefined' );
+isnt ( BoardView::build_header_line( undef ), 1, 'build_header_line() for a board of undefined size' );
 
 is ( BoardView::build_row_line( @one_by_one_board    , 1 ), ' 1 | . |'        , 'build_row_line() for row #1 of a clean 1x1 board'       );
 is ( BoardView::build_row_line( @two_by_two_board    , 1 ), ' 1 | . | . |'    , 'build_row_line() for row #1 of a clean 2x2 board'       );
@@ -83,7 +83,10 @@ my @build_board_lines_result_1 = build_board_lines( @one_by_one_board     );
 my @build_board_lines_result_2 = build_board_lines( @two_by_two_board     );
 my @build_board_lines_result_3 = build_board_lines( @three_by_three_board );
 my @build_board_lines_result_4 = build_board_lines( @board_with_misses    );
-is_deeply ( \@build_board_lines_result_1, \@one_by_one_board_lines    , 'compare_board_lines() for a clean 1x1 board'       );
-is_deeply ( \@build_board_lines_result_2, \@two_by_two_board_lines    , 'compare_board_lines() for a clean 2x2 board'       );
-is_deeply ( \@build_board_lines_result_3, \@three_by_three_board_lines, 'compare_board_lines() for a clean 3x3 board'       );
-is_deeply ( \@build_board_lines_result_4, \@board_with_misses_lines   , 'compare_board_lines() for a 3x3 board with misses' );
+is_deeply ( \@build_board_lines_result_1, \@one_by_one_board_lines    , 'build_board_lines() for a clean 1x1 board'       );
+is_deeply ( \@build_board_lines_result_2, \@two_by_two_board_lines    , 'build_board_lines() for a clean 2x2 board'       );
+is_deeply ( \@build_board_lines_result_3, \@three_by_three_board_lines, 'build_board_lines() for a clean 3x3 board'       );
+is_deeply ( \@build_board_lines_result_4, \@board_with_misses_lines   , 'build_board_lines() for a 3x3 board with misses' );
+
+my @zero_by_zero_board = ();
+isnt ( build_board_lines( @zero_by_zero_board ), 1, 'build_board_lines() for a 0x0 board' );

@@ -37,6 +37,6 @@ my @start_score_result = build_score_lines( %start_score );
 my @final_score_result = build_score_lines( %final_score );
 my @wrong_score_result = build_score_lines( %wrong_score );
 
-is_deeply ( \@start_score_result, \@start_score_lines, 'compare_score_lines() using score at start' );
-is_deeply ( \@final_score_result, \@final_score_lines, 'compare_score_lines() using score at final' );
-is_deeply ( \@wrong_score_result, \@wrong_score_lines, 'compare_score_lines() using a bad score'    );
+is_deeply ( \@start_score_result, \@start_score_lines, 'build_score_lines() using score at start' );
+is_deeply ( \@final_score_result, \@final_score_lines, 'build_score_lines() using score at final' );
+is_deeply ( \@wrong_score_result, \@wrong_score_lines, 'build_score_lines() using a bad score'    );

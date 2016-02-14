@@ -50,8 +50,8 @@ my @show_board_result_1x1 = GameController::print_board();
 is ( GameController::reset_game(), '1x1', 'reset_game() for a 1x1 board' );
 is_deeply ( \@show_board_result_1x1, \@one_by_one_board_lines, 'print_board() for an initialized 1x1 board' );
 is   ( GameController::is_valid_cell_reference( 1, 'A' ), 1, 'is_valid_cell_reference() is true  for reference ( 1, A ) on a 1x1 board' );
-isnt ( GameController::is_valid_cell_reference( 1, 'B' ), 1, 'is_valid_cell_reference() is false for reference ( 1, A ) on a 1x1 board' );
-GameController::put_piece ( 1, 'A' );
+isnt ( GameController::is_valid_cell_reference( 1, 'B' ), 1, 'is_valid_cell_reference() is false for reference ( 1, B ) on a 1x1 board' );
+GameController::put_piece( 1, 'A' );
 is ( GameController::has_no_more_attempts(), 1, 'has_no_more_attempts() is true after first move on a 1x1 board' );
 my @first_move_1x1_board_lines = GameController::print_board();
 is_deeply ( \@first_move_1x1_board_lines, \@winner_1x1_board_lines, 'print_board() after first move on a 1x1 board' );
@@ -67,7 +67,7 @@ is   ( GameController::is_valid_cell_reference( 1, 'A' ), 1, 'is_valid_cell_refe
 is   ( GameController::is_valid_cell_reference( 1, 'B' ), 1, 'is_valid_cell_reference() is true  for reference ( 1, B ) on a 1x2 board' );
 isnt ( GameController::is_valid_cell_reference( 2, 'A' ), 1, 'is_valid_cell_reference() is false for reference ( 2, A ) on a 1x2 board' );
 my @first_move_1x2_board_lines = ( GameController::is_win( 1, 'A' ) ) ? @first_move_1x2_board_lines_1 : @first_move_1x2_board_lines_2;
-GameController::put_piece ( 1, 'A' );
+GameController::put_piece( 1, 'A' );
 is ( GameController::has_no_more_attempts(), 1, 'has_no_more_attempts() is true after first move on a 1x2 board' );
 my @first_move_result_1x2 = GameController::print_board();
 is_deeply ( \@first_move_result_1x2, \@first_move_1x2_board_lines, 'print_board() after first move on a 1x2 board' );
@@ -77,7 +77,7 @@ is_deeply ( \@show_board_reset_1x2, \@one_by_two_board_lines, 'print_board() aft
 
 is ( GameController::initialize_game( 2, 2 ), '2x2', 'initialize_game() for a 2x2 board' );
 is ( GameController::reset_game(), '2x2', 'reset_game() for a 2x2 board' );
-GameController::put_piece ( 1, 'A' );
+GameController::put_piece( 1, 'A' );
 is ( GameController::has_no_more_attempts(), '', 'has_no_more_attempts() is false after first move on a 2x2 board' );
 
 is ( GameController::is_valid_answer( 'y' ), 1, 'is_valid_answer() is true for answer y' );

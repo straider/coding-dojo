@@ -37,6 +37,6 @@ my @start_score_result = build_score_lines( %start_score );
 my @final_score_result = build_score_lines( %final_score );
 my @wrong_score_result = build_score_lines( %wrong_score );
 
-ok ( compare_score_lines( @start_score_result, @start_score_lines ) == 1, 'compare_score_lines() using score at start' );
-ok ( compare_score_lines( @final_score_result, @final_score_lines ) == 1, 'compare_score_lines() using score at final' );
-ok ( compare_score_lines( @wrong_score_result, @wrong_score_lines ) == 1, 'compare_score_lines() using a bad score'    );
+ok ( compare_score_lines( @start_score_result, @start_score_lines ) == 1, 'build_score_lines() using score at start' );
+ok ( compare_score_lines( @final_score_result, @final_score_lines ) == 1, 'build_score_lines() using score at final' );
+ok ( compare_score_lines( @wrong_score_result, @wrong_score_lines ) == 1, 'build_score_lines() using a bad score'    );
