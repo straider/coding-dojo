@@ -204,9 +204,21 @@ For all variants there are common requirements:
 
 The design and the validation of each function was done in TDD mode, by using the following frameworks:
 
-- Use **DocTest** to validate each function / method.
+- ~~Use **DocTest**~~;
+- Use **unittest**. 
 
 ### Notes
+
+- It's very helpful to drive the design and validate progress by following the TDD rhythm: Red-Green-Refactor;
+- The framework **unittest** is very suitable for TDD;
+- It's sometimes best to use multiple assertions of the same test case;
+- The feature that discovers and executes test scripts is very simple to use: ```python -m unittest discover --pattern *_tester.py```
+- One must not to forget to use ```global``` when assigning values to a variable outside the scope of a function;
+- There's no easy way to import modules only if version is matched;
+- Having to work with None helps to avoid working with exceptions or working around basic types values that are used to signal errors;
+- The function ```copy.deepcopy()``` is very handy to copy complex data structures  such as list of lists;
+- The ```if .. else``` statement modifier is not a proper replacement of the ternary operator;
+- The language is indeed very powerful and less verbose than other languages, such as Perl.
 
 ## Object Oriented
 
