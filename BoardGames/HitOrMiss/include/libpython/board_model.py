@@ -1,7 +1,10 @@
 import copy
 
 def create_board( number_of_rows, number_of_columns ) :
-  return [ [ '' ] * number_of_columns for _ in range( number_of_rows ) ]
+  if number_of_rows > 0 and number_of_columns > 0 :
+    return [ [ '' ] * number_of_columns for _ in range( number_of_rows ) ]
+  else :
+    return None
 
 def clear_board( board ) :
   first_row         = board[ 0 ]
