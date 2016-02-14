@@ -9,7 +9,7 @@ use File::Spec::Functions qw( catdir );
 use FindBin;
 use lib catdir( dirname( $FindBin::Bin ), 'include/libperl' );
 
-use Test::Simple tests => 9;
+use Test::Simple tests => 12;
 
 use DataComparator v1.00.00;
 

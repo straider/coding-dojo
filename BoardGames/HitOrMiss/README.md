@@ -212,6 +212,7 @@ The design and the validation of each function was done in TDD mode, by using th
 
 - It's very helpful to drive the design and validate progress by following the TDD rhythm: Red-Green-Refactor;
 - The framework Test::Simple is too simple. It's best to use Test::More;
+- The feature that discovers and executes test scripts is very simple to use: ```prove *.pl``` or ```prove -v *.pl```, when in folder with test files;
 - It's indeed a good practice to code with subroutine prototypes;
 - Dealing with Perl references for arrays and hashes is cumbersome;
 - Coding a module seems a bit too verbose;
