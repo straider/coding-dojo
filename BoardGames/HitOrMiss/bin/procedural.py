@@ -31,4 +31,5 @@ if __name__ == '__main__' :
   number_of_rows    = arguments.rows    if arguments.rows    else 3
   number_of_columns = arguments.columns if arguments.columns else 3
 
+  print 'Playing with a board {0}x{1}'.format( number_of_rows, number_of_columns )
   game_controller.play_game( number_of_rows, number_of_columns )
