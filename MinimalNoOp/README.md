@@ -22,3 +22,8 @@ This should produce an executable for compiled languages or be the shortest poss
 ## 2.3. Do Nothing Module / Library / Package
 
 This should produce a library or module or package that does nothing.
+
+- [Simple Module Tutorial](http://www.perlmonks.org/?node_id=102347)
+- [José's Guide for creating Perl modules](http://www.perlmonks.org/?node_id=431702)
+- [How to create a Perl Module for code reuse](http://perlmaven.com/how-to-create-a-perl-module-for-code-reuse)
+- [Creating (and Maintaining) Perl Modules](http://mathforum.org/ken/perl_modules.html)
