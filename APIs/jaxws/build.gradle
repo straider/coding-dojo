@@ -1,12 +1,16 @@
 // XPTS419 - 2015.06.12: Prepare a FileTree with JRE 6 JARs.
 // XPTS419 - 2015.06.12: The target version of the code must be Java 6, and not Java 7 or later.
-def legacyJRE = legacy_jre
-def files     = []
-def tree      = fileTree( dir: legacyJRE , include: '**/*.jar' )
-tree.each { File file ->
-  files << file
+task legacyJRE( description : 'Collects JARs to set as bootstrap classes before compiling.' ) {
+  def files = []
+  if ( project.hasProperty( 'legacy_jre' ) ) {
+    def tree  = fileTree( dir: legacy_jre , include: '**/*.jar' )
+    tree.each { File file ->
+      files << file
+    }
+  }
+
+  ext.bootClasspath = files.join( ';' )
 }
-def legacyBootClasspath = files.join( ';' )
 
 apply plugin: 'base'
 apply plugin: 'java'
@@ -42,7 +46,7 @@ compileJava {
   options.fork         = true
 
   if ( sourceCompatibility == '1.6' ) {
-    options.bootClasspath = legacyBootClasspath
+    options.bootClasspath = legacyJRE.bootClasspath
   }
 }
 

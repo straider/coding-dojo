@@ -22,8 +22,8 @@
     <mkdir dir = "${distribution_folder}" />
   </target>
 
-  <fileset dir = "${legacy_jre}\lib" includes = "**/*.jar" id = "legacy_bootstrap_fileset" />
-  <pathconvert property = "legacy_bootstrap" refid = "legacy_bootstrap_fileset" />
+  <fileset dir = "${legacy_jre}\lib" includes = "**/*.jar" id = "legacy_bootstrap_fileset"  if:set = "legacy_jre" />
+  <pathconvert property = "legacy_bootstrap" refid = "legacy_bootstrap_fileset" if:set = "legacy_bootstrap_fileset" />
 
   <path id = "libraries">
     <fileset dir = "${vendors_folder}">
@@ -73,6 +73,7 @@
         <attribute name = "Implementation-Vendor"    value = "${application_vendor}"  />
         <attribute name = "Implementation-Timestamp" value = "${build-time}"          />
         <attribute name = "Built-Date"               value = "${build-time}"          />
+        <attribute name = "Built-JDK"                value = "${java.version}"        />
         <attribute name = "Built-By"                 value = "${user.name}"           />
       </manifest>
     </war>
