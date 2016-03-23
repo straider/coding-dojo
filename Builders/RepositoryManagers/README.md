@@ -56,29 +56,29 @@ Each Repository Manager is expected to run at least on top of a Servlet Containe
 ```xml
 <?xml version = "1.0" encoding = "UTF-8"?>
 <Context path = "/archiva">
-	<Resource name            = "jdbc/archiva" 
-	          auth            = "Container" 
-			  type            = "javax.sql.DataSource"
-		      username        = "sa"
-		      password        = ""
-		      driverClassName = "org.apache.derby.jdbc.EmbeddedDriver"
-		      url             = "jdbc:derby:databases/archiva;create=true" 
-	/>
+  <Resource name            = "jdbc/archiva"
+            auth            = "Container"
+        type            = "javax.sql.DataSource"
+          username        = "sa"
+          password        = ""
+          driverClassName = "org.apache.derby.jdbc.EmbeddedDriver"
+          url             = "jdbc:derby:databases/archiva;create=true"
+  />
 
-	<Resource name            = "jdbc/users" 
-	          auth            = "Container" 
-			  type            = "javax.sql.DataSource"
-		      username        = "sa"
-		      password        = ""
-		      driverClassName = "org.apache.derby.jdbc.EmbeddedDriver"
-		      url             = "jdbc:derby:databases/users;create=true" 
-	/>
+  <Resource name            = "jdbc/users"
+            auth            = "Container"
+        type            = "javax.sql.DataSource"
+          username        = "sa"
+          password        = ""
+          driverClassName = "org.apache.derby.jdbc.EmbeddedDriver"
+          url             = "jdbc:derby:databases/users;create=true"
+  />
 
-	<Resource name           = "mail/Session" 
-	          auth           = "Container"
-			  type           = "javax.mail.Session"
-			  mail.smtp.host = "localhost"
-	/>
+  <Resource name           = "mail/Session"
+            auth           = "Container"
+        type           = "javax.mail.Session"
+        mail.smtp.host = "localhost"
+  />
 </Context>
 ```
 
@@ -106,7 +106,7 @@ Artifactory is more than just a Maven Repository Manager since it offers many mo
 
 **Attention**: Artifactory is heavy - it requires 512 MB minimum while recommending 2 GB for normal use.
 
-## 2.3. Nexus 
+## 2.3. Nexus
 
 > [Nexus](http://www.sonatype.org/nexus/) manages software components required for development, deployment, and provisioning. If you develop software, Nexus can help you share those components with other developers and end users. Nexus greatly simplifies the maintenance of your own internal repositories and access to external repositories. With Nexus you can completely control access to, and deployment of, every component in your organization from a single location.
 
