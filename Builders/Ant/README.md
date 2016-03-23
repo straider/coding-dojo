@@ -134,7 +134,7 @@ Each milestone should improve the content of the buildfiles - **build.xml** and 
 ## 3.5. Java Project, runnable JAR
 
 - A build.xml with targets from milestone 3 and these new targets:
-  - **package**: uses ```<jar>``` task to build a final JAR file. To make it  runnable the JAR manifest file must state which is the main class and what are the libraries that it depends on runtime - which are located in distribution/libraries/ folder:  
+  - **package**: uses ```<jar>``` task to build a final JAR file. To make it  runnable the JAR manifest file must state which is the main class and what are the libraries that it depends on runtime - which are located in distribution/libraries/ folder:
       - Implementation-Title: Dojo Java Builders - Ant
       - Implementation-Version: 1.0.0
       - Implementation-Vendor: DoWeDo-IT

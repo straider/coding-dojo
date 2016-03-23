@@ -57,7 +57,7 @@ This dojo is suitable to any programmer that wants to learn how to work with Mav
 - 2.0 was released on October 2005;
 - 1.0 was released on July 2004.
 
-> Maven, created by Takari's Jason van Zyl, began as a subproject of Apache Turbine in 2002. In 2003, it was voted on and accepted as a top level Apache Software Foundation project. 
+> Maven, created by Takari's Jason van Zyl, began as a subproject of Apache Turbine in 2002. In 2003, it was voted on and accepted as a top level Apache Software Foundation project.
 
 The official site keeps a page about the [History of Maven by Jason van Zyl](http://maven.apache.org/background/history-of-maven.html).
 
@@ -210,7 +210,7 @@ To calculate build-time it is necessary to add a property:
   <properties>
     ...
     <build-time>${maven.build.timestamp}</build-time>
-    <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>    
+    <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
   </properties>
 ...
 ```
@@ -230,7 +230,7 @@ There is a plugin that also creates a JAR file with the sources, in the validate
 ## 3.5. Java Project, runnable JAR
 
 - pom.xml based on milestone 4 with improved goals:
-  - **package** that creates a MANIFEST.INF file that states which is the main class and what are the libraries that it depends on runtime - located in distribution/libraries/ folder:  
+  - **package** that creates a MANIFEST.INF file that states which is the main class and what are the libraries that it depends on runtime - located in distribution/libraries/ folder:
       - Implementation-Title: Dojo Java Builders - Maven
       - Implementation-Version: 1.0.0
       - Implementation-Vendor: DoWeDo-IT

@@ -118,7 +118,7 @@ These default folder paths must be overridden to match this dojo folder structur
 
 **Note**: Gradle key concepts are **projects** and **tasks**:
 - Every Gradle build is made up of one or more projects;
-- Each project is made up of one or more tasks.<br />A task represents some atomic piece of work which a build performs. 
+- Each project is made up of one or more tasks.<br />A task represents some atomic piece of work which a build performs.
 
 ## 3.1. Empty Project
 
@@ -178,7 +178,7 @@ By default, Gradle without any plugins offers the following tasks:
 ## 3.5. Java Project, runnable JAR
 
 - build.gradle based on milestone 3 with new tasks:
-  - **distribute**: similar to task of same name in milestone 4.<br />To make it runnable the JAR manifest file must state which is the main class and what are the libraries that it depends on runtime - which are located in distribution/libraries/ folder:  
+  - **distribute**: similar to task of same name in milestone 4.<br />To make it runnable the JAR manifest file must state which is the main class and what are the libraries that it depends on runtime - which are located in distribution/libraries/ folder:
       - Implementation-Title: Dojo Java Builders - Gradle
       - Implementation-Version: 1.0.0
       - Implementation-Vendor: DoWeDo-IT
