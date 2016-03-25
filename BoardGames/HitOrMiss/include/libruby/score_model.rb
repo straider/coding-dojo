@@ -1,11 +1,20 @@
-def create_score( score )
+def create_score()
 end
 
-def set_hit( score )
+def add_games( score )
 end
 
-def add_miss( score )
+def add_hits( score )
 end
 
-def count_games( score )
+def add_misses( score )
+end
+
+def get_games( score )
+end
+
+def get_hits( score )
+end
+
+def get_misses( score )
 end

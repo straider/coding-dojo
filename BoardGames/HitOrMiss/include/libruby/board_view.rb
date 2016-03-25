@@ -1,11 +1,11 @@
-def print_separator( board_size )
+def build_separator_line( board_size )
 end
 
-def print_header( board_size )
+def build_header_line( board_size )
 end
 
-def print_row( board, row_number )
+def build_row_line( board, row_number )
 end
 
-def print_board( board )
+def build_board_lines( board )
 end

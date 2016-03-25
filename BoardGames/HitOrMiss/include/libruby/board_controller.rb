@@ -1,17 +1,20 @@
-def initialize_board( board_size )
+require_relative 'board_model'
+require_relative 'board_view'
+
+def initialize_board( number_of_rows, number_of_columns )
 end
 
-def reset_board( board )
+def reset_board()
 end
 
-def show_board( board )
+def show_board()
 end
 
-def is_valid_cell( board, row_number, column_letter )
+def is_valid_cell?( row_number, column_letter )
 end
 
-def is_hit( board, row_number, column_letter )
+def is_hit?( row_number, column_letter )
 end
 
-def store_piece( board, row_number, column_letter, piece )
+def mark_cell( row_number, column_letter )
 end
