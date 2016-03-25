@@ -2,7 +2,7 @@ import score_model
 
 def build_score_lines( score ) :
   try :
-    lines  = list();
+    lines  = list()
     games  = score_model.get_games  ( score )
     hits   = score_model.get_hits   ( score )
     misses = score_model.get_misses ( score )

@@ -29,11 +29,11 @@ final_score_lines = [ 'Game Results:'
 class TestCases( unittest.TestCase ) :
 
   def test_build_score_lines_valid( self ) :
-    self.assertListEqual( score_view.build_score_lines( start_score ), start_score_lines, 'build_score_lines() using score at start' );
-    self.assertListEqual( score_view.build_score_lines( final_score ), final_score_lines, 'build_score_lines() using score at final' );
+    self.assertListEqual( score_view.build_score_lines( start_score ), start_score_lines, 'build_score_lines() using score at start' )
+    self.assertListEqual( score_view.build_score_lines( final_score ), final_score_lines, 'build_score_lines() using score at final' )
 
   def test_build_score_lines_invalid( self ) :
-    self.assertIsNone( score_view.build_score_lines( wrong_score ), 'build_score_lines() using a bad score' );
+    self.assertIsNone( score_view.build_score_lines( wrong_score ), 'build_score_lines() using a bad score' )
 
 if __name__ == '__main__' :
   unittest.main()

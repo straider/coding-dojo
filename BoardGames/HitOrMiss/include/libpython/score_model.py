@@ -29,10 +29,10 @@ def add_misses( score ) :
   return add_value( score, MISSES_KEY )
 
 def get_games( score ) :
-  return score[ GAMES_KEY  ]
+  return score[ GAMES_KEY ]
 
 def get_hits( score ) :
-  return score[ HITS_KEY   ]
+  return score[ HITS_KEY ]
 
 def get_misses( score ) :
   return score[ MISSES_KEY ]

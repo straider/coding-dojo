@@ -15,34 +15,34 @@ one_by_one_board_lines     = [ '     A  '
                              , '   +---+'
                              , ' 1 | . |'
                              , '   +---+'
-                             ];
+                             ]
 winner_1x1_board_lines     = [ '     A  '
                              , '   +---+'
                              , ' 1 | X |'
                              , '   +---+'
-                             ];
+                             ]
 one_by_two_board_lines     = [ '     A   B  '
                              , '   +---+---+'
                              , ' 1 | . | . |'
                              , '   +---+---+'
-                             ];
+                             ]
 full_1x2_board_lines_1     = [ '     A   B  '
                              , '   +---+---+'
                              , ' 1 | X | O |'
                              , '   +---+---+'
-                             ];
+                             ]
 full_1x2_board_lines_2     = [ '     A   B  '
                              , '   +---+---+'
                              , ' 1 | O | X |'
                              , '   +---+---+'
-                             ];
+                             ]
 two_by_two_board_lines     = [ '     A   B  '
                              , '   +---+---+'
                              , ' 1 | . | . |'
                              , '   +---+---+'
                              , ' 2 | . | . |'
                              , '   +---+---+'
-                             ];
+                             ]
 three_by_two_board_lines   = [ '     A   B  '
                              , '   +---+---+'
                              , ' 1 | . | . |'
@@ -51,7 +51,7 @@ three_by_two_board_lines   = [ '     A   B  '
                              , '   +---+---+'
                              , ' 3 | . | . |'
                              , '   +---+---+'
-                             ];
+                             ]
 three_by_three_board_lines = [ '     A   B   C  '
                              , '   +---+---+---+'
                              , ' 1 | . | . | . |'
@@ -60,14 +60,14 @@ three_by_three_board_lines = [ '     A   B   C  '
                              , '   +---+---+---+'
                              , ' 3 | . | . | . |'
                              , '   +---+---+---+'
-                             ];
+                             ]
 two_by_four_board_lines    = [ '     A   B   C   D  '
                              , '   +---+---+---+---+'
                              , ' 1 | . | . | . | . |'
                              , '   +---+---+---+---+'
                              , ' 2 | . | . | . | . |'
                              , '   +---+---+---+---+'
-                             ];
+                             ]
 
 class TestCases( unittest.TestCase ) :
 

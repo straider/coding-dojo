@@ -11,29 +11,29 @@ sys.path.append( os.path.join( top_folder, 'include', 'libpython' ) )
 
 import board_view
 
-one_by_one_board     = [ [ 'x' ] ];
-one_by_two_board     = [ [ '', 'x' ] ];
-two_by_two_board     = [ [ '', '' ], [ '', 'x' ] ];
-three_by_three_board = [ [ '' , '' , ''  ], [ '' , 'x', '' ], [ '' , '', '' ] ];
-board_with_misses    = [ [ 'O', 'O', 'O' ], [ 'O', 'x', '' ], [ '' , '', '' ] ];
+one_by_one_board     = [ [ 'x' ] ]
+one_by_two_board     = [ [ '', 'x' ] ]
+two_by_two_board     = [ [ '', '' ], [ '', 'x' ] ]
+three_by_three_board = [ [ '' , '' , ''  ], [ '' , 'x', '' ], [ '' , '', '' ] ]
+board_with_misses    = [ [ 'O', 'O', 'O' ], [ 'O', 'x', '' ], [ '' , '', '' ] ]
 
 one_by_one_board_lines     = [ '     A  '
                              , '   +---+'
                              , ' 1 | . |'
                              , '   +---+'
-                             ];
+                             ]
 one_by_two_board_lines     = [ '     A   B  '
                              , '   +---+---+'
                              , ' 1 | . | . |'
                              , '   +---+---+'
-                             ];
+                             ]
 two_by_two_board_lines     = [ '     A   B  '
                              , '   +---+---+'
                              , ' 1 | . | . |'
                              , '   +---+---+'
                              , ' 2 | . | . |'
                              , '   +---+---+'
-                             ];
+                             ]
 three_by_three_board_lines = [ '     A   B   C  '
                              , '   +---+---+---+'
                              , ' 1 | . | . | . |'
@@ -42,7 +42,7 @@ three_by_three_board_lines = [ '     A   B   C  '
                              , '   +---+---+---+'
                              , ' 3 | . | . | . |'
                              , '   +---+---+---+'
-                             ];
+                             ]
 board_with_misses_lines    = [ '     A   B   C  '
                              , '   +---+---+---+'
                              , ' 1 | O | O | O |'
@@ -51,7 +51,7 @@ board_with_misses_lines    = [ '     A   B   C  '
                              , '   +---+---+---+'
                              , ' 3 | . | . | . |'
                              , '   +---+---+---+'
-                             ];
+                             ]
 
 class TestCases( unittest.TestCase ) :
 
@@ -88,9 +88,9 @@ class TestCases( unittest.TestCase ) :
     self.assertEqual( board_view.build_row_line( board_with_misses   , 3 ), ' 3 | . | . | . |', 'build_row_line() for row #3 of a 3x3 board with misses' )
 
   def test_build_row_line_invalid( self ) :
-    self.assertIsNone( board_view.build_row_line( three_by_three_board, 0    ), 'build_header_line() for a board of size =  0'      )
-    self.assertIsNone( board_view.build_row_line( three_by_three_board, 4    ), 'build_header_line() for a board of size = -1'      )
-    self.assertIsNone( board_view.build_row_line( three_by_three_board, None ), 'build_header_line() for a board of undefined size' )
+    self.assertIsNone( board_view.build_row_line( three_by_three_board, 0    ), 'build_row_line() for row below range' )
+    self.assertIsNone( board_view.build_row_line( three_by_three_board, 4    ), 'build_row_line() for row above range' )
+    self.assertIsNone( board_view.build_row_line( three_by_three_board, None ), 'build_row_line() for undefined row'   )
 
   def test_build_board_lines_valid( self ) :
     self.assertListEqual( board_view.build_board_lines( one_by_one_board     ), one_by_one_board_lines    , 'build_board_lines() for a clean 1x1 board'       )

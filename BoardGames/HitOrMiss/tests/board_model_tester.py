@@ -11,14 +11,14 @@ sys.path.append( os.path.join( top_folder, 'include', 'libpython' ) )
 
 import board_model
 
-one_by_one_board        = [ [ '' ] ];
-two_by_two_board        = [ [ '', '' ], [ '', '' ] ];
-two_by_four_board       = [ [ '', '', '', '' ], [ '', '', '', '' ] ];
-three_by_two_board      = [ [ '', '' ], [ '', '' ], [ '', '' ] ];
-three_by_three_board    = [ [ '', '' , '' ], [ '', '', ''  ], [ '' , '', '' ] ];
-board_with_pieces       = [ [ '', 'X', '' ], [ '', '', 'O' ], [ '' , '', '' ] ];
-board_with_more_pieces  = [ [ '', 'X', '' ], [ '', '', 'O' ], [ 'X', '', '' ] ];
-board_with_other_pieces = [ [ '', 'O', '' ], [ '', '', 'O' ], [ '' , '', '' ] ];
+one_by_one_board        = [ [ '' ] ]
+two_by_two_board        = [ [ '', '' ], [ '', '' ] ]
+two_by_four_board       = [ [ '', '', '', '' ], [ '', '', '', '' ] ]
+three_by_two_board      = [ [ '', '' ], [ '', '' ], [ '', '' ] ]
+three_by_three_board    = [ [ '', '' , '' ], [ '', '', ''  ], [ '' , '', '' ] ]
+board_with_pieces       = [ [ '', 'X', '' ], [ '', '', 'O' ], [ '' , '', '' ] ]
+board_with_more_pieces  = [ [ '', 'X', '' ], [ '', '', 'O' ], [ 'X', '', '' ] ]
+board_with_other_pieces = [ [ '', 'O', '' ], [ '', '', 'O' ], [ '' , '', '' ] ]
 
 class TestCases( unittest.TestCase ) :
 

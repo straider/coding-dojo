@@ -39,7 +39,7 @@ class TestCases( unittest.TestCase ) :
 
   def test_scoring( self ) :
     score_controller.initialize_score()
-    self.assertListEqual( score_controller.show_score(), start_score_lines, 'show_score() using score at start' );
+    self.assertListEqual( score_controller.show_score(), start_score_lines, 'show_score() using score at start' )
 
     score_controller.store_games  ()
     score_controller.store_misses ()
@@ -56,7 +56,7 @@ class TestCases( unittest.TestCase ) :
     score_controller.store_misses ()
     score_controller.store_misses ()
     score_controller.store_hits   ()
-    self.assertListEqual( score_controller.show_score(), final_score_lines, 'show_score() using score at final' );
+    self.assertListEqual( score_controller.show_score(), final_score_lines, 'show_score() using score at final' )
 
 if __name__ == '__main__' :
   unittest.main()
