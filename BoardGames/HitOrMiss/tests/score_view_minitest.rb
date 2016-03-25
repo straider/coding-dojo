@@ -14,14 +14,14 @@ $final_score = { :games => 3, :hits => 2, :misses => 10 }
 $wrong_score = { :wins => 2, :losses => 10 }
 
 $start_score_lines = [ 'Game Results:'                      \
-                     , '\tGames Played.........  0'         \
-                     , '\tPlayer has won.......  0 time(s)' \
-                     , '\tPlayer has miss......  0 time(s)' \
+                     , "\tGames Played.........  0"         \
+                     , "\tPlayer has won.......  0 time(s)" \
+                     , "\tPlayer has miss......  0 time(s)" \
                      ];
 $final_score_lines = [ 'Game Results:'                      \
-                     , '\tGames Played.........  3'         \
-                     , '\tPlayer has won.......  2 time(s)' \
-                     , '\tPlayer has miss...... 10 time(s)' \
+                     , "\tGames Played.........  3"         \
+                     , "\tPlayer has won.......  2 time(s)" \
+                     , "\tPlayer has miss...... 10 time(s)" \
                      ];
 
 class TestCases < Minitest::Test

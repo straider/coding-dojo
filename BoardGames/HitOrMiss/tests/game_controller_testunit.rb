@@ -37,14 +37,14 @@ $first_move_1x2_board_lines_2 = [ '     A   B  ' \
                                 ]
 
 $start_score_lines = [ 'Game Results:'                      \
-                     , '\tGames Played.........  0'         \
-                     , '\tPlayer has won.......  0 time(s)' \
-                     , '\tPlayer has miss......  0 time(s)' \
+                     , "\tGames Played.........  0"         \
+                     , "\tPlayer has won.......  0 time(s)" \
+                     , "\tPlayer has miss......  0 time(s)" \
                      ]
 $first_score_lines = [ 'Game Results:'                      \
-                     , '\tGames Played.........  1'         \
-                     , '\tPlayer has won.......  0 time(s)' \
-                     , '\tPlayer has miss......  0 time(s)' \
+                     , "\tGames Played.........  1"         \
+                     , "\tPlayer has won.......  0 time(s)" \
+                     , "\tPlayer has miss......  0 time(s)" \
                      ]
 
 class TestCases < Test::Unit::TestCase
