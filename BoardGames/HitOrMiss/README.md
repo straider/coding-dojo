@@ -204,9 +204,22 @@ For all variants there are common requirements:
 
 The design and the validation of each function was done in TDD mode, by using the following frameworks:
 
-- Use **DocTest** to validate each function / method.
+- ~~Use **DocTest** to validate each function / method~~;
+- Use **Test::Unit**;
+- Use **Minitest**.
 
 ### Notes
+
+- It's very helpful to drive the design and validate progress by following the TDD rhythm: Red-Green-Refactor;
+- The framework **Minitest** is very suitable for TDD ( and as superseded Test::Unit );
+- It's sometimes best to use multiple assertions of the same test case;
+- There's no feature that discovers and executes test scripts ( Rake is often used  to accomplish this );
+- One must not to forget to use the sigil ```$``` when working with global variables;
+- There's no way to require files only if version is matched;
+- Having to work with **nil** helps to avoid working with exceptions or working around basic types values that are used to signal errors, but causes code to check if value is nil, unlike in Python;
+- The function ```Marshal.load( Marshal.dump( collection ) )``` is very handy to copy complex data structures such as array of arrays;
+- The ternary operator is handy;
+- The language is indeed very powerful and less verbose than other languages, such as Perl.
 
 ## Object Oriented
 
