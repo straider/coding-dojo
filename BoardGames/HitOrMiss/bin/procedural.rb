@@ -6,6 +6,7 @@ libraries_folder = File.join( top_folder, 'include', 'libruby' )
 $LOAD_PATH.unshift( libraries_folder ) unless $LOAD_PATH.include?( libraries_folder )
 
 require 'optparse'
+require 'ostruct'
 
 require 'game_controller'
 
@@ -23,15 +24,14 @@ end
 
 if __FILE__ == $0
 
-  number_of_rows    = 3
-  number_of_columns = 3
-  parser = OptionParser.new do | options |
+  arguments = OpenStruct.new
+  parser    = OptionParser.new do | options |
     options.version = VERSION
 
     options.on( '-h', '--help'                              , 'Show help message'     ) { show_help   ; exit( 0 ) }
     options.on( '-v', '--version'                           , 'Show program version'  ) { show_version; exit( 0 ) }
-    options.on( '-r', '--rows NUMBER_OF_ROWS'      , Integer, 'Set number of rows'    ) { | argument | number_of_rows    = argument }
-    options.on( '-c', '--columns NUMBER_OF_COLUMNS', Integer, 'Set number of columns' ) { | argument | number_of_columns = argument }
+    options.on( '-r', '--rows NUMBER_OF_ROWS'      , Integer, 'Set number of rows'    ) { | argument | arguments.number_of_rows    = argument }
+    options.on( '-c', '--columns NUMBER_OF_COLUMNS', Integer, 'Set number of columns' ) { | argument | arguments.number_of_columns = argument }
   end
 
   begin
@@ -41,6 +41,9 @@ if __FILE__ == $0
     show_help
     exit( -1 )
   end
+
+  number_of_rows    = defined?( arguments.number_of_rows    ) ? arguments.number_of_rows    : 3
+  number_of_columns = defined?( arguments.number_of_columns ) ? arguments.number_of_columns : 3
 
   puts "Playing with a board {#{ number_of_rows }}x{#{ number_of_columns }}"
   play_game( number_of_rows, number_of_columns )
