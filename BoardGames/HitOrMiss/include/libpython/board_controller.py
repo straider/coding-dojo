@@ -12,14 +12,6 @@ board        = None
 row_count    = 0
 column_count = 0
 
-def set_mark() :
-  global board
-
-  random_row    = random.randint( 1, row_count    )
-  random_column = random.randint( 1, column_count )
-
-  board = board_model.set_piece( board, random_row, random_column, PIECE_HIDDEN )
-
 def initialize_board( number_of_rows, number_of_columns ) :
   global board, row_count, column_count
   row_count    = number_of_rows
@@ -42,7 +34,10 @@ def reset_board() :
   if board and row_count > 0 and column_count > 0 :
     board = board_model.clear_board( board )
 
-    set_mark()
+    random_row    = random.randint( 1, row_count    )
+    random_column = random.randint( 1, column_count )
+
+    board = board_model.set_piece( board, random_row, random_column, PIECE_HIDDEN )
 
     return '{0}x{1}'.format( row_count, column_count )
   else :
@@ -61,14 +56,9 @@ def is_valid_cell( row_number, column_letter ) :
   result = False
 
   if row_number and column_letter :
-    if type( row_number ) is int and str( column_letter ).isalpha :
-      column_number = ord( str( column_letter ) ) - ord ( 'A' ) + 1
+    column_number = ord( str( column_letter ) ) - ord ( 'A' ) + 1
 
-      if row_count > 0 and column_count > 0 :
-        is_valid_row_number    = row_number    in range( 1, row_count    + 1 )
-        is_valid_column_number = column_number in range( 1, column_count + 1 )
-
-        result = ( is_valid_row_number and is_valid_column_number )
+    result = ( board_model.is_valid_row( board, row_number ) and board_model.is_valid_column( board, column_number ) )
 
   return result
 
