@@ -26,23 +26,23 @@ if __FILE__ == $0
   number_of_columns = 3
   loop do
     case ARGV[ 0 ]
-        when '-h', '--help'
-          show_help
-          exit( 0 )
-        when '-v', '--version'
-          show_version
-        when '-r', '--rows'
-          number_of_rows = ARGV[ 1 ].to_i
-          ARGV.shift
-        when '-c', '--columns'
-          number_of_columns = ARGV[ 1 ].to_i
-          ARGV.shift
-        when /^-/
-          puts "Unknown option: #{ ARGV[ 0 ].inspect }"
-          show_help
-          exit( -1 )
-        else
-          break
+      when '-h', '--help'
+        show_help
+        exit( 0 )
+      when '-v', '--version'
+        show_version
+      when '-r', '--rows'
+        number_of_rows = ARGV[ 1 ].to_i
+        ARGV.shift
+      when '-c', '--columns'
+        number_of_columns = ARGV[ 1 ].to_i
+        ARGV.shift
+      when /^-/
+        puts "Unknown option: #{ ARGV[ 0 ].inspect }"
+        show_help
+        exit( -1 )
+      else
+        break
     end
     ARGV.shift
   end
