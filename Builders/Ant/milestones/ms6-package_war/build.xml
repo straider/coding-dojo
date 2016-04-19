@@ -48,8 +48,10 @@
     <mkdir dir = "${distribution_folder}" />
   </target>
 
-  <fileset dir = "${legacy_jre}\lib" includes = "**/*.jar" id = "legacy_bootstrap_fileset" />
-  <pathconvert property = "legacy_bootstrap" refid = "legacy_bootstrap_fileset" />
+  <path id = "legacy_bootstrap_path">
+    <fileset dir = "${legacy_jre}\lib" includes = "**/*.jar" if:set = "legacy_jre" />
+  </path>
+  <pathconvert property = "legacy_bootstrap" refid = "legacy_bootstrap_path" />
 
   <path id = "libraries">
     <fileset dir = "${vendors_folder}">
