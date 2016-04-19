@@ -51,7 +51,6 @@
   <path id = "legacy_bootstrap_path">
     <fileset dir = "${legacy_jre}\lib" includes = "**/*.jar" if:set = "legacy_jre" />
   </path>
-  <pathconvert property = "legacy_bootstrap" refid = "legacy_bootstrap_path" />
 
   <target name = "build" depends = "init" description = "Builds the class files.">
     <javac srcdir            = "${sources_folder}"
@@ -63,6 +62,7 @@
            includeAntRuntime = "false"
            bootclasspath     = "${legacy_bootstrap}"
     >
+      <bootclasspath refid = "legacy_bootstrap_path" />
       <compilerarg line = "-Xlint:unchecked -Xlint:deprecation" />
     </javac>
   </target>
