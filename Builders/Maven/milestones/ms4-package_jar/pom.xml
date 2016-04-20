@@ -45,7 +45,7 @@
         <directory>${source_folder}</directory>
         <includes>
           <include>**/*.java</include>
-        </includes>      
+        </includes>
       </resource>
       <resource>
         <directory>${resources_folder}</directory>
@@ -94,7 +94,7 @@
         <version>2.6</version>
         <configuration>
           <archive>
-            <index>true</index>
+            <index>false</index>
             <manifest>
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
               <addClasspath>false</addClasspath>
@@ -114,7 +114,7 @@
         <version>2.10</version>
         <executions>
           <execution>
-            <id>copy</id>
+            <id>copy-artifact-to-distribution</id>
             <phase>package</phase>
             <goals>
               <goal>copy</goal>

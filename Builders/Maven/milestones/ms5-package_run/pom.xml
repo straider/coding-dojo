@@ -5,14 +5,14 @@
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>dojo.java.builders</groupId>
-  <artifactId>ms6.package.war</artifactId>
+  <artifactId>ms5.package.run</artifactId>
   <version>1.0.0</version>
 
   <name>${project.groupId} - ${project.artifactId}</name>
-  <description>:: Dojo :: Java :: Builders :: Maven :: Milestone 6 ::</description>
+  <description>:: Dojo :: Java :: Builders :: Maven :: Milestone 5 ::</description>
   <url>http://builders.java.dojo</url>
 
-  <packaging>war</packaging>
+  <packaging>jar</packaging>
 
   <!-- JOCAMO - 2015.06.27: Should be replaced by a working org.codehaus.mojo:properties-maven-plugin:1.0-alpha-2. !-->
   <properties>
@@ -32,16 +32,17 @@
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 
     <company>DoWeDo-IT</company>
-    <application_file>milestone6</application_file>
+    <application_file>milestone5</application_file>
+    <main_class>builder.dojo.Main</main_class>
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>servlet</groupId>
-      <artifactId>servlet</artifactId>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
       <scope>system</scope>
-      <version>2.5.0</version>
-      <systemPath>${basedir}/${vendors_folder}/javax/servlet/servlet-2_5-api.jar</systemPath>
+      <version>1.2.17</version>
+      <systemPath>${basedir}/${vendors_folder}/org/apache/log4j/log4j-1.2.17.jar</systemPath>
     </dependency>
   </dependencies>
 
@@ -100,19 +101,20 @@
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
+        <artifactId>maven-jar-plugin</artifactId>
         <version>2.6</version>
         <configuration>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
           <archive>
+            <index>false</index>
             <manifest>
               <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              <addClasspath>false</addClasspath>
+              <mainClass>${main_class}</mainClass>
             </manifest>
             <manifestEntries>
               <Implementation-Vendor>${company}</Implementation-Vendor>
               <Built-Date>${build-time}</Built-Date>
               <Built-By>${user.name}</Built-By>
+              <Class-Path>libraries/log4j-1.2.17.jar</Class-Path>
             </manifestEntries>
           </archive>
         </configuration>
@@ -123,6 +125,17 @@
         <artifactId>maven-dependency-plugin</artifactId>
         <version>2.10</version>
         <executions>
+          <execution>
+            <id>copy-libraries-to-distribution</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <includeScope>compile</includeScope>
+              <outputDirectory>${distribution_folder}/libraries/</outputDirectory>
+            </configuration>
+          </execution>
           <execution>
             <id>copy-artifact-to-distribution</id>
             <phase>package</phase>
@@ -143,6 +156,29 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <executions>
+          <execution>
+            <id>launch</id>
+            <phase>install</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <executable>java</executable>
+          <workingDirectory>${distribution_folder}</workingDirectory>
+          <arguments>
+            <argument>-jar</argument>
+            <argument>${application_file}.${project.packaging}</argument>
+          </arguments>
+        </configuration>
       </plugin>
     </plugins>
   </build>
