@@ -1,3 +1,5 @@
+//https://examples.javacodegeeks.com/desktop-java/ide/intellij-idea-tutorial-beginners/
+
 package com.javacodegeeks.examples;
 
 import org.junit.Before;
@@ -7,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 
 public class StringsCalculatorTest {
 
-    private final StringCalculator calculator;
+    private StringCalculator calculator;
 
     @Before
     public void init() {
