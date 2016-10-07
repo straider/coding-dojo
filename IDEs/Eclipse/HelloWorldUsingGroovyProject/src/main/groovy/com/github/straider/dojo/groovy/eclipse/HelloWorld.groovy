@@ -5,8 +5,8 @@ class HelloWorld {
 	static main(args) {	
 	}
 	
-	public String greet() {
-		'Hello, World!'
-	  }
+    public String greet( name = 'World' ) {
+      "Hello, ${name}!"
+    }
 
 }
