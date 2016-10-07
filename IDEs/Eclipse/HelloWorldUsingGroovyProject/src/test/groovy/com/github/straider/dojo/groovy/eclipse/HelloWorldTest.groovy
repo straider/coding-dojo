@@ -28,9 +28,9 @@ class HelloWorldTest extends GroovyTestCase {
 		super.tearDown();
 	}
 
-	@Test
-	public void test() {
-		fail("Not yet implemented"); // TODO
-	}
+    void testDefaultGreeting() {
+        HelloWorld instance = new HelloWorld()
+        assert instance.greet() == 'Hello, World!'
+    }
 
 }
