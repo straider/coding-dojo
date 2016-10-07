@@ -1,7 +1,5 @@
 package com.github.straider.dojo.groovy.eclipse
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
