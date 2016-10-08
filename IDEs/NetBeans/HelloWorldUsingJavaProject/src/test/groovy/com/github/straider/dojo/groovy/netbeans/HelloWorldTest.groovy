@@ -6,7 +6,9 @@ import org.junit.Before
 import org.junit.BeforeClass
 import org.junit.Test
 
-class HelloWorldTest {
+import groovy.util.GroovyTestCase
+
+class HelloWorldTest extends GroovyTestCase {
 
     public HelloWorldTest() {
     }
@@ -27,4 +29,9 @@ class HelloWorldTest {
     public void tearDown() {
     }
     
+    void testDefaultGreeting() {
+        HelloWorld instance = new HelloWorld()
+        assert instance.greet() == 'Hello, World!'
+    }
+
 }
