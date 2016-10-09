@@ -6,7 +6,7 @@ class HelloWorld {
 	}
 	
     public String greet( name = 'World' ) {
-      "Hello, ${name}!"
+		"Hello, ${name}!"
     }
 
 }
