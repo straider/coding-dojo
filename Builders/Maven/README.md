@@ -1,4 +1,4 @@
-coding-dojo / Builders / Maven
+﻿coding-dojo / Builders / Maven
 ==============================
 
 Dojo to learn and explore Maven, one of the Java Builder Tools.
@@ -280,3 +280,51 @@ Error assembling WAR: webxml attribute is required
 - declare common configuration for all sub-projects
 - declare specific configuration for a subset of sub-projects
   - how to declare common configuration for a subset of sub-projects?
+
+# 4. Sample Project Layout
+
+This project can be used as a scaffold for a real project.
+
+The main files and folders are:
+
+| Folder                          | File             | Description                                   |
+|---------------------------------|------------------|-----------------------------------------------|
+| /                               | pom.xml          | Main Maven buildfile.                         |
+| /                               | maven.properties | Optional set of properties for the buildfile. |
+| /                               | LICENSE.txt      | Plain text format of the project license.     |
+| /                               | README.md        | Main document.                                |
+| src/                            |                  | Top folder of all project sources.            |
+| src/main/                       |                  | Top folder for production code.               |
+| src/main/java/                  |                  | Java production source code.                  |
+| src/main/resources/             |                  | Folder with production ready resources.       |
+| src/test/                       |                  | Top folder for testing code.                  |
+| src/test/unit/java/             |                  | Java unit testing source code.                |
+| src/test/integration/java/      |                  | Java integration testing source code.         |
+| src/test/integration/resources/ |                  | Folder with integration testing resources.    |
+
+## 4.1. Challenges
+
+- How to handle external Maven properties file? Use [Maven Properties](http://www.mojohaus.org/properties-maven-plugin/) plugin;
+- Is it better to have src/main/ and src/test/, with unit/ and integration/, or to have src/main/, src/unit-test/ and src/integration-test/?
+    - Choice, without any strong reason, is to use src/main/ and src/test/, with unit/ and integration/.
+- Use of [Maven Surefire](https://maven.apache.org/surefire/maven-surefire-plugin/) and [Maven Failsafe](https://maven.apache.org/surefire/maven-failsafe-plugin/) plugins:
+    - The Surefire Plugin is used during the test phase of the build lifecycle to execute the unit tests of an application. It's designed for running unit tests and if any of the tests fail then it will fail the build immediately;
+    - The Failsafe Plugin is designed to run integration tests while the Surefire Plugin is designed to run unit tests. It's designed for running integration tests and decouples failing the build if there are test failures from actually running the tests.
+- How to properly copy resources from src/ to target/? Use [Maven Resources](https://maven.apache.org/plugins/maven-resources-plugin/) plugin;
+- Can pom.xml be split into distinct files, per functionalities, and add only the ones needed?
+    - Deliver library artefact (JAR);
+    - Deliver application runnable artefact (JAR, with MANIFEST.INF);
+    - Deliver web application artefact (WAR);
+    - Deliver enterprise application artefact (EAR);
+    - Control servers (Tomcat, jetty, GlassFish, ...).
+
+# 5. Parent Project Object Model
+
+Since Maven does not allow from pom.xml inheritance or inclusion it seems that the most often used solution is to have a parent-pom project, which simply packages a pom with all common dependencies and plugins, and have each project depend on it.
+
+This parent-pom artifact should be installed in the local Maven repository, from where each project can then download it.
+
+## 5.1. Challenges
+
+- Should the parent-pom define dependency management nodes or simple declare all common dependencies?
+- Should the parent-pom define plugin management nodes or simply declare all commonly used plugins?
