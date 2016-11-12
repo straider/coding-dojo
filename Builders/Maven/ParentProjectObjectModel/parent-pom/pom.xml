@@ -7,7 +7,7 @@
 
     <groupId>[GROUP_ID]</groupId>
     <artifactId>parent-pom</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <name>Generic parent-pom</name>
 
     <description>Generic Parent Project Object Model.</description>
@@ -132,7 +132,7 @@
                     <version>${maven-enforcer-plugin.version}</version>
                     <executions>
                         <execution>
-                            <id>enforce-maven-minimum-version</id>
+                            <id>enforce-maven-minimum-version-and-java</id>
                             <goals>
                                 <goal>enforce</goal>
                             </goals>
@@ -141,6 +141,9 @@
                                     <requireMavenVersion>
                                         <version>${minimum.maven.version}</version>
                                     </requireMavenVersion>
+                                    <requireJavaVersion>
+                                        <version>${java.version}</version>
+                                    </requireJavaVersion>
                                 </rules>
                             </configuration>
                         </execution>
