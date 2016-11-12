@@ -5,7 +5,8 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>[GROUP_ID]</groupId>
+    <!--<groupId>[GROUP_ID]</groupId>-->
+    <groupId>com.github.straider.java.builders.maven</groupId>
     <artifactId>parent-pom</artifactId>
     <version>1.0.5</version>
     <name>Generic parent-pom</name>
