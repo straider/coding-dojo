@@ -113,10 +113,19 @@ It was simply a matter of configuring the option Text on the Cygwin Terminal win
 
 ### 2.3.3. BASH Prompt Here
 
-After installing **chere** package then execute the following command in Cygwin Terminal:
+After installing **chere** package then execute the following command in Cygwin Terminal, with Administrator rights:
 
 ```bash
 chere -i -nf -t mintty
+```
+
+**Note**: if the following error occurs it's because of UAC (permissions) and then to fix it just open the Cygwin Terminal as Administrator and re-run the above command.
+
+
+```
+Error (5): Access is denied.
+
+/usr/bin/chere Error: Hive not writable
 ```
 
 ### 2.3.4. Proxy
