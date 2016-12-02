@@ -17,20 +17,21 @@
 
 ## Tools
 
-- [Migrator: ActiveRecord Migrations in Java](http://www.jroller.com/obie/entry/migrator_activerecord_migrations_in_java)
+- [Migrator](http://migrator.sourceforge.net/)
 - [migrate4j](http://migrate4j.sourceforge.net/)
 - [DbMaintain](http://www.dbmaintain.org/overview.html)
-- [dbmigrate](https://code.google.com/archive/p/dbmigrate/)
 - [Dbpatch](https://github.com/m-szalik/dbpatch): Manage versioning of your databases with maven, gradle or standalone GUI application
+- [dbmigrate](https://code.google.com/archive/p/dbmigrate/)
 - [dbdeploy](http://dbdeploy.com/)
     - [dbdeploy](https://code.google.com/archive/p/dbdeploy/)
     - [database schema evolution versus schema versioning](https://oschmi.blogspot.co.uk/2012/02/database-schema-evolution-versus-schema.html)
+- [Carbon Five Database Migration](https://code.google.com/archive/p/c5-db-migration/)
 - [dbv](https://dbv.vizuina.com/)
     - [dbv](https://github.com/victorstanciu/dbv): Database version control, made easy!
 - [Flyway](https://flywaydb.org/)
     - [Lessons Learned Using Flyway DB with Distributed Version Control](http://www.jeremyjarrell.com/using-flyway-db-with-distributed-version-control/)
     - [Easy Database Migrations using Flyway, Java EE 6 and GlassFish](http://www.hascode.com/2013/04/easy-database-migrations-using-flyway-java-ee-6-and-glassfish/)
-    - [Ant Tasks](https://flywaydb.org/documentation/ant/) are provided as an AntLib
+    - [Flyway and jOOQ for Unbeatable SQL Development Productivity](https://blog.jooq.org/tag/database-migration/)
 - [Liquibase](http://www.liquibase.org/)
     - [Liquibase](https://github.com/liquibase)
     - [groovy-liquibase](https://github.com/tlberglund/groovy-liquibase): Yet Another Groovy DSL for Liquibase
@@ -48,8 +49,10 @@
 ### Grails
 
 - [dbmigrate with Grails](https://code.google.com/archive/p/dbmigrate/wikis/Grails.wiki)
-- [Grails Flyway 2 Plugin](https://grails.org/plugin/gflyway2)
-- [grails-flyway](https://github.com/saw303/grails-flyway)
+- [grails-flyway-plugin](https://github.com/daniel-lima/grails-flyway-plugin)
+- [GFlyway2](https://github.com/Vav1lon/GFlyway2): Flyway 2 plugin for Grails
+    - [Grails Flyway 2 Plugin](https://grails.org/plugin/gflyway2)
+- [grails-flyway](https://github.com/saw303/grails-flyway): provides Flyway support for Grails 3 applications
     - [Using Grails 3 Flyway Plugin for database migrations](https://www.wangler.io/blog/2016/grails-flyway-plugin.html)
 - [Database Migration Grails Plugin](http://grails-plugins.github.io/grails-database-migration/1.4.0/) uses the Liquibase library
 - [Grails Database Migration Plugin](http://grails.org/plugin/database-migration)
@@ -58,6 +61,9 @@
 ## Articles
 
 - [Managing Your DB Changes](http://www.tikalk.com/managing-your-db-changes/)
+- [Database Migrations And Java](https://techblog.bozho.net/database-migrations-and-java/)
+- [Database Migrations Done Right](http://www.brunton-spall.co.uk/post/2014/05/06/database-migrations-done-right/)
+- [Migrator: ActiveRecord Migrations in Java](http://www.jroller.com/obie/entry/migrator_activerecord_migrations_in_java)
 
 ### Comparison
 
@@ -69,3 +75,5 @@
 - [How to manage incremental database changes, Liquibase vs Flyway](http://blog.getsandbox.com/2014/07/20/how-to-manage-database-change/)
 - [Comparison between Flyway and Liquibase](http://techieindescribable.blogspot.co.uk/2013/08/comparison-between-flyway-and-liquibase.html)
 - [Database Installer - Liquibase Vs Flyway](http://lifetechnology-narin.blogspot.co.uk/2012/08/database-installer-liquibase-vs-flyway.html)
+- [Continuous database migration with Liquibase and Flyway](http://www.h-online.com/developer/features/Continuous-database-migration-with-Liquibase-and-Flyway-1860080.html)
+
