@@ -1,3 +1,4 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
 <project xmlns              = "http://maven.apache.org/POM/4.0.0"
          xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
@@ -12,36 +13,17 @@
     </parent>
 
     <groupId>com.github.straider.java.eip.camel.greeter</groupId>
-    <artifactId>greeter</artifactId>
+    <artifactId>greeter-parent</artifactId>
     <version>1.0.0</version>
-    <name>Camel Greeter Service</name>
-    <description>Camel Greeter Service, with 2x integrations</description>
+    <name>Camel Greeting Service</name>
+    <description>Camel Greeting Service, with 2x integrations</description>
     <url>https://github.com/straider/coding-dojo/tree/Java/EnterpriseIntegrationPatterns/Camel/Greeter</url>
 
     <packaging>pom</packaging>
 
-    <build>
-
-        <plugins>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-            </plugin>
-
-        </plugins>
-
-    </build>
+    <modules>
+        <module>greeter</module>
+    </modules>
 
 </project>
 
