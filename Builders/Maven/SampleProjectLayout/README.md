@@ -10,7 +10,7 @@ It assumes that the project has mandatory Unit Tests and Integration Tests coded
 ## How to use it?
 
 After copying this sample project to a new folder then:
-- Edit pom.xml:
+- Replace pom.xml content with sample-pom.xml content and edit it:
     - Replace [GROUP_ID];
     - Replace [ARTIFACT_ID];
     - Replace [PROJECT_NAME];
