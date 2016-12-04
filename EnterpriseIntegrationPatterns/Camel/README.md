@@ -140,7 +140,7 @@ From [Apache Camel: Integration Nirvana](https://dzone.com/articles/apache-camel
 
 # Katas
 
-- [Greeter](Greeter.md)
+- [Greeter](Greeter/README.md)
 - [Temperature Converter](TemperatureConverter.md)
 - [Checksum Calculator](ChecksumCalculator.md)
 
