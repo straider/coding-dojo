@@ -308,13 +308,17 @@ The main files and folders are:
 
 ## 4.1. Challenges
 
-- How to handle external Maven properties file? Use [Maven Properties](http://www.mojohaus.org/properties-maven-plugin/) plugin;
+- How to handle external Maven properties file? 
+> Use [Maven Properties](http://www.mojohaus.org/properties-maven-plugin/) plugin, per environment (which could be controlled by profiles). But is not useful to replace POM properties used in dependencies or plugins.
+
 - Is it better to have src/main/ and src/test/, with unit/ and integration/, or to have src/main/, src/unit-test/ and src/integration-test/?
-    - Choice, without any strong reason, is to use src/main/ and src/test/, with unit/ and integration/.
+> Choice, without any strong reason, is to use src/main/ and src/test/, with unit/ and integration/.
+
 - Use of [Maven Surefire](https://maven.apache.org/surefire/maven-surefire-plugin/) and [Maven Failsafe](https://maven.apache.org/surefire/maven-failsafe-plugin/) plugins:
     - The Surefire Plugin is used during the test phase of the build lifecycle to execute the unit tests of an application. It's designed for running unit tests and if any of the tests fail then it will fail the build immediately;
     - The Failsafe Plugin is designed to run integration tests while the Surefire Plugin is designed to run unit tests. It's designed for running integration tests and decouples failing the build if there are test failures from actually running the tests.
-- How to properly copy resources from src/ to target/? Use [Maven Resources](https://maven.apache.org/plugins/maven-resources-plugin/) plugin;
+- How to properly copy resources from src/ to target/?
+> Use [Maven Resources](https://maven.apache.org/plugins/maven-resources-plugin/) plugin;
 - Can pom.xml be split into distinct files, per functionalities, and add only the ones needed?
     - Deliver library artefact (JAR);
     - Deliver application runnable artefact (JAR, with MANIFEST.INF);
@@ -336,17 +340,21 @@ This Maven project is of type **pom** and declares all generic / common dependen
 
 The iterations to accomplish a suitable parent-pom artefact are:
 
-- minimal "empty";
-- compile only;
+- minimal "empty": enforce Maven version and clean;
+- compile;
 - compile and test;
 - compile, test and verify;
-- compile, test, verify and deploy.
+- ~~compile, test, verify and deploy~~.
 
 ## 5.2. child-project
 
 This Maven project is a sample project, of type **jar**, that shows how to depend on parent-pom.
 
-## 5.?. Challenges
+## 5.3. Challenges
 
 - Should the parent-pom define dependency management nodes or simple declare all common dependencies?
 - Should the parent-pom define plugin management nodes or simply declare all commonly used plugins?
+- Should enforce encoding of sources and resources always in UTF-8?
+- Should enforce that SureFire and FailSafe plugins have the same version?
+- Should include the Maven Dependency Plugin to purge project dependencies from local repository and re-resolve them?
+- Should the Maven Clean Plugin be used to always clean - causing full build intead of incremental build?
