@@ -8,7 +8,7 @@
     <parent>
         <groupId>com.github.straider.java.builders.maven</groupId>
         <artifactId>parent-pom</artifactId>
-        <version>1.0.5</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>child-project</artifactId>

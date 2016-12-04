@@ -5,12 +5,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.straider.java.builders.maven</groupId>
+    <groupId>[GROUP_ID]</groupId>
     <artifactId>parent-pom</artifactId>
     <version>1.0.0</version>
-    <name>Maven Generic parent-pom</name>
-    <description>Maven Generic Parent Project Object Model.</description>
-    <url>https://github.com/straider/coding-dojo/tree/Java/Builders/Maven/ParentProjectObjectModel</url>
+    <name>[PROJECT_NAME]</name>
+    <description>[PROJECT_DESCRIPTION]</description>
+    <url>[PROJECT_URL]</url>
 
     <packaging>pom</packaging>
 
