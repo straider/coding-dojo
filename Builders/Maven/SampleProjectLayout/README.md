@@ -18,7 +18,59 @@ After copying this sample project to a new folder then:
     - Replace [PROJECT_URL];
     - Replace [PACKAGING_TYPE];
     - Version is set to 1.0.0, if it's not suitable then replace this value too.
-- Rename all folders with "rename-me" to the project package name.
+- Rename all folders with "rename.me" to the project package name;
+- Replace DummyTest with proper JUnit test classes;
+- Replace DummySpec with proper Spock specification classes;
+- Replace dummy.feature with proper Cucumber features;
+- Add steps logic to JavaSteps or GroovySteps.
+
+Then, the usual Maven goals can be used.
+
+### Clean
+
+```bash
+mvn clean
+```
+
+### Compile
+
+To build the artifact, without running any tests, issue the following command:
+
+```bash
+mvn compile
+```
+
+### Test
+
+To execute Unit Tests, using JUnit or Spock, issue the following command:
+
+```bash
+mvn test
+```
+
+### Package
+
+To assemble the artifact issue the following command:
+
+```bash
+mvn package
+```
+
+To execute Integration Tests, using Cucumber, issue the following command:
+
+### Verify
+
+```bash
+mvn verify
+```
+
+### Install
+
+To install the artifact in local Maven repository issue the following command:
+
+```bash
+mvn install
+```
 
 ## Scope
 
