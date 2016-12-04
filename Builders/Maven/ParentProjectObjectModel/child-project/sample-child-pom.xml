@@ -6,15 +6,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>[GROUP_ID]</groupId>
-        <artifactId>parent-pom</artifactId>
+        <groupId>[PARENT_GROUP_ID]</groupId>
+        <artifactId>[PARENT_ARTIFACT_ID]</artifactId>
         <version>1.0.0</version>
     </parent>
 
+    <groupId>[GROUP_ID]</groupId>
     <artifactId>[ARTIFACT_ID]</artifactId>
-    <version>[ARTIFACT_VERSION]</version>
-    <name>[ARTIFACT_NAME]</name>
-
+    <version>1.0.0</version>
+    <name>[PROJECT_NAME]</name>
     <description>[PROJECT_DESCRIPTION]</description>
     <url>[PROJECT_URL]</url>
 

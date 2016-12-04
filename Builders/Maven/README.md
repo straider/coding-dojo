@@ -328,13 +328,23 @@ The main files and folders are:
 
 ----
 
-# 5. Parent Project Object Model
+# 5. Multiple Modules Project Object Model
+
+## 5.1 parent-pom
+
+## 5.2. module-pom
+
+## 5.3. Challenges
+
+----
+
+# 6. Parent Project Object Model
 
 Since Maven does not allow from pom.xml inheritance or inclusion it seems that the most often used solution is to have a parent-pom project, which simply packages a pom with all common dependencies and plugins, and have each project depend on it.
 
 This parent-pom artefact should be installed in the local Maven repository, from where each project can then download it.
 
-## 5.1. parent-pom
+## 6.1. parent-pom
 
 This Maven project is of type **pom** and declares all generic / common dependencies and plugins.
 
@@ -346,11 +356,11 @@ The iterations to accomplish a suitable parent-pom artefact are:
 - compile, test and verify;
 - ~~compile, test, verify and deploy~~.
 
-## 5.2. child-project
+## 6.2. child-project
 
 This Maven project is a sample project, of type **jar**, that shows how to depend on parent-pom.
 
-## 5.3. Challenges
+## 6.3. Challenges
 
 - Should the parent-pom define dependency management nodes or simple declare all common dependencies?
 - Should the parent-pom define plugin management nodes or simply declare all commonly used plugins?
