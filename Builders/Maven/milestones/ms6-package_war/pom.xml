@@ -1,151 +1,152 @@
-<project xmlns              = "http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi          = "http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+<?xml version = "1.0" encoding = "UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 >
 
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>dojo.java.builders</groupId>
-  <artifactId>ms6.package.war</artifactId>
-  <version>1.0.0</version>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>dojo.java.builders</groupId>
+    <artifactId>ms6.package.war</artifactId>
+    <version>1.0.0</version>
 
-  <name>${project.groupId} - ${project.artifactId}</name>
-  <description>:: Dojo :: Java :: Builders :: Maven :: Milestone 6 ::</description>
-  <url>http://builders.java.dojo</url>
+    <name>${project.groupId} - ${project.artifactId}</name>
+    <description>:: Dojo :: Java :: Builders :: Maven :: Milestone 6 ::</description>
+    <url>http://builders.java.dojo</url>
 
-  <packaging>war</packaging>
+    <packaging>war</packaging>
 
-  <!-- JOCAMO - 2015.06.27: Should be replaced by a working org.codehaus.mojo:properties-maven-plugin:1.0-alpha-2. !-->
-  <properties>
-    <source_folder>sources</source_folder>
-    <tests_folder>tests</tests_folder>
-    <resources_folder>resources</resources_folder>
-    <reports_folder>reports</reports_folder>
-    <vendors_folder>vendors</vendors_folder>
-    <build_folder>build</build_folder>
-    <distribution_folder>distribution</distribution_folder>
+    <!-- JOCAMO - 2015.06.27: Should be replaced by a working org.codehaus.mojo:properties-maven-plugin:1.0-alpha-2. !-->
+    <properties>
+        <source_folder>sources</source_folder>
+        <tests_folder>tests</tests_folder>
+        <resources_folder>resources</resources_folder>
+        <reports_folder>reports</reports_folder>
+        <vendors_folder>vendors</vendors_folder>
+        <build_folder>build</build_folder>
+        <distribution_folder>distribution</distribution_folder>
 
-    <java.version>1.6</java.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.6</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <build-time>${maven.build.timestamp}</build-time>
-    <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
+        <build-time>${maven.build.timestamp}</build-time>
+        <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 
-    <company>DoWeDo-IT</company>
-    <application_file>milestone6</application_file>
-  </properties>
+        <company>DoWeDo-IT</company>
+        <application_file>milestone6</application_file>
+    </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>servlet</groupId>
-      <artifactId>servlet</artifactId>
-      <scope>system</scope>
-      <version>2.5.0</version>
-      <systemPath>${basedir}/${vendors_folder}/javax/servlet/servlet-2_5-api.jar</systemPath>
-    </dependency>
-  </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>servlet</groupId>
+            <artifactId>servlet</artifactId>
+            <scope>system</scope>
+            <version>2.5.0</version>
+            <systemPath>${basedir}/${vendors_folder}/javax/servlet/servlet-2_5-api.jar</systemPath>
+        </dependency>
+    </dependencies>
 
-  <build>
-    <sourceDirectory>${source_folder}</sourceDirectory>
-    <testSourceDirectory>${tests_folder}</testSourceDirectory>
-    <directory>${build_folder}</directory>
+    <build>
+        <sourceDirectory>${source_folder}</sourceDirectory>
+        <testSourceDirectory>${tests_folder}</testSourceDirectory>
+        <directory>${build_folder}</directory>
 
-    <resources>
-      <resource>
-        <directory>${source_folder}</directory>
-        <includes>
-          <include>**/*.java</include>
-        </includes>
-      </resource>
-      <resource>
-        <directory>${resources_folder}</directory>
-        <filtering>true</filtering>
-      </resource>
-    </resources>
-    <testResources>
-      <testResource>
-        <directory>${resources_folder}</directory>
-      </testResource>
-    </testResources>
+        <resources>
+            <resource>
+                <directory>${source_folder}</directory>
+                <includes>
+                    <include>**/*.java</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>${resources_folder}</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <directory>${resources_folder}</directory>
+            </testResource>
+        </testResources>
 
-    <plugins>
-      <plugin>
-        <artifactId>maven-clean-plugin</artifactId>
-        <version>3.0.0</version>
-        <configuration>
-          <filesets>
-            <fileset>
-              <directory>${distribution_folder}</directory>
-              <followSymlinks>false</followSymlinks>
-            </fileset>
-          </filesets>
-        </configuration>
-      </plugin>
+        <plugins>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <filesets>
+                        <fileset>
+                            <directory>${distribution_folder}</directory>
+                            <followSymlinks>false</followSymlinks>
+                        </fileset>
+                    </filesets>
+                </configuration>
+            </plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.5.1</version>
-        <configuration>
-          <debug>true</debug>
-          <compiler_version>${java.version}</compiler_version>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
-          <compilerArgs>
-            <arg>-Xlint:unchecked</arg>
-            <arg>-Xlint:deprecation</arg>
-          </compilerArgs>
-        </configuration>
-      </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <debug>true</debug>
+                    <compiler_version>${java.version}</compiler_version>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <compilerArgs>
+                        <arg>-Xlint:unchecked</arg>
+                        <arg>-Xlint:deprecation</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.6</version>
-        <configuration>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
-          <archive>
-            <manifest>
-              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-              <addClasspath>false</addClasspath>
-            </manifest>
-            <manifestEntries>
-              <Implementation-Vendor>${company}</Implementation-Vendor>
-              <Built-Date>${build-time}</Built-Date>
-              <Built-By>${user.name}</Built-By>
-            </manifestEntries>
-          </archive>
-        </configuration>
-      </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addClasspath>false</addClasspath>
+                        </manifest>
+                        <manifestEntries>
+                            <Implementation-Vendor>${company}</Implementation-Vendor>
+                            <Built-Date>${build-time}</Built-Date>
+                            <Built-By>${user.name}</Built-By>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.10</version>
-        <executions>
-          <execution>
-            <id>copy-artifact-to-distribution</id>
-            <phase>package</phase>
-            <goals>
-              <goal>copy</goal>
-            </goals>
-            <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>${project.groupId}</groupId>
-                  <artifactId>${project.artifactId}</artifactId>
-                  <version>${project.version}</version>
-                  <type>${project.packaging}</type>
-                  <outputDirectory>${distribution_folder}</outputDirectory>
-                  <destFileName>${application_file}.${project.packaging}</destFileName>
-                </artifactItem>
-              </artifactItems>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-    </plugins>
-  </build>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.10</version>
+                <executions>
+                    <execution>
+                        <id>copy-artifact-to-distribution</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>${project.artifactId}</artifactId>
+                                    <version>${project.version}</version>
+                                    <type>${project.packaging}</type>
+                                    <outputDirectory>${distribution_folder}</outputDirectory>
+                                    <destFileName>${application_file}.${project.packaging}</destFileName>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
 
