@@ -1,15 +1,15 @@
-:: Dojo :: JAX-RS ::
+﻿:: Dojo :: JAX-RS ::
 ====================
 
 ----
 
-# 1. Introdução
+# 1. Introduction
 
 > **JAX-RS** or _Java API for RESTful Web Services_ is a Java programming language API that provides support in creating web services according to the Representational State Transfer ( [REST](http://en.wikipedia.org/wiki/Representational_state_transfer) ) architectural pattern. JAX-RS uses annotations, introduced in Java SE 5, to simplify the development and deployment of web service clients and endpoints. From version 1.1 on, JAX-RS is an official part of Java EE 6.
 
 > [Jersey](https://jersey.java.net/) is the reference implementation and the API is specified at [JAX-RS Specification](https://jax-rs-spec.java.net/).
 
-## 1.1. Goal & Objetives
+## 1.1. Goal & Objectives
 
 The objective of this dojo is to give an introduction to JAX-RS API through several small and simple coding exercises.
 
@@ -41,7 +41,15 @@ This dojo is aimed for programmers that know Java but have not yet had used JAX-
 
 ----
 
-# 2. Milestones
+# 2. Resources
+
+## 2.1. Tutorials
+
+## 2.2. Articles
+
+----
+
+# 3. Milestones
 
 There is a terminology that one must understand in to order to work with online addresses, in the formar ```<scheme name> : <hierarchical part> [ ? <query> ] [ # <fragment> ]```:
 
@@ -70,7 +78,7 @@ To fully understand REST it is important to understand the concept of [Semantic 
 
 > Semantic URLs, also sometimes referred to as clean URLs, RESTful URLs, user-friendly URLs, or SEO-friendly URLs, are Uniform Resource Locators ( URLs ) intended to improve the usability and accessibility of a website or web service by being immediately and intuitively meaningful to non-expert users.
 
-## 2.1. Hello World
+## 3.1. Hello World
 
 Deliver a WAR file, with a **Greeter** class which defines a method that answers requests like http://localhost:[PORT]/dojo-jaxrs/rest/hello. The response is a simple "Hello, World!" string. The method type is GET and there's no need for PathParameters or QueryParameters.
 
@@ -80,7 +88,7 @@ Deliver a WAR file, with a **Greeter** class which defines a method that answers
 - Deploy the WAR file on a Java Application Server, for example: on a GlassFish domain, with portbase 10000;
 - Verify the WADL file at http://localhost:100080/dojo-jaxrs/rest/application.wadl.
 
-## 2.2. Hello Someone
+## 3.2. Hello Someone
 
 Deliver a WAR file, with an improved **Greeter** class which defines a method that answers requests like http://localhost:[PORT]/dojo-jaxrs/rest/greet?name={name}. The response is a simple "Hello, ${name}!" string when query parameter name is defined or "Hello, World!" when it's not defined. The method type is GET and there's no need for PathParameters.
 
@@ -92,7 +100,7 @@ Deliver a WAR file, with an improved **Greeter** class which defines a method th
 
 **Note**: to avoid **if** statements it's possible to define a default value for a query parameter, by using @DefaultValue annotation.
 
-## 2.3. Checksum
+## 3.3. Checksum
 
 Deliver a WAR file, with a new **ChecksumService** class which defines methods that answers requests like http://localhost:[PORT]/dojo-jaxrs/rest/checksum/{algorithm}. These methods are of type POST.
 
@@ -106,22 +114,27 @@ Deliver a WAR file, with a new **ChecksumService** class which defines methods t
 
 **Note**: optionally, add another method named ```listAlgorithms()``` annotated with path "/" and annotated as of type GET, that outputs the list of HashAlgorithms available. This list can be in the format plain text or XML or JSON, using the annotation @Produces.
 
-# 3. TDD - Test-Driven Development
+----
+
+# 4. TDD - Test-Driven Development
 
 Using [JUnit](http://junit.org/) or [TestNG](http://testng.org/) start by coding the validation test cases for each milestone and follow the red-green-refactor TDD rhythm.
 
 With Ant it's not hard to setup a **test** target although Maven and Gradle are better suited for this, since their lifecycle includes testing.
 
-# 4. Tools
+----
 
-## 4.1. SoapUI
+# 5. Tools
+
+## 5.1. SoapUI
 
 [SoapUI](http://www.soapui.org/) is usually used to test and mock SOAP Web Services but it is also capable of [testing REST](http://www.soapui.org/rest-testing.html) Web Services, given a WADL.
 
-## 4.2. Chrome Extensions
+## 5.2. Chrome Extensions
 
 - [DHC](https://chrome.google.com/webstore/detail/dhc-resthttp-api-client/aejoelaoggembcahagimdiliamlcdmfm): DHC (aka Dev HTTP Client) is designed and developed by developers for developers to make direct HTTP/REST resource discovery, manipulation and testing more easily. Beside the main function, sending/receiving custom HTTP/REST requests/responses, it allows permanently to save a request to a local repository for later reuse and moreover the request declaration can include variables that are context specific;
 - [Postman REST Client](https://chrome.google.com/webstore/detail/postman-rest-client/fdmmgilgnpjigdojojpjoooidkmcomcm?hl=en): Postman helps you be more efficient while working with APIs. Postman is a scratch-your-own-itch project. The need for it arose while one of the developers was creating an API for his project. After looking around for a number of tools, nothing felt just right. The primary features added initially were a history of sent requests and collections;
 - [RestEasy](https://chrome.google.com/webstore/detail/resteasy/nojelkgnnpdmhpankkiikipkmhgafoch): RestEasy is a tool that is targeted against developers who perform RESTful API calls against third party services. It allows developers a way of being able to debug and analyze an Http request/response.;
 - [Advanced REST Client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/reviews?hl=en-US&utm_source=ARC): The web developers helper program to create and test custom HTTP requests;
 - [REST Console](https://chrome.google.com/webstore/detail/rest-console/cokgbflfommojglbmbpenpphppikmonn?hl=en): REST Console is an HTTP Request Visualizer and Constructor tool, helps developers build, debug and test RESTful APIs.
+

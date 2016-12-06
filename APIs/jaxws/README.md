@@ -1,9 +1,9 @@
-:: Dojo :: JAX-RS ::
+﻿:: Dojo :: JAX-RS ::
 ====================
 
 ----
 
-# 1. Introdução
+# 1. Introduction
 
 > **JAX-WS** or _Java API for XML Web Services_ is a Java programming language API for creating web services in [SOAP](https://en.wikipedia.org/wiki/SOAP). JAX-WS is one of the Java XML programming APIs. JAX-WS uses annotations, introduced in Java SE 5, to simplify the development and deployment of web service clients and endpoints. It is part of the Java Web Services Development Pack. JAX-WS can be used in Java SE starting with version 6. JAX-WS 2.0 replaced the JAX-RPC API in Java Platform, Enterprise Edition 5 which leans more towards document style Web Services.
 
@@ -17,7 +17,7 @@
 
 [Metro](https://metro.java.net/) is the reference implementation and the API is specified at [JAXB Specification](https://jaxb.java.net/).
 
-## 1.1. Goal & Objetives
+## 1.1. Goal & Objectives
 
 The objective of this dojo is to give an introduction to JAX-WS and JAXB APIs through several small and simple coding exercises.
 
@@ -57,13 +57,21 @@ This dojo is aimed for programmers that know Java but have not yet had used JAX-
 
 ----
 
-# 2. Milestones
+# 2. Resources
+
+## 2.1. Tutorials
+
+## 2.2. Articles
+
+----
+
+# 3. Milestones
 
 It's important to understand the SOAP envelope. It's in XML and is made up of 2 parts: an header and a body. Usually the header is used for authentication or control and body is used to pass data in a structured form.
 
 It's also important to understand XML namespaces.
 
-## 2.1. Hello World
+## 3.1. Hello World
 
 Deliver a WAR file, with a **Greeter** class which defines a method that answers requests like http://localhost:[PORT]/dojo-jaxws/GreeterService?wsdl. It provides one method only, ```hello()```, that returns the string "Hello, World!".
 
@@ -75,7 +83,7 @@ Deliver a WAR file, with a **Greeter** class which defines a method that answers
 
 **Note**: the interface is optional but since it's a best-practice one should be familiar with the pair of interface and implementation for a WebService.
 
-## 2.2. Hello Someone
+## 3.2. Hello Someone
 
 Deliver a WAR file, with an improved **Greeter** class which defines a new method that answers requests with a name between ```<name>``` tag. This method, ```greet( name )```, returns the string "Hello, World!" if the value if null or "Hello, {name}!" when the value is not null.
 
@@ -87,7 +95,7 @@ Deliver a WAR file, with an improved **Greeter** class which defines a new metho
 
 **Note**: a WebService can provide several methods, which should be related in some easily understandable way.
 
-## 2.3. Checksum
+## 3.3. Checksum
 
 Deliver a WAR file, with a new **Checksumer** class which defines new methods that answers requests with an algorithm between ```<algorithm>``` tag and a text value between ```<text>``` tag. This method, ```checksum( algorithm, text )```, returns the response as a string.
 
@@ -101,7 +109,7 @@ Deliver a WAR file, with a new **Checksumer** class which defines new methods th
 
 **Note**: optionally, add another method named ```listAlgorithms()``` annotated with annotated with WebMethod as "list" and WebResult as "response", that outputs the list of HashAlgorithms available, serialized as a string.
 
-## 2.4. Checksum Multiple Algorithm
+## 3.4. Checksum Multiple Algorithm
 
 Deliver a WAR file, with an improved **Checksumer** class which defines a new method that answers requests a text value between ```<text>``` tag. This method, ```calculateHashes( text )```, returns the response in an XML format.
 
@@ -122,7 +130,7 @@ The response XML, roughly, should be something like this:
 </response>
 ```
 
-## 2.5. Checksum Multiple Values
+## 3.5. Checksum Multiple Values
 
 Deliver a WAR file, with an improved **Checksumer** class which defines a new method that answers requests which define an algorithm between ```<algorithm>``` tag a a list of text values between ```<list>``` tag, where each element of this list is a value defined between ```<text>``` tag. This method, ```processMultiple( request )```, returns the response in an XML format.
 
@@ -158,18 +166,23 @@ The response XML, roughly, should be something like this:
 </response>
 ```
 
-# 3. TDD - Test-Driven Development
+----
+
+# 4. TDD - Test-Driven Development
 
 Using [JUnit](http://junit.org/) or [TestNG](http://testng.org/) start by coding the validation test cases for each milestone and follow the red-green-refactor TDD rhythm.
 
 With Ant it's not hard to setup a **test** target although Maven and Gradle are better suited for this, since their lifecycle includes testing.
 
-# 4. Tools
+----
 
-## 4.1. SoapUI
+# 5. Tools
+
+## 5.1. SoapUI
 
 [SoapUI](http://www.soapui.org/) is usually used to test and mock SOAP Web Services, given a WSDL.
 
-## 4.2. Chrome Extensions
+## 5.2. Chrome Extensions
 
 - [Wizdler](https://chrome.google.com/webstore/detail/wizdler/oebpmncolmhiapingjaagmapififiakb?hl=en): Recognizes WSDL information on the page to show you the available services and operations. Click the operation to generate the SOAP requests and view the response. By clicking the service, you can download WSDL and external XSD files in single ZIP file.
+
