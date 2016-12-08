@@ -32,9 +32,14 @@ This dojo is aimed for programmers that know Java but have not yet had used any 
 
 ## 2.2. Articles
 
-- [Apache Axis2, CXF and Sun JAX-WS RI in comparison](https://www.predic8.com/axis2-cxf-jax-ws-comparison.htm)
+- [JSR 311 Final: Java API for RESTful Web Services](https://www.infoq.com/news/2008/09/jsr311-approved)
 - [A Comparison of JAX-RS Implementations](https://www.infoq.com/news/2008/10/jaxrs-comparison)
+- [Apache CXF vs. Apache AXIS vs. Spring WS](https://dzone.com/articles/apache-cxf-vs-apache-axis-vs)
+- [Apache Axis2, CXF and Sun JAX-WS RI in comparison](https://www.predic8.com/axis2-cxf-jax-ws-comparison.htm)
+- [Difference between JAX-RS Specification Implementation tools](http://nagesh625.blogspot.co.uk/2014/01/difference-between-jax-rs-specification.html)
 - [Jersey vs. RESTEasy: A JAX-RS Implementation Comparison](https://www.genuitec.com/jersey-resteasy-comparison/)
+- [JAX-RS Vendor Comparisons - Part I](http://www.jroller.com/Solomon/entry/jax_rs_vendor_comparisons_part)
+- [JAX-RS Spring Integration](http://www.jroller.com/Solomon/entry/jax_rs_spring_integration)
 
 ----
 
