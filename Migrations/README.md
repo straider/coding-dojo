@@ -7,6 +7,32 @@
 
 > [Data migration](https://en.wikipedia.org/wiki/Data_migration) is the process of transferring data between computer storage types or file formats. It is a key consideration for any system implementation, upgrade, or consolidation. Data migration is usually performed programmatically to achieve an automated migration, freeing up human resources from tedious tasks.
 
+## Problems
+
+- Manual schema changes prevent having Continuous Integration and Continuous Delivery pipelines;
+- Database instances are usually outside the development cycle;
+- Lack of schema changes traceability (changelog);
+- Lack of testability;
+- Setting up new environments takes considerable amount of time, if there's still know-how to actually do it;
+- Production schema and other environments' schema get out of synch.
+
+## Principles
+
+- Schema must evolve along with application code, in the same development lifecycle;
+- Keep schema objects and system / reference data under version control;
+- All changes to the schema must go through scripts and not manually executed outside version control;
+- The schema itself must store the database version;
+- Code idempotent migrations as much as possible;
+- Scripts become immutable after release, except for repeatable or callback scripts;
+- Each developer has its own database instance (Vagrant or Docker can be helpful for this) - Do not used shared database instances for development work;
+- Use in-memory engines to execute unit tests / Use same production engine in test or staging / pre-production to execute integration tests;
+- Minimize the use of stored procedures and database functions by storing the application logic in the application code instead of the database instance;
+
+## Questions
+
+- Choosing between state-driven or migration-driven approaches?
+- How to number migration scripts? Version or build number vs. timestamps?
+
 ## Scope
 
 ## Audience
@@ -23,6 +49,7 @@
     - [Versioning Databases – Change Scripts](http://odetocode.com/blogs/scott/archive/2008/02/02/versioning-databases-change-scripts.aspx)
     - [Versioning Databases – Views, Stored Procedures, and the Like](http://odetocode.com/blogs/scott/archive/2008/02/02/versioning-databases-views-stored-procedures-and-the-like.aspx)
     - [Versioning Databases – Branching and Merging](http://odetocode.com/blogs/scott/archive/2008/02/03/versioning-databases-branching-and-merging.aspx)
+- [DevOps, Continuous Delivery & Database Lifecycle Management](https://www.simple-talk.com/collections/database-lifecycle-management-patterns-practices-library/): This Simple-Talk library links you to free articles from industry experts on the topics of DevOps, Continuous Delivery and Database Lifecycle Management.
 
 ## Books
 
@@ -70,6 +97,7 @@
 
 - [dbdeploy](http://dbdeploy.com/)
 - [FluentMigrator](https://github.com/schambers/fluentmigrator/)
+- [DbUp](http://dbup.github.io/)
 - [octalforty-wizardby](https://code.google.com/archive/p/octalforty-wizardby/) is a powerful yet easy to use database continuous integration & schema migration framework primarily targeting .NET.
 - [DBSourceTools](http://dbsourcetools.codeplex.com/) is a GUI utility to help developers bring SQL Server databases under source control.
 
@@ -87,21 +115,16 @@
 - [Dbpatch](https://github.com/m-szalik/dbpatch): Manage versioning of your databases with maven, gradle or standalone GUI application
 - [MyBatis Migrations](http://www.mybatis.org/migrations/)
     - [MyBatis Migrations](https://github.com/mybatis/migrations) @ GitHub
-- [Flyway](https://flywaydb.org/)
-    - [Lessons Learned Using Flyway DB with Distributed Version Control](http://www.jeremyjarrell.com/using-flyway-db-with-distributed-version-control/)
-    - [Easy Database Migrations using Flyway, Java EE 6 and GlassFish](http://www.hascode.com/2013/04/easy-database-migrations-using-flyway-java-ee-6-and-glassfish/)
-    - [Flyway and jOOQ for Unbeatable SQL Development Productivity](https://blog.jooq.org/tag/database-migration/)
+- [Flyway](Flyway.md)
 - [Liquibase](http://www.liquibase.org/)
     - [Liquibase](https://github.com/liquibase)
     - [groovy-liquibase](https://github.com/tlberglund/groovy-liquibase): Yet Another Groovy DSL for Liquibase
     - [liquibase-groovy-dsl](https://github.com/liquibase/liquibase-groovy-dsl): official Groovy DSL for Liquibase
     - [Agile database migrations with Liquibase: How I learned to love my inner DBA](http://techbeacon.com/agile-database-migrations-liquibase-how-i-learned-love-my-inner-dba)
 
-
 #### Ant
 
 - [DbMaintain Ant Tasks](http://www.dbmaintain.org/ant-tasks.html)
-- [Flyway Ant Tasks](https://flywaydb.org/documentation/ant/)
 - [Liquibase Ant Tasks](http://www.liquibase.org/documentation/ant/index.html)
 
 #### Maven
@@ -111,23 +134,16 @@
 - [Carbon Five Database Migration](https://code.google.com/archive/p/c5-db-migration/)
     - [Continuous DB migration based on carbon5 framework](http://www.slideshare.net/b0ris_1/btrofimov-dbmigrationodjug)
     - [Java Database Migrations](http://blog.carbonfive.com/2008/09/03/java-database-migrations/)
-- [Flyway Maven Plugin](https://flywaydb.org/documentation/maven/)
 - [Maven Liquibase Plugin](http://www.liquibase.org/documentation/maven/)
 
 #### Gradle
 
 - [Dbpatch Gradle Plugin](https://github.com/m-szalik/dbpatch/blob/master/how-to-use-example/with-gradle/build.gradle)
-- [Flyway Gradle Plugin](https://flywaydb.org/documentation/gradle/) (before was [gradle-flyway-plugin](https://github.com/ben-manes/gradle-flyway-plugin))
 - [Liquibase Gradle Plugin](https://github.com/liquibase/liquibase-gradle-plugin)
 
 #### Grails
 
 - [dbmigrate with Grails](https://code.google.com/archive/p/dbmigrate/wikis/Grails.wiki)
-- [grails-flyway-plugin](https://github.com/daniel-lima/grails-flyway-plugin)
-- [GFlyway2](https://github.com/Vav1lon/GFlyway2): Flyway 2 plugin for Grails
-    - [Grails Flyway 2 Plugin](https://grails.org/plugin/gflyway2)
-- [grails-flyway](https://github.com/saw303/grails-flyway): provides Flyway support for Grails 3 applications
-    - [Using Grails 3 Flyway Plugin for database migrations](https://www.wangler.io/blog/2016/grails-flyway-plugin.html)
 - [Database Migration Grails Plugin](http://grails-plugins.github.io/grails-database-migration/1.4.0/) uses the Liquibase library
 - [Grails Database Migration Plugin](http://grails.org/plugin/database-migration)
 - [Autobase Grails Plugin](https://grails.org/plugin/autobase)
@@ -161,6 +177,11 @@
 - [Patterns and Tools for Database Versioning, Migration, Data Loading and Test Data](http://www.slideshare.net/apinstein/patterns-and-tools-for-database-versioning-migration-data-loading-and-test-data)
 - [Database Versioning and Delivery with Upgrade Scripts](https://www.infoq.com/articles/db-versioning-scripts)
 - [The Definitive Guide to Database Version Control](https://www.infoq.com/articles/Database-Version-Control)
+- [Delivering changes for applications and databases](http://www.slideshare.net/EduardoPiairo/delivering-changes-for-applications-and-databases-66090598)
+- [Database Source Control: Migrations vs State](http://www.slideshare.net/EduardoPiairo/database-source-control-migrations-vs-state)
+- [The elephant in the room - continuous delivery for databases](http://www.slideshare.net/RedgateSoftware/the-elephant-intheroomcontinuousdeliveryfordatabases)
+- [DevOps 101 for data professionals](http://www.slideshare.net/AlexYates/devops-101-for-data-pros)
+- [Critiquing two different approaches to delivering databases: Migrations vs state](http://workingwithdevs.com/delivering-databases-migrations-vs-state/)
 - Database Delivery Best Practices:
     - [Database versioning best practices](http://enterprisecraftsmanship.com/2015/08/10/database-versioning-best-practices/)
     - [State vs migration-driven database delivery](http://enterprisecraftsmanship.com/2015/08/18/state-vs-migration-driven-database-delivery/)
