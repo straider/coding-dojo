@@ -7,6 +7,12 @@ This project goal is to allow for a quick start of a new Maven based Java projec
 
 It assumes that the project has mandatory Unit Tests and Integration Tests coded in Groovy. For that reason the pom.xml uses Maven SureFire and Maven FailSafe plugins that fail if no tests are found.
 
+## Structure
+
+### parent-pom
+
+### module-pom
+
 ## How to use it?
 
 After copying this sample project to a new folder then:
@@ -45,7 +51,7 @@ mvn clean
 
 ### Compile
 
-To build the artifact, without running any tests, issue the following command:
+To build the artifacts, without running any tests, issue the following command:
 
 ```bash
 mvn compile
@@ -61,7 +67,7 @@ mvn test
 
 ### Package
 
-To assemble the artifact issue the following command:
+To assemble the artifacts issue the following command:
 
 ```bash
 mvn package
@@ -77,7 +83,7 @@ mvn verify
 
 ### Install
 
-To install the artifact in local Maven repository issue the following command:
+To install the artifacts in local Maven repository issue the following command:
 
 ```bash
 mvn install
@@ -88,3 +94,5 @@ mvn install
 It should suit Java projects with multiple modules that rely on Maven as their builder.
 
 It may not be suitable for projects that depend on external parent pom.xml file.
+
+# Challenges

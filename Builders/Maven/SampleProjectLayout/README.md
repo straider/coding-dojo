@@ -7,6 +7,27 @@ This project goal is to allow for a quick start of a new Maven based Java projec
 
 It assumes that the project has mandatory Unit Tests and Integration Tests coded in Groovy. For that reason the pom.xml uses Maven SureFire and Maven FailSafe plugins that fail if no tests are found.
 
+This project can be used as a scaffold for a real project.
+
+The main files and folders are:
+
+| Folder                          | File             | Description                                   |
+|---------------------------------|------------------|-----------------------------------------------|
+| /                               | pom.xml          | Main Maven buildfile.                         |
+| /                               | maven.properties | Optional set of properties for the buildfile. |
+| /                               | LICENSE.txt      | Plain text format of the project license.     |
+| /                               | README.md        | Main document.                                |
+| src/                            |                  | Top folder of all project sources.            |
+| src/main/                       |                  | Top folder for production code.               |
+| src/main/java/                  |                  | Java production source code.                  |
+| src/main/resources/             |                  | Folder with production ready resources.       |
+| src/test/                       |                  | Top folder for testing code.                  |
+| src/test/unit/java/             |                  | Java unit testing source code.                |
+| src/test/unit/groovy/           |                  | Groovy unit testing source code.              |
+| src/test/integration/java/      |                  | Java integration testing source code.         |
+| src/test/integration/groovy/    |                  | Groovy integration testing source code.       |
+| src/test/integration/resources/ |                  | Folder with integration testing resources.    |
+
 ## How to use it?
 
 After copying this sample project to a new folder then:
@@ -77,3 +98,23 @@ mvn install
 It should suit most of the Java projects that rely on Maven as their builder.
 
 It may not be suitable for projects with several modules, since these require a single parent pom.xml and multiple child pom.xml files.
+
+# Challenges
+
+- How to handle external Maven properties file? 
+> Use [Maven Properties](http://www.mojohaus.org/properties-maven-plugin/) plugin, per environment (which could be controlled by profiles). But is not useful to replace POM properties used in dependencies or plugins.
+
+- Is it better to have src/main/ and src/test/, with unit/ and integration/, or to have src/main/, src/unit-test/ and src/integration-test/?
+> Choice, without any strong reason, is to use src/main/ and src/test/, with unit/ and integration/.
+
+- Use of [Maven Surefire](https://maven.apache.org/surefire/maven-surefire-plugin/) and [Maven Failsafe](https://maven.apache.org/surefire/maven-failsafe-plugin/) plugins:
+    - The Surefire Plugin is used during the test phase of the build lifecycle to execute the unit tests of an application. It's designed for running unit tests and if any of the tests fail then it will fail the build immediately;
+    - The Failsafe Plugin is designed to run integration tests while the Surefire Plugin is designed to run unit tests. It's designed for running integration tests and decouples failing the build if there are test failures from actually running the tests.
+- How to properly copy resources from src/ to target/?
+> Use [Maven Resources](https://maven.apache.org/plugins/maven-resources-plugin/) plugin;
+- Can pom.xml be split into distinct files, per functionalities, and add only the ones needed?
+    - Deliver library artefact (JAR);
+    - Deliver application runnable artefact (JAR, with MANIFEST.INF);
+    - Deliver web application artefact (WAR);
+    - Deliver enterprise application artefact (EAR);
+    - Control servers (Tomcat, jetty, GlassFish, ...).
