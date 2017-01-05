@@ -41,14 +41,6 @@
 
 - [Evolutionary Database Design](http://martinfowler.com/articles/evodb.html)
 - [Database Best Practices](http://wiki.c2.com/?DatabaseBestPractices)
-- Coding Horror:
-    - [Is Your Database Under Version Control?](https://blog.codinghorror.com/is-your-database-under-version-control/)
-    - [Get Your Database Under Version Control](https://blog.codinghorror.com/get-your-database-under-version-control/)
-- [Three Rules for Database Work](http://odetocode.com/blogs/scott/archive/2008/01/30/three-rules-for-database-work.aspx)
-    - [Versioning Databases – The Baseline](http://odetocode.com/blogs/scott/archive/2008/01/31/versioning-databases-the-baseline.aspx)
-    - [Versioning Databases – Change Scripts](http://odetocode.com/blogs/scott/archive/2008/02/02/versioning-databases-change-scripts.aspx)
-    - [Versioning Databases – Views, Stored Procedures, and the Like](http://odetocode.com/blogs/scott/archive/2008/02/02/versioning-databases-views-stored-procedures-and-the-like.aspx)
-    - [Versioning Databases – Branching and Merging](http://odetocode.com/blogs/scott/archive/2008/02/03/versioning-databases-branching-and-merging.aspx)
 - [DevOps, Continuous Delivery & Database Lifecycle Management](https://www.simple-talk.com/collections/database-lifecycle-management-patterns-practices-library/): This Simple-Talk library links you to free articles from industry experts on the topics of DevOps, Continuous Delivery and Database Lifecycle Management.
 
 ## Books
@@ -164,6 +156,16 @@
 
 ## Articles
 
+### Version Control
+
+- Coding Horror:
+    - [Is Your Database Under Version Control?](https://blog.codinghorror.com/is-your-database-under-version-control/)
+    - [Get Your Database Under Version Control](https://blog.codinghorror.com/get-your-database-under-version-control/)
+- [Three Rules for Database Work](http://odetocode.com/blogs/scott/archive/2008/01/30/three-rules-for-database-work.aspx)
+    - [Versioning Databases – The Baseline](http://odetocode.com/blogs/scott/archive/2008/01/31/versioning-databases-the-baseline.aspx)
+    - [Versioning Databases – Change Scripts](http://odetocode.com/blogs/scott/archive/2008/02/02/versioning-databases-change-scripts.aspx)
+    - [Versioning Databases – Views, Stored Procedures, and the Like](http://odetocode.com/blogs/scott/archive/2008/02/02/versioning-databases-views-stored-procedures-and-the-like.aspx)
+    - [Versioning Databases – Branching and Merging](http://odetocode.com/blogs/scott/archive/2008/02/03/versioning-databases-branching-and-merging.aspx)
 - [Managing Your DB Changes](http://www.tikalk.com/managing-your-db-changes/)
 - [SSW Rules to Better SQL Server Databases](https://www.ssw.com.au/ssw/Standards/Rules/RulesToBetterSQLServerDatabases.aspx)
 - [Gradual deployment of schema changes](http://nothing.tmtm.com/2009/02/gradual-deployment-of-schema-changes/)
@@ -177,11 +179,14 @@
 - [Patterns and Tools for Database Versioning, Migration, Data Loading and Test Data](http://www.slideshare.net/apinstein/patterns-and-tools-for-database-versioning-migration-data-loading-and-test-data)
 - [Database Versioning and Delivery with Upgrade Scripts](https://www.infoq.com/articles/db-versioning-scripts)
 - [The Definitive Guide to Database Version Control](https://www.infoq.com/articles/Database-Version-Control)
-- [Delivering changes for applications and databases](http://www.slideshare.net/EduardoPiairo/delivering-changes-for-applications-and-databases-66090598)
 - [Database Source Control: Migrations vs State](http://www.slideshare.net/EduardoPiairo/database-source-control-migrations-vs-state)
+- [Critiquing two different approaches to delivering databases: Migrations vs state](http://workingwithdevs.com/delivering-databases-migrations-vs-state/)
+
+### Continuous Delivery
+
+- [Delivering changes for applications and databases](http://www.slideshare.net/EduardoPiairo/delivering-changes-for-applications-and-databases-66090598)
 - [The elephant in the room - continuous delivery for databases](http://www.slideshare.net/RedgateSoftware/the-elephant-intheroomcontinuousdeliveryfordatabases)
 - [DevOps 101 for data professionals](http://www.slideshare.net/AlexYates/devops-101-for-data-pros)
-- [Critiquing two different approaches to delivering databases: Migrations vs state](http://workingwithdevs.com/delivering-databases-migrations-vs-state/)
 - Database Delivery Best Practices:
     - [Database versioning best practices](http://enterprisecraftsmanship.com/2015/08/10/database-versioning-best-practices/)
     - [State vs migration-driven database delivery](http://enterprisecraftsmanship.com/2015/08/18/state-vs-migration-driven-database-delivery/)
@@ -193,6 +198,13 @@
     - [Database Migrations: Modifying Existing Databases](https://www.simple-talk.com/sql/database-delivery/database-migrations-modifying-existing-databases/)
     - [Database Version Control](https://www.simple-talk.com/sql/database-delivery/database-version-control/)
     - [Database Branching and Merging Strategies](https://www.simple-talk.com/sql/database-administration/database-branching-and-merging-strategies/)
+- Continuous Delivery and the Oracle database:
+    - [Continuous Delivery and the Oracle database (I)](https://technology.amis.nl/2016/04/11/continuous-delivery-database/)
+    - [Continuous Delivery and the Oracle database (II)](https://technology.amis.nl/2016/04/15/blog-continuous-delivery-oracle-database-ii/)
+    - [Continuous Delivery and the Oracle database (III)](https://technology.amis.nl/2016/04/22/continuous-delivery-oracle-database-iii/)
+    - [Continuous Delivery Pipeline – Overview, considerations and tools for Oracle Database and Fusion Middleware](https://technology.amis.nl/2016/07/05/continuous-delivery-pipeline-tools-oracle-database-fusion-middleware/)
+- [Continuous delivery culture. Why do we do the things we do the way we do them?](https://technology.amis.nl/2015/07/11/continuous-delivery-culture/)
+- [Best practices for implementing an efficient continuous delivery process](https://technology.amis.nl/2015/03/24/best-practices-for-implementing-an-efficient-continuous-delivery-process/)
 
 ### Comparison
 
