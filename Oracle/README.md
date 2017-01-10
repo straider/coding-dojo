@@ -24,6 +24,23 @@ The [APEX console](http://127.0.0.1:8081/apex/f?p=4950) is the easy way to do mo
 - Learn to install Oracle XE on Ubuntu 14.04 64 bit;
 - Learn how to manage Oracle XE.
 
+## Features
+
+### Edition-Based Redefinition
+
+> Edition-based redefinition (EBR), enables online application upgrade with uninterrupted availability of the application. When the installation of an upgrade is complete, the pre-upgrade application and the post-upgrade application are able to be used at the same time. Therefore an existing session can continue to use the pre-upgrade application until its user decides to end it; and all new sessions can use the post-upgrade application. When there are no longer any sessions using the pre-upgrade application, it can be retired. When used in this manner, EBR enables hot rollover from the pre-upgrade version to the post-upgrade version, with zero downtime.
+
+- [A Closer Look at the New Edition](http://www.oracle.com/technetwork/issue-archive/2010/10-jan/o10asktom-172777.html)
+- [Edition-Based Redefinition, Part 2](http://www.oracle.com/technetwork/issue-archive/2010/10-mar/o20asktom-098897.html)
+- [Performing Online Application Upgrade Using the Edition-Based Redefinition Feature](http://www.oracle.com/webfolder/technetwork/tutorials/obe/db/11g/r2/prod/appdev/ebr/ebr_otn.htm)
+- [Edition-Based Redefinition in Oracle Database 11g Release 2](https://oracle-base.com/articles/11g/edition-based-redefinition-11gr2)
+- [Edition-Based Redefinition Enhancements in Oracle Database 12c Release 1](https://oracle-base.com/articles/12c/edition-based-redefinition-enhancements-12cr1)
+- [ORACLE Edition Based Redefinition](https://myoracledbablog.wordpress.com/2014/10/09/oracle-edition-based-redefinition/)
+- [Edition Based Redefinition – Part 1](http://allthingsoracle.com/edition-based-redefinition-part-1/)
+- [Oracle Edition Based Redefinition Demo 1](http://www.morganslibrary.org/reference/demos/ebr_demo1.html)
+- [Edition Based Redefinition - Continuous Database Application Evolution with Oracle Database 11g Release 2](http://www.slideshare.net/lucasjellema/edition-based-redefinition-continuous-database-application-evolution-with-oracle-database-11g-release-2)
+- [Quick introduction of what and why of Oracle Database Edition Based Redefinition](https://technology.amis.nl/2012/08/08/quick-introduction-of-what-and-why-of-oracle-database-edition-based-redefinition/)
+
 ### History
 
 # Resources
