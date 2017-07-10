@@ -1,5 +1,5 @@
-﻿:: Dojo :: Java :: WebServices :: Spring ::
-===========================================
+:: Java :: WebServices :: JAX-RS ::
+===================================
 
 ----
 
@@ -7,13 +7,13 @@
 
 ## 1.1. Goal & Objectives
 
-The objective of this dojo is to give an introduction to Spring Web Services and Spring MVC through several small and simple coding exercises.
+The objective of this dojo is to give an introduction to JAX-RS through several small and simple coding exercises.
 
-**Note**: although being a simple dojo it is assumed that programmers know how to work with Ant or Maven or Gradle and have full access to a Java Application Server, such as GlassFish.
+**Note**: although being a simple dojo it is assumed that programmers know how to work with Ant or Maven or Gradle and have full access to a Servlet Container, such as Tomcat or Jetty.
 
 ## 1.2. Audience
 
-This dojo is aimed for programmers that know Java but have not yet had used Spring Web Services or Spring MVC.
+This dojo is aimed for programmers that know Java but have not yet had used JAX-RS API or Reference Implementation.
 
 ## 1.3. History
 
@@ -22,12 +22,6 @@ This dojo is aimed for programmers that know Java but have not yet had used Spri
 # 2. Resources
 
 ## 2.1. Tutorials
-
-### 2.1.1. Spring Web Services
-
-### 2.1.2. Spring MVC
-
-### 2.1.3. Spring HATEOAS
 
 ## 2.2. Articles
 
@@ -73,7 +67,8 @@ Each milestone requires a Web Container. Which may be a Servlet Container, an [O
 
 ## 3.5. Checksum Multiple Values
 
+## 3.6. ToDo
+
 ----
 
 # 4. TDD - Test-Driven Development
-

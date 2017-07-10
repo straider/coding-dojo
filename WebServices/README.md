@@ -11,15 +11,17 @@ The goal of this dojo is to act as a laboratory to experiment with SOAP and REST
 
 Each solution should be complete by following the TDD methodology and committing each step of the TDD Rhythm: Red -> Green -> Refactor.
 
+The deliverable must run on top of either Tomcat or Jetty.
+
 ## 1.2. Audience
 
 This dojo is aimed for programmers that know Java but have not yet had used any or some of the most often used WebServices Frameworks.
 
 ## 1.3. Frameworks
 
-- [Metro](../APIs/jaxws/README.md) and [Jersey](../APIs/jaxrs/README.md)
+- [Metro](JAX-WS/README.md) and [Jersey](JAX-RS/README.md)
 - [Apache CXF](CXF/README.md)
-- [Spring](Spring/README.md)
+- [Spring Web Services](SpringWebServices/README.md) and [Spring MCV](SpringMVC/README.md)
 
 ----
 
@@ -65,6 +67,10 @@ Medium Kata to show that a WebService can have several endpoints.
 
 Complex Kata to show that complex data types can be handled, by SOAP and by REST (with XML or JSON).
 
+## 3.6. ToDo
+
+Complex Kata to show how to perform XML / JSON marshalling and unmarshalling, with JAXB.
+
 ----
 
 # 4. TDD - Test-Driven Development
@@ -90,4 +96,3 @@ Complex Kata to show that complex data types can be handled, by SOAP and by REST
 - [RestEasy](https://chrome.google.com/webstore/detail/resteasy/nojelkgnnpdmhpankkiikipkmhgafoch): RestEasy is a tool that is targeted against developers who perform RESTful API calls against third party services. It allows developers a way of being able to debug and analyze an Http request/response.;
 - [Advanced REST Client](https://chrome.google.com/webstore/detail/advanced-rest-client/hgmloofddffdnphfgcellkdfbfbjeloo/reviews?hl=en-US&utm_source=ARC): The web developers helper program to create and test custom HTTP requests;
 - [REST Console](https://chrome.google.com/webstore/detail/rest-console/cokgbflfommojglbmbpenpphppikmonn?hl=en): REST Console is an HTTP Request Visualizer and Constructor tool, helps developers build, debug and test RESTful APIs.
-
