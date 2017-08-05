@@ -46,18 +46,18 @@ Each milestone requires a Web Container. Which may be a Servlet Container, an [O
 
 ## 3.1. Hello World
 
-- Given a WSDL code the server side and the client side of a simple service that always responds with "Hello, World!" to any request;
-- Without a WSDL code the server side and the client side of the same service and produce a similar WSDL;
+- Given a WADL code the server side and the client side of a simple service that always responds with "Hello, World!" to any request;
+- Without a WADL code the server side and the client side of the same service and produce a similar WADL;
 - Change both versions to produce a data response in XML format and in JSON format;
-- Compare both approaches: WSDL first or Java first;
+- Compare both approaches: WADL first or Java first;
 - Code the server side and the client side of a similar service using GET method;
 - Compare both APIs: SOAP and REST.
 
 ## 3.2. Hello Someone
 
-- Given a WSDL code the server side and the client side of a simple service that responds with "Hello, World!" or "Hello, [SOMEONE]!" in XML or JSON format to a request with a parameter, name, which by default is "World";
-- Without a WSDL code the server side and the client side of the same service and produce a similar WSDL;
-- Compare both approaches: WSDL first or Java first;
+- Given a WADL code the server side and the client side of a simple service that responds with "Hello, World!" or "Hello, [SOMEONE]!" in XML or JSON format to a request with a parameter, name, which by default is "World";
+- Without a WADL code the server side and the client side of the same service and produce a similar WADL;
+- Compare both approaches: WADL first or Java first;
 - Code the server side and the client side of a similar service using GET method, that handles a query parameter, name;
 - Compare both APIs: SOAP and REST.
 
